@@ -1,0 +1,13 @@
+config {
+  type: "assertion",
+  schema: require("../../includes/config").gold_dataset,
+  name: "assertion_hu_ibis_required_fields"
+}
+
+SELECT *
+FROM ${ref("hu_ibis_stage")}
+WHERE market IS NULL
+   OR DealerCode IS NULL
+   OR FINIS IS NULL
+   OR MLI IS NULL
+   OR Months IS NULL

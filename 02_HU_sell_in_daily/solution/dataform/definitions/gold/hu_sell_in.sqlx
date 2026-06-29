@@ -1,0 +1,24 @@
+config {
+  type: "table",
+  schema: require("../../includes/config").gold_dataset,
+  name: "hu_sell_in"
+}
+
+SELECT
+  market,
+  DealerCode,
+  MLI,
+  Basket,
+  Months,
+  year,
+  month,
+  PCT,
+  SUM(LOC_RRP) AS LOC_RRP,
+  SUM(LOC_BDN) AS LOC_BDN,
+  SUM(USD_RRP) AS USD_RRP,
+  SUM(USD_BDN) AS USD_BDN,
+  SUM(billed_revenue) AS billed_revenue,
+  SUM(qty) AS qty,
+  SUM(Calculated_BDN) AS Sum_Calculated_BDN
+FROM ${ref("hu_sell_in_enriched")}
+GROUP BY market, DealerCode, MLI, Basket, Months, year, month, PCT

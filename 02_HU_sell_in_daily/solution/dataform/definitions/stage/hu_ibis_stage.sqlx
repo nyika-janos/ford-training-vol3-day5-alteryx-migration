@@ -1,0 +1,25 @@
+config {
+  type: "table",
+  schema: require("../../includes/config").stage_dataset,
+  name: "hu_ibis_stage"
+}
+
+js {
+  const { raw_dataset } = require("../../includes/config");
+}
+
+SELECT
+  TRIM(CAST(market AS STRING)) AS market,
+  TRIM(CAST(DealerCode AS STRING)) AS DealerCode,
+  TRIM(CAST(FINIS AS STRING)) AS FINIS,
+  LPAD(TRIM(CAST(MLI AS STRING)), 4, "0") AS MLI,
+  TRIM(CAST(Months AS STRING)) AS Months,
+  SAFE_CAST(LOC_RRP AS NUMERIC) AS LOC_RRP,
+  SAFE_CAST(LOC_BDN AS NUMERIC) AS LOC_BDN,
+  SAFE_CAST(USD_RRP AS NUMERIC) AS USD_RRP,
+  SAFE_CAST(USD_BDN AS NUMERIC) AS USD_BDN,
+  SAFE_CAST(billed_revenue AS NUMERIC) AS billed_revenue,
+  SAFE_CAST(qty AS NUMERIC) AS qty,
+  SUBSTR(TRIM(CAST(Months AS STRING)), 1, 4) AS year,
+  SUBSTR(TRIM(CAST(Months AS STRING)), 5, 2) AS month
+FROM `${raw_dataset}.hu_ibis_raw`

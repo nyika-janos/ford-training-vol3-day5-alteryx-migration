@@ -1,0 +1,60 @@
+config {
+  type: "table",
+  schema: require("../../includes/config").intermediate_dataset,
+  name: "hu_sell_in_enriched"
+}
+
+WITH parts_price AS (
+  SELECT
+    FINIS,
+    MAX(Calculated_BDN) AS Calculated_BDN_unit
+  FROM ${ref("hu_sor_parts_price_stage")}
+  GROUP BY FINIS
+),
+ibis_with_mli AS (
+  SELECT
+    i.market,
+    i.DealerCode,
+    i.FINIS,
+    i.MLI,
+    m.Basket,
+    i.Months,
+    i.LOC_RRP,
+    i.LOC_BDN,
+    i.USD_RRP,
+    i.USD_BDN,
+    i.billed_revenue,
+    i.qty,
+    i.year,
+    i.month,
+    m.MPL,
+    m.PCT,
+    m.GC
+  FROM ${ref("hu_ibis_stage")} i
+  LEFT JOIN ${ref("mli_classification_stage")} m
+    ON i.MLI = m.MLI
+)
+
+SELECT
+  i.market,
+  i.DealerCode,
+  i.FINIS,
+  i.MLI,
+  i.Basket,
+  i.Months,
+  i.LOC_RRP,
+  i.LOC_BDN,
+  i.USD_RRP,
+  i.USD_BDN,
+  i.billed_revenue,
+  i.qty,
+  i.year,
+  i.month,
+  i.MPL,
+  i.PCT,
+  i.GC,
+  p.Calculated_BDN_unit IS NOT NULL AS PartsPriceFound,
+  COALESCE(p.Calculated_BDN_unit * i.qty * 1000, i.LOC_BDN) AS Calculated_BDN
+FROM ibis_with_mli i
+LEFT JOIN parts_price p
+  ON i.FINIS = p.FINIS

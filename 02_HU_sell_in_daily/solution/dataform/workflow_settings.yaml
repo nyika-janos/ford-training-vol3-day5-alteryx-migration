@@ -1,0 +1,9 @@
+defaultProject: ford-training-430008
+defaultLocation: europe-west4
+defaultDataset: 02_hu_sell_in_gold
+
+vars:
+  raw_dataset: 02_hu_sell_in_raw
+  stage_dataset: 02_hu_sell_in_stage
+  intermediate_dataset: 02_hu_sell_in_intermediate
+  gold_dataset: 02_hu_sell_in_gold

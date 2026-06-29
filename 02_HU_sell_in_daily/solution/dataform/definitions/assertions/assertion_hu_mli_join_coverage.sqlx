@@ -1,0 +1,9 @@
+config {
+  type: "assertion",
+  schema: require("../../includes/config").gold_dataset,
+  name: "assertion_hu_mli_join_coverage"
+}
+
+SELECT *
+FROM ${ref("hu_sell_in_enriched")}
+WHERE Basket IS NULL

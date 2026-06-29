@@ -1,0 +1,13 @@
+[
+  {"name": "market", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "DealerCode", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "FINIS", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "MLI", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "Months", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "LOC_RRP", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "LOC_BDN", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "USD_RRP", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "USD_BDN", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "billed_revenue", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "qty", "type": "STRING", "mode": "NULLABLE"}
+]

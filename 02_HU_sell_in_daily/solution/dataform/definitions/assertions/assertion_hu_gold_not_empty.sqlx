@@ -1,0 +1,8 @@
+config {
+  type: "assertion",
+  schema: require("../../includes/config").gold_dataset,
+  name: "assertion_hu_gold_not_empty"
+}
+
+SELECT "hu_sell_in is empty" AS error_message
+WHERE (SELECT COUNT(*) FROM ${ref("hu_sell_in")}) = 0

@@ -1,0 +1,11 @@
+[
+  {"name": "EDWAO25_FINIS_C", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "EDWAO25_ISO2_CNTRY_C", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "EDWAO25_VALID_FROM_Y", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "EDWAO25_VALID_UNTIL_Y", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "EDWAO25_FINIS_X", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "EDWAO25_MLI_C", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "EDWAO25_BASIC_DISCOUNT_P", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "EDWAO25_RTL_OR_NET_PRICE_A", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "EDWAO25_ACTIVE_F", "type": "STRING", "mode": "NULLABLE"}
+]
