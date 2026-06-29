@@ -1,0 +1,11 @@
+config {
+  type: "assertion",
+  schema: require("../../includes/config").gold_dataset,
+  name: "assertion_uk_sor_required_fields"
+}
+
+SELECT *
+FROM ${ref("uk_sor_kas_dealers_stage")}
+WHERE MARKET IS NULL
+   OR DEALER IS NULL
+   OR PV_CV IS NULL

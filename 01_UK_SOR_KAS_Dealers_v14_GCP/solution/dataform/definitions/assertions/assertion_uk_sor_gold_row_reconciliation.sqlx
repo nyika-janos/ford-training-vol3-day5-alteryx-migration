@@ -1,0 +1,16 @@
+config {
+  type: "assertion",
+  schema: require("../../includes/config").gold_dataset,
+  name: "assertion_uk_sor_gold_row_reconciliation"
+}
+
+WITH counts AS (
+  SELECT
+    (SELECT COUNT(*) FROM ${ref("uk_sor_kas_dealers_stage")}) AS stage_rows,
+    (SELECT COUNT(*) FROM ${ref("uk_sor_kas_dealers")}) AS standard_rows,
+    (SELECT COUNT(*) FROM ${ref("uk_sor_kas_dealers_cv")}) AS cv_rows
+)
+
+SELECT *
+FROM counts
+WHERE stage_rows != standard_rows + cv_rows

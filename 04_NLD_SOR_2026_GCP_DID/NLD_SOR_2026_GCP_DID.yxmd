@@ -1,0 +1,826 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2024.2">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="571" y="344" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="Market" />
+            <Field field="DealerCode" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="Market" />
+            <Field field="DealerCode" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Left_DealerCode" selected="True" rename="Left_DealerCode" input="Left_" />
+                <SelectField field="Left_DealerName" selected="True" rename="Left_DealerName" input="Left_" />
+                <SelectField field="Right_Market" selected="False" rename="Right_Market" input="Right_" />
+                <SelectField field="Right_DealerCode" selected="False" input="Right_" />
+                <SelectField field="Left_dealer_code" selected="True" rename="DealerCode" input="Left_" />
+                <SelectField field="Left_dealer_name" selected="True" rename="DealerName" input="Left_" />
+                <SelectField field="Left_parts_code" selected="False" input="Left_" />
+                <SelectField field="Left_sor_code" selected="False" input="Left_" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="751" y="164" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\BOLAH5\AppData\Local\Temp\Engine_30396_678c48dac9bc4637855bc4ae467a5758_\Engine_14116_c3187c0d172e45eb8f497aa85f953abb_.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Profile</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="619" y="164" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="Market" action="GroupBy" rename="Market" />
+            <SummarizeField field="DealerCode" action="GroupBy" rename="DealerCode" />
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="763" y="344" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Market" selected="True" />
+            <SelectField field="Left_DealerCode" selected="True" rename="DealerCode" />
+            <SelectField field="Left_DealerName" selected="True" rename="DealerName" />
+            <SelectField field="MLI" selected="True" />
+            <SelectField field="Months" selected="True" />
+            <SelectField field="channel" selected="True" />
+            <SelectField field="payment" selected="True" />
+            <SelectField field="dept" selected="True" />
+            <SelectField field="BusinessY" selected="True" />
+            <SelectField field="BusinessM" selected="True" />
+            <SelectField field="BusinessQ" selected="True" />
+            <SelectField field="MKTG" selected="False" />
+            <SelectField field="UCC" selected="False" />
+            <SelectField field="Finis" selected="True" />
+            <SelectField field="channel_1" selected="False" />
+            <SelectField field="LOC_Invoiced" selected="True" />
+            <SelectField field="LOC_BDN" selected="True" />
+            <SelectField field="LOC_RRP" selected="True" />
+            <SelectField field="USD_Invoiced" selected="True" />
+            <SelectField field="USD_BDN" selected="True" />
+            <SelectField field="USD_RRP" selected="True" />
+            <SelectField field="qty" selected="True" />
+            <SelectField field="DealerCode" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="858" y="354" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="MLI" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="MLI" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="True" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Left_Market" selected="True" input="Left_" />
+                <SelectField field="Left_DealerCode" selected="True" input="Left_" />
+                <SelectField field="Left_DealerName" selected="True" input="Left_" />
+                <SelectField field="Left_MLI" selected="True" input="Left_" />
+                <SelectField field="Right_Basket" selected="True" input="Right_" />
+                <SelectField field="Left_Months" selected="True" input="Left_" />
+                <SelectField field="Left_channel" selected="True" input="Left_" />
+                <SelectField field="Left_payment" selected="True" input="Left_" />
+                <SelectField field="Left_BusinessY" selected="True" input="Left_" />
+                <SelectField field="Left_BusinessM" selected="True" input="Left_" />
+                <SelectField field="Left_BusinessQ" selected="True" input="Left_" />
+                <SelectField field="Left_LOC_Invoiced" selected="True" input="Left_" />
+                <SelectField field="Left_LOC_BDN" selected="True" input="Left_" />
+                <SelectField field="Left_LOC_RRP" selected="True" input="Left_" />
+                <SelectField field="Left_USD_Invoiced" selected="True" input="Left_" />
+                <SelectField field="Left_USD_BDN" selected="True" input="Left_" />
+                <SelectField field="Left_USD_RRP" selected="True" input="Left_" />
+                <SelectField field="Left_qty" selected="True" input="Left_" />
+                <SelectField field="Right_MLI" selected="False" rename="Right_MLI" input="Right_" />
+                <SelectField field="Left_Finis" selected="True" input="Left_" />
+                <SelectField field="Left_Left_DealerCode" selected="False" rename="DealerCode" input="Left_" />
+                <SelectField field="Left_Left_DealerName" selected="False" rename="DealerName" input="Left_" />
+                <SelectField field="Left_channel_1" selected="True" input="Left_" />
+                <SelectField field="Right_MPL Code" selected="False" input="Right_" />
+                <SelectField field="Right_PCT" selected="False" input="Right_" />
+                <SelectField field="Right_CG&#xA;Code" selected="False" input="Right_" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+        <Position x="679" y="344" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ByName_ErrorMode>Warning</ByName_ErrorMode>
+          <ByName_OutputMode>All</ByName_OutputMode>
+          <Mode>ByName</Mode>
+          <SetOutputOrder value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+    </Node>
+    <Node ToolID="29">
+      <GuiSettings>
+        <Position x="354" y="366" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="Check Box (135)">False</Value>
+          <Value name="Check Box (136)">False</Value>
+          <Value name="List Box (11)">"DealerCode"</Value>
+          <Value name="Check Box (84)">True</Value>
+          <Value name="Check Box (117)">True</Value>
+          <Value name="Check Box (15)">True</Value>
+          <Value name="Check Box (109)">False</Value>
+          <Value name="Check Box (122)">False</Value>
+          <Value name="Check Box (53)">False</Value>
+          <Value name="Check Box (58)">False</Value>
+          <Value name="Check Box (70)">False</Value>
+          <Value name="Check Box (77)">False</Value>
+          <Value name="Drop Down (81)">upper</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings Macro="Cleanse.yxmc" />
+    </Node>
+    <Node ToolID="30">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="954" y="354" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Market" selected="True" />
+            <SelectField field="DealerCode" selected="True" />
+            <SelectField field="DealerName" selected="True" />
+            <SelectField field="MLI" selected="True" />
+            <SelectField field="Basket" selected="True" />
+            <SelectField field="Months" selected="True" />
+            <SelectField field="channel" selected="True" />
+            <SelectField field="payment" selected="True" />
+            <SelectField field="dept" selected="True" />
+            <SelectField field="BusinessY" selected="True" />
+            <SelectField field="BusinessM" selected="True" />
+            <SelectField field="BusinessQ" selected="True" />
+            <SelectField field="LOC_Invoiced" selected="True" />
+            <SelectField field="LOC_BDN" selected="True" />
+            <SelectField field="LOC_RRP" selected="True" />
+            <SelectField field="USD_Invoiced" selected="True" />
+            <SelectField field="USD_BDN" selected="True" />
+            <SelectField field="USD_RRP" selected="True" />
+            <SelectField field="qty" selected="True" />
+            <SelectField field="Finis" selected="True" />
+            <SelectField field="MPL Code" selected="True" />
+            <SelectField field="PCT" selected="True" />
+            <SelectField field="CG&#xA;Code" selected="True" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="1217" y="233" width="157" height="180" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Container 23</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="9">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="1242" y="282" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File MaxRecords="" FileFormat="25">\\Ner9010201\proj\FCSD\Customer_Service_EU\VM Shared Service Center\NSC - The Netherlands\Daily_tracking\2026\NLD_SOR_SalesData_2026.xlsx|||SalesData</File>
+              <Passwords />
+              <Disable>False</Disable>
+              <FormatSpecificOptions>
+                <PreserveFormat>False</PreserveFormat>
+                <UNCLocal>False</UNCLocal>
+                <SkipFieldNames>False</SkipFieldNames>
+                <SuppressBlankFile>False</SuppressBlankFile>
+                <OutputOption>Overwrite</OutputOption>
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>NLD_SOR_SalesData_2026.xlsx
+Query=SalesData</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="66" y="317" width="264" height="197" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>GCP - SOR</Caption>
+          <Style TextColor="#314c4a" FillColor="#ffff80" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="12">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="91" y="368" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <File RecordLimit="" FileFormat="23">odbc:DSN=GCP_BQ|||select mark.EDWAZ36_ISO3_CNTRY_C as Market,
+	SOR.EDWA006_MAPPED_SELL_DLR_C as DealerCode,
+	SOR.EDWA006_MLI_C as MLI,
+	FORMAT_DATE('%Y%m', SOR.EDWA006_INVOICE_Y) AS Months,
+	--SOR.EDWA006_INVOICE_Y as inv_date,
+	SOR.EDWA006_SELLOUT_CHANNEL_D as channel,
+	case 
+		when SOR.EDWA006_MAPPED_PMT_TYPE_F not in ('W', 'I') then 'E' 
+		else SOR.EDWA006_MAPPED_PMT_TYPE_F 
+	end as payment,
+	extract(year from SOR.EDWA006_INVOICE_Y) as BusinessY,
+	extract(month from SOR.EDWA006_INVOICE_Y) as BusinessM,
+	extract(quarter from SOR.EDWA006_INVOICE_Y) as BusinessQ,
+	SOR.EDWAZ41_CUST_GRPZ_MKTG_ATTR_K as MKTG,
+	SOR.EDWAO30_FORD_CUSTOMER_C as UCC,
+	SOR.EDWA006_SELLOUT_CHANNEL_D as channel,
+	--SOR.EDWA006_SELLOUT_CHANNEL_C as channel_new,
+	--SOR.EDWAO30_CUST_DISPLAY_N as custname,
+	Sum(SOR.EDWA006_LINE_ITEM_NET_A) as LOC_Invoiced,
+	Sum(SOR.EDWA006_BASE_DISCOUNT_A) as LOC_BDN,
+	Sum(SOR.EDWA006_RETAIL_PRICE_A) as LOC_RRP,
+	Sum(SOR.EDWA006_LINE_ITEM_NET_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_Invoiced,
+	Sum(SOR.EDWA006_BASE_DISCOUNT_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_BDN,
+	Sum(SOR.EDWA006_RETAIL_PRICE_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_RRP,
+	Sum(SOR.EDWA006_SOLD_Q) as qty,
+from 
+	`prj-dfad-1242-uapd-p-1242.bq_594_sor_bq_lc_vw.edwa006_report_data_vw` as SOR 
+	inner join `prj-dfad-1242-uapd-p-1242.bq_594_sor_bq_lc_vw.edwaz36_market_vw` as  mark 
+		on mark.EDWAZ36_ISO2_CNTRY_C = SOR.EDWA006_SEL_DLR_MKT_I2_CNTRY_C 
+where 
+	SOR.EDWA006_MLI_C not in ('#') 
+	and SOR.EDWA006_DATA_QUAL_STATUS_C = 'A' 
+	and extract(year from SOR.EDWA006_INVOICE_Y) in (2026) 
+	and SOR.EDWA006_SEL_DLR_MKT_I2_CNTRY_C in ('NL') 
+group by
+	1,2,3,4,5,6,7,8,9,10,11,12;</File>
+              <FormatSpecificOptions>
+                <PreSQL />
+                <PreSQLOnConfig>True</PreSQLOnConfig>
+                <NoProgress>True</NoProgress>
+                <SessionReadOnly>True</SessionReadOnly>
+                <CacheData>False</CacheData>
+                <TableStyle>Quoted</TableStyle>
+                <ReadUncommitted>False</ReadUncommitted>
+                <PostSQL />
+              </FormatSpecificOptions>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>DSN=GCP_BQ
+Query=select mark.EDWAZ36_ISO3_CNT...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="Market" size="16384" source="File: odbc:DSN=GCP_BQ|||select mark.EDWAZ36_ISO3_CNTRY_C as Market,&#xA;	SOR.EDWA006_MAPPED_SELL_DLR_C as DealerCode,&#xA;	SOR.EDWA006_MLI_C as MLI,&#xA;	FORMAT_DATE('%Y%m', SOR.EDWA006_INVOICE_Y) AS Months,&#xA;	--SOR.EDWA006_INVOICE_Y as inv_date,&#xA;	SOR.EDWA006_SELLOUT_CHANNEL_D as channel,&#xA;	case &#xA;		when SOR.EDWA006_MAPPED_PMT_TYPE_F not in ('W', 'I') then 'E' &#xA;		else SOR.EDWA006_MAPPED_PMT_TYPE_F &#xA;	end as payment,&#xA;	extract(year from SOR.EDWA006_INVOICE_Y) as BusinessY,&#xA;	extract(month from SOR.EDWA006_INVOICE_Y) as BusinessM,&#xA;	extract(quarter from SOR.EDWA006_INVOICE_Y) as BusinessQ,&#xA;	SOR.EDWAZ41_CUST_GRPZ_MKTG_ATTR_K as MKTG,&#xA;	SOR.EDWAO30_FORD_CUSTOMER_C as UCC,&#xA;	SOR.EDWA006_SELLOUT_CHANNEL_D as channel,&#xA;	--SOR.EDWA006_SELLOUT_CHANNEL_C as channel_new,&#xA;	--SOR.EDWAO30_CUST_DISPLAY_N as custname,&#xA;	Sum(SOR.EDWA006_LINE_ITEM_NET_A) as LOC_Invoiced,&#xA;	Sum(SOR.EDWA006_BASE_DISCOUNT_A) as LOC_BDN,&#xA;	Sum(SOR.EDWA006_RETAIL_PRICE_A) as LOC_RRP,&#xA;	Sum(SOR.EDWA006_LINE_ITEM_NET_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_Invoiced,&#xA;	Sum(SOR.EDWA006_BASE_DISCOUNT_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_BDN,&#xA;	Sum(SOR.EDWA006_RETAIL_PRICE_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_RRP,&#xA;	Sum(SOR.EDWA006_SOLD_Q) as qty,&#xA;from &#xA;	`prj-dfad-1242-uapd-p-1242.bq_594_sor_bq_lc_vw.edwa006_report_data_vw` as SOR &#xA;	inner join `prj-dfad-1242-uapd-p-1242.bq_594_sor_bq_lc_vw.edwaz36_market_vw` as  mark &#xA;		on mark.EDWAZ36_ISO2_CNTRY_C = SOR.EDWA006_SEL_DLR_MKT_I2_CNTRY_C &#xA;where &#xA;	SOR.EDWA006_MLI_C not in ('#') &#xA;	and SOR.EDWA006_DATA_QUAL_STATUS_C = 'A' &#xA;	and extract(year from SOR.EDWA006_INVOICE_Y) in (2026) &#xA;	and SOR.EDWA006_SEL_DLR_MKT_I2_CNTRY_C in ('NL') &#xA;group by&#xA;	1,2,3,4,5,6,7,8,9,10,11,12;" type="V_WString" />
+                <Field name="DealerCode" size="16384" source="File: odbc:DSN=GCP_BQ|||select mark.EDWAZ36_ISO3_CNTRY_C as Market,&#xA;	SOR.EDWA006_MAPPED_SELL_DLR_C as DealerCode,&#xA;	SOR.EDWA006_MLI_C as MLI,&#xA;	FORMAT_DATE('%Y%m', SOR.EDWA006_INVOICE_Y) AS Months,&#xA;	--SOR.EDWA006_INVOICE_Y as inv_date,&#xA;	SOR.EDWA006_SELLOUT_CHANNEL_D as channel,&#xA;	case &#xA;		when SOR.EDWA006_MAPPED_PMT_TYPE_F not in ('W', 'I') then 'E' &#xA;		else SOR.EDWA006_MAPPED_PMT_TYPE_F &#xA;	end as payment,&#xA;	extract(year from SOR.EDWA006_INVOICE_Y) as BusinessY,&#xA;	extract(month from SOR.EDWA006_INVOICE_Y) as BusinessM,&#xA;	extract(quarter from SOR.EDWA006_INVOICE_Y) as BusinessQ,&#xA;	SOR.EDWAZ41_CUST_GRPZ_MKTG_ATTR_K as MKTG,&#xA;	SOR.EDWAO30_FORD_CUSTOMER_C as UCC,&#xA;	SOR.EDWA006_SELLOUT_CHANNEL_D as channel,&#xA;	--SOR.EDWA006_SELLOUT_CHANNEL_C as channel_new,&#xA;	--SOR.EDWAO30_CUST_DISPLAY_N as custname,&#xA;	Sum(SOR.EDWA006_LINE_ITEM_NET_A) as LOC_Invoiced,&#xA;	Sum(SOR.EDWA006_BASE_DISCOUNT_A) as LOC_BDN,&#xA;	Sum(SOR.EDWA006_RETAIL_PRICE_A) as LOC_RRP,&#xA;	Sum(SOR.EDWA006_LINE_ITEM_NET_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_Invoiced,&#xA;	Sum(SOR.EDWA006_BASE_DISCOUNT_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_BDN,&#xA;	Sum(SOR.EDWA006_RETAIL_PRICE_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_RRP,&#xA;	Sum(SOR.EDWA006_SOLD_Q) as qty,&#xA;from &#xA;	`prj-dfad-1242-uapd-p-1242.bq_594_sor_bq_lc_vw.edwa006_report_data_vw` as SOR &#xA;	inner join `prj-dfad-1242-uapd-p-1242.bq_594_sor_bq_lc_vw.edwaz36_market_vw` as  mark &#xA;		on mark.EDWAZ36_ISO2_CNTRY_C = SOR.EDWA006_SEL_DLR_MKT_I2_CNTRY_C &#xA;where &#xA;	SOR.EDWA006_MLI_C not in ('#') &#xA;	and SOR.EDWA006_DATA_QUAL_STATUS_C = 'A' &#xA;	and extract(year from SOR.EDWA006_INVOICE_Y) in (2026) &#xA;	and SOR.EDWA006_SEL_DLR_MKT_I2_CNTRY_C in ('NL') &#xA;group by&#xA;	1,2,3,4,5,6,7,8,9,10,11,12;" type="V_WString" />
+                <Field name="MLI" size="16384" source="File: odbc:DSN=GCP_BQ|||select mark.EDWAZ36_ISO3_CNTRY_C as Market,&#xA;	SOR.EDWA006_MAPPED_SELL_DLR_C as DealerCode,&#xA;	SOR.EDWA006_MLI_C as MLI,&#xA;	FORMAT_DATE('%Y%m', SOR.EDWA006_INVOICE_Y) AS Months,&#xA;	--SOR.EDWA006_INVOICE_Y as inv_date,&#xA;	SOR.EDWA006_SELLOUT_CHANNEL_D as channel,&#xA;	case &#xA;		when SOR.EDWA006_MAPPED_PMT_TYPE_F not in ('W', 'I') then 'E' &#xA;		else SOR.EDWA006_MAPPED_PMT_TYPE_F &#xA;	end as payment,&#xA;	extract(year from SOR.EDWA006_INVOICE_Y) as BusinessY,&#xA;	extract(month from SOR.EDWA006_INVOICE_Y) as BusinessM,&#xA;	extract(quarter from SOR.EDWA006_INVOICE_Y) as BusinessQ,&#xA;	SOR.EDWAZ41_CUST_GRPZ_MKTG_ATTR_K as MKTG,&#xA;	SOR.EDWAO30_FORD_CUSTOMER_C as UCC,&#xA;	SOR.EDWA006_SELLOUT_CHANNEL_D as channel,&#xA;	--SOR.EDWA006_SELLOUT_CHANNEL_C as channel_new,&#xA;	--SOR.EDWAO30_CUST_DISPLAY_N as custname,&#xA;	Sum(SOR.EDWA006_LINE_ITEM_NET_A) as LOC_Invoiced,&#xA;	Sum(SOR.EDWA006_BASE_DISCOUNT_A) as LOC_BDN,&#xA;	Sum(SOR.EDWA006_RETAIL_PRICE_A) as LOC_RRP,&#xA;	Sum(SOR.EDWA006_LINE_ITEM_NET_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_Invoiced,&#xA;	Sum(SOR.EDWA006_BASE_DISCOUNT_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_BDN,&#xA;	Sum(SOR.EDWA006_RETAIL_PRICE_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_RRP,&#xA;	Sum(SOR.EDWA006_SOLD_Q) as qty,&#xA;from &#xA;	`prj-dfad-1242-uapd-p-1242.bq_594_sor_bq_lc_vw.edwa006_report_data_vw` as SOR &#xA;	inner join `prj-dfad-1242-uapd-p-1242.bq_594_sor_bq_lc_vw.edwaz36_market_vw` as  mark &#xA;		on mark.EDWAZ36_ISO2_CNTRY_C = SOR.EDWA006_SEL_DLR_MKT_I2_CNTRY_C &#xA;where &#xA;	SOR.EDWA006_MLI_C not in ('#') &#xA;	and SOR.EDWA006_DATA_QUAL_STATUS_C = 'A' &#xA;	and extract(year from SOR.EDWA006_INVOICE_Y) in (2026) &#xA;	and SOR.EDWA006_SEL_DLR_MKT_I2_CNTRY_C in ('NL') &#xA;group by&#xA;	1,2,3,4,5,6,7,8,9,10,11,12;" type="V_WString" />
+                <Field name="Months" size="16384" source="File: odbc:DSN=GCP_BQ|||select mark.EDWAZ36_ISO3_CNTRY_C as Market,&#xA;	SOR.EDWA006_MAPPED_SELL_DLR_C as DealerCode,&#xA;	SOR.EDWA006_MLI_C as MLI,&#xA;	FORMAT_DATE('%Y%m', SOR.EDWA006_INVOICE_Y) AS Months,&#xA;	--SOR.EDWA006_INVOICE_Y as inv_date,&#xA;	SOR.EDWA006_SELLOUT_CHANNEL_D as channel,&#xA;	case &#xA;		when SOR.EDWA006_MAPPED_PMT_TYPE_F not in ('W', 'I') then 'E' &#xA;		else SOR.EDWA006_MAPPED_PMT_TYPE_F &#xA;	end as payment,&#xA;	extract(year from SOR.EDWA006_INVOICE_Y) as BusinessY,&#xA;	extract(month from SOR.EDWA006_INVOICE_Y) as BusinessM,&#xA;	extract(quarter from SOR.EDWA006_INVOICE_Y) as BusinessQ,&#xA;	SOR.EDWAZ41_CUST_GRPZ_MKTG_ATTR_K as MKTG,&#xA;	SOR.EDWAO30_FORD_CUSTOMER_C as UCC,&#xA;	SOR.EDWA006_SELLOUT_CHANNEL_D as channel,&#xA;	--SOR.EDWA006_SELLOUT_CHANNEL_C as channel_new,&#xA;	--SOR.EDWAO30_CUST_DISPLAY_N as custname,&#xA;	Sum(SOR.EDWA006_LINE_ITEM_NET_A) as LOC_Invoiced,&#xA;	Sum(SOR.EDWA006_BASE_DISCOUNT_A) as LOC_BDN,&#xA;	Sum(SOR.EDWA006_RETAIL_PRICE_A) as LOC_RRP,&#xA;	Sum(SOR.EDWA006_LINE_ITEM_NET_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_Invoiced,&#xA;	Sum(SOR.EDWA006_BASE_DISCOUNT_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_BDN,&#xA;	Sum(SOR.EDWA006_RETAIL_PRICE_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_RRP,&#xA;	Sum(SOR.EDWA006_SOLD_Q) as qty,&#xA;from &#xA;	`prj-dfad-1242-uapd-p-1242.bq_594_sor_bq_lc_vw.edwa006_report_data_vw` as SOR &#xA;	inner join `prj-dfad-1242-uapd-p-1242.bq_594_sor_bq_lc_vw.edwaz36_market_vw` as  mark &#xA;		on mark.EDWAZ36_ISO2_CNTRY_C = SOR.EDWA006_SEL_DLR_MKT_I2_CNTRY_C &#xA;where &#xA;	SOR.EDWA006_MLI_C not in ('#') &#xA;	and SOR.EDWA006_DATA_QUAL_STATUS_C = 'A' &#xA;	and extract(year from SOR.EDWA006_INVOICE_Y) in (2026) &#xA;	and SOR.EDWA006_SEL_DLR_MKT_I2_CNTRY_C in ('NL') &#xA;group by&#xA;	1,2,3,4,5,6,7,8,9,10,11,12;" type="V_WString" />
+                <Field name="channel" source="File: odbc:DSN=GCP_BQ|||select mark.EDWAZ36_ISO3_CNTRY_C as Market,&#xA;	SOR.EDWA006_MAPPED_SELL_DLR_C as DealerCode,&#xA;	SOR.EDWA006_MLI_C as MLI,&#xA;	FORMAT_DATE('%Y%m', SOR.EDWA006_INVOICE_Y) AS Months,&#xA;	--SOR.EDWA006_INVOICE_Y as inv_date,&#xA;	SOR.EDWA006_SELLOUT_CHANNEL_D as channel,&#xA;	case &#xA;		when SOR.EDWA006_MAPPED_PMT_TYPE_F not in ('W', 'I') then 'E' &#xA;		else SOR.EDWA006_MAPPED_PMT_TYPE_F &#xA;	end as payment,&#xA;	extract(year from SOR.EDWA006_INVOICE_Y) as BusinessY,&#xA;	extract(month from SOR.EDWA006_INVOICE_Y) as BusinessM,&#xA;	extract(quarter from SOR.EDWA006_INVOICE_Y) as BusinessQ,&#xA;	SOR.EDWAZ41_CUST_GRPZ_MKTG_ATTR_K as MKTG,&#xA;	SOR.EDWAO30_FORD_CUSTOMER_C as UCC,&#xA;	SOR.EDWA006_SELLOUT_CHANNEL_D as channel,&#xA;	--SOR.EDWA006_SELLOUT_CHANNEL_C as channel_new,&#xA;	--SOR.EDWAO30_CUST_DISPLAY_N as custname,&#xA;	Sum(SOR.EDWA006_LINE_ITEM_NET_A) as LOC_Invoiced,&#xA;	Sum(SOR.EDWA006_BASE_DISCOUNT_A) as LOC_BDN,&#xA;	Sum(SOR.EDWA006_RETAIL_PRICE_A) as LOC_RRP,&#xA;	Sum(SOR.EDWA006_LINE_ITEM_NET_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_Invoiced,&#xA;	Sum(SOR.EDWA006_BASE_DISCOUNT_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_BDN,&#xA;	Sum(SOR.EDWA006_RETAIL_PRICE_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_RRP,&#xA;	Sum(SOR.EDWA006_SOLD_Q) as qty,&#xA;from &#xA;	`prj-dfad-1242-uapd-p-1242.bq_594_sor_bq_lc_vw.edwa006_report_data_vw` as SOR &#xA;	inner join `prj-dfad-1242-uapd-p-1242.bq_594_sor_bq_lc_vw.edwaz36_market_vw` as  mark &#xA;		on mark.EDWAZ36_ISO2_CNTRY_C = SOR.EDWA006_SEL_DLR_MKT_I2_CNTRY_C &#xA;where &#xA;	SOR.EDWA006_MLI_C not in ('#') &#xA;	and SOR.EDWA006_DATA_QUAL_STATUS_C = 'A' &#xA;	and extract(year from SOR.EDWA006_INVOICE_Y) in (2026) &#xA;	and SOR.EDWA006_SEL_DLR_MKT_I2_CNTRY_C in ('NL') &#xA;group by&#xA;	1,2,3,4,5,6,7,8,9,10,11,12;" type="Int64" />
+                <Field name="payment" size="16384" source="File: odbc:DSN=GCP_BQ|||select mark.EDWAZ36_ISO3_CNTRY_C as Market,&#xA;	SOR.EDWA006_MAPPED_SELL_DLR_C as DealerCode,&#xA;	SOR.EDWA006_MLI_C as MLI,&#xA;	FORMAT_DATE('%Y%m', SOR.EDWA006_INVOICE_Y) AS Months,&#xA;	--SOR.EDWA006_INVOICE_Y as inv_date,&#xA;	SOR.EDWA006_SELLOUT_CHANNEL_D as channel,&#xA;	case &#xA;		when SOR.EDWA006_MAPPED_PMT_TYPE_F not in ('W', 'I') then 'E' &#xA;		else SOR.EDWA006_MAPPED_PMT_TYPE_F &#xA;	end as payment,&#xA;	extract(year from SOR.EDWA006_INVOICE_Y) as BusinessY,&#xA;	extract(month from SOR.EDWA006_INVOICE_Y) as BusinessM,&#xA;	extract(quarter from SOR.EDWA006_INVOICE_Y) as BusinessQ,&#xA;	SOR.EDWAZ41_CUST_GRPZ_MKTG_ATTR_K as MKTG,&#xA;	SOR.EDWAO30_FORD_CUSTOMER_C as UCC,&#xA;	SOR.EDWA006_SELLOUT_CHANNEL_D as channel,&#xA;	--SOR.EDWA006_SELLOUT_CHANNEL_C as channel_new,&#xA;	--SOR.EDWAO30_CUST_DISPLAY_N as custname,&#xA;	Sum(SOR.EDWA006_LINE_ITEM_NET_A) as LOC_Invoiced,&#xA;	Sum(SOR.EDWA006_BASE_DISCOUNT_A) as LOC_BDN,&#xA;	Sum(SOR.EDWA006_RETAIL_PRICE_A) as LOC_RRP,&#xA;	Sum(SOR.EDWA006_LINE_ITEM_NET_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_Invoiced,&#xA;	Sum(SOR.EDWA006_BASE_DISCOUNT_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_BDN,&#xA;	Sum(SOR.EDWA006_RETAIL_PRICE_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_RRP,&#xA;	Sum(SOR.EDWA006_SOLD_Q) as qty,&#xA;from &#xA;	`prj-dfad-1242-uapd-p-1242.bq_594_sor_bq_lc_vw.edwa006_report_data_vw` as SOR &#xA;	inner join `prj-dfad-1242-uapd-p-1242.bq_594_sor_bq_lc_vw.edwaz36_market_vw` as  mark &#xA;		on mark.EDWAZ36_ISO2_CNTRY_C = SOR.EDWA006_SEL_DLR_MKT_I2_CNTRY_C &#xA;where &#xA;	SOR.EDWA006_MLI_C not in ('#') &#xA;	and SOR.EDWA006_DATA_QUAL_STATUS_C = 'A' &#xA;	and extract(year from SOR.EDWA006_INVOICE_Y) in (2026) &#xA;	and SOR.EDWA006_SEL_DLR_MKT_I2_CNTRY_C in ('NL') &#xA;group by&#xA;	1,2,3,4,5,6,7,8,9,10,11,12;" type="V_WString" />
+                <Field name="BusinessY" source="File: odbc:DSN=GCP_BQ|||select mark.EDWAZ36_ISO3_CNTRY_C as Market,&#xA;	SOR.EDWA006_MAPPED_SELL_DLR_C as DealerCode,&#xA;	SOR.EDWA006_MLI_C as MLI,&#xA;	FORMAT_DATE('%Y%m', SOR.EDWA006_INVOICE_Y) AS Months,&#xA;	--SOR.EDWA006_INVOICE_Y as inv_date,&#xA;	SOR.EDWA006_SELLOUT_CHANNEL_D as channel,&#xA;	case &#xA;		when SOR.EDWA006_MAPPED_PMT_TYPE_F not in ('W', 'I') then 'E' &#xA;		else SOR.EDWA006_MAPPED_PMT_TYPE_F &#xA;	end as payment,&#xA;	extract(year from SOR.EDWA006_INVOICE_Y) as BusinessY,&#xA;	extract(month from SOR.EDWA006_INVOICE_Y) as BusinessM,&#xA;	extract(quarter from SOR.EDWA006_INVOICE_Y) as BusinessQ,&#xA;	SOR.EDWAZ41_CUST_GRPZ_MKTG_ATTR_K as MKTG,&#xA;	SOR.EDWAO30_FORD_CUSTOMER_C as UCC,&#xA;	SOR.EDWA006_SELLOUT_CHANNEL_D as channel,&#xA;	--SOR.EDWA006_SELLOUT_CHANNEL_C as channel_new,&#xA;	--SOR.EDWAO30_CUST_DISPLAY_N as custname,&#xA;	Sum(SOR.EDWA006_LINE_ITEM_NET_A) as LOC_Invoiced,&#xA;	Sum(SOR.EDWA006_BASE_DISCOUNT_A) as LOC_BDN,&#xA;	Sum(SOR.EDWA006_RETAIL_PRICE_A) as LOC_RRP,&#xA;	Sum(SOR.EDWA006_LINE_ITEM_NET_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_Invoiced,&#xA;	Sum(SOR.EDWA006_BASE_DISCOUNT_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_BDN,&#xA;	Sum(SOR.EDWA006_RETAIL_PRICE_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_RRP,&#xA;	Sum(SOR.EDWA006_SOLD_Q) as qty,&#xA;from &#xA;	`prj-dfad-1242-uapd-p-1242.bq_594_sor_bq_lc_vw.edwa006_report_data_vw` as SOR &#xA;	inner join `prj-dfad-1242-uapd-p-1242.bq_594_sor_bq_lc_vw.edwaz36_market_vw` as  mark &#xA;		on mark.EDWAZ36_ISO2_CNTRY_C = SOR.EDWA006_SEL_DLR_MKT_I2_CNTRY_C &#xA;where &#xA;	SOR.EDWA006_MLI_C not in ('#') &#xA;	and SOR.EDWA006_DATA_QUAL_STATUS_C = 'A' &#xA;	and extract(year from SOR.EDWA006_INVOICE_Y) in (2026) &#xA;	and SOR.EDWA006_SEL_DLR_MKT_I2_CNTRY_C in ('NL') &#xA;group by&#xA;	1,2,3,4,5,6,7,8,9,10,11,12;" type="Int64" />
+                <Field name="BusinessM" source="File: odbc:DSN=GCP_BQ|||select mark.EDWAZ36_ISO3_CNTRY_C as Market,&#xA;	SOR.EDWA006_MAPPED_SELL_DLR_C as DealerCode,&#xA;	SOR.EDWA006_MLI_C as MLI,&#xA;	FORMAT_DATE('%Y%m', SOR.EDWA006_INVOICE_Y) AS Months,&#xA;	--SOR.EDWA006_INVOICE_Y as inv_date,&#xA;	SOR.EDWA006_SELLOUT_CHANNEL_D as channel,&#xA;	case &#xA;		when SOR.EDWA006_MAPPED_PMT_TYPE_F not in ('W', 'I') then 'E' &#xA;		else SOR.EDWA006_MAPPED_PMT_TYPE_F &#xA;	end as payment,&#xA;	extract(year from SOR.EDWA006_INVOICE_Y) as BusinessY,&#xA;	extract(month from SOR.EDWA006_INVOICE_Y) as BusinessM,&#xA;	extract(quarter from SOR.EDWA006_INVOICE_Y) as BusinessQ,&#xA;	SOR.EDWAZ41_CUST_GRPZ_MKTG_ATTR_K as MKTG,&#xA;	SOR.EDWAO30_FORD_CUSTOMER_C as UCC,&#xA;	SOR.EDWA006_SELLOUT_CHANNEL_D as channel,&#xA;	--SOR.EDWA006_SELLOUT_CHANNEL_C as channel_new,&#xA;	--SOR.EDWAO30_CUST_DISPLAY_N as custname,&#xA;	Sum(SOR.EDWA006_LINE_ITEM_NET_A) as LOC_Invoiced,&#xA;	Sum(SOR.EDWA006_BASE_DISCOUNT_A) as LOC_BDN,&#xA;	Sum(SOR.EDWA006_RETAIL_PRICE_A) as LOC_RRP,&#xA;	Sum(SOR.EDWA006_LINE_ITEM_NET_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_Invoiced,&#xA;	Sum(SOR.EDWA006_BASE_DISCOUNT_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_BDN,&#xA;	Sum(SOR.EDWA006_RETAIL_PRICE_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_RRP,&#xA;	Sum(SOR.EDWA006_SOLD_Q) as qty,&#xA;from &#xA;	`prj-dfad-1242-uapd-p-1242.bq_594_sor_bq_lc_vw.edwa006_report_data_vw` as SOR &#xA;	inner join `prj-dfad-1242-uapd-p-1242.bq_594_sor_bq_lc_vw.edwaz36_market_vw` as  mark &#xA;		on mark.EDWAZ36_ISO2_CNTRY_C = SOR.EDWA006_SEL_DLR_MKT_I2_CNTRY_C &#xA;where &#xA;	SOR.EDWA006_MLI_C not in ('#') &#xA;	and SOR.EDWA006_DATA_QUAL_STATUS_C = 'A' &#xA;	and extract(year from SOR.EDWA006_INVOICE_Y) in (2026) &#xA;	and SOR.EDWA006_SEL_DLR_MKT_I2_CNTRY_C in ('NL') &#xA;group by&#xA;	1,2,3,4,5,6,7,8,9,10,11,12;" type="Int64" />
+                <Field name="BusinessQ" source="File: odbc:DSN=GCP_BQ|||select mark.EDWAZ36_ISO3_CNTRY_C as Market,&#xA;	SOR.EDWA006_MAPPED_SELL_DLR_C as DealerCode,&#xA;	SOR.EDWA006_MLI_C as MLI,&#xA;	FORMAT_DATE('%Y%m', SOR.EDWA006_INVOICE_Y) AS Months,&#xA;	--SOR.EDWA006_INVOICE_Y as inv_date,&#xA;	SOR.EDWA006_SELLOUT_CHANNEL_D as channel,&#xA;	case &#xA;		when SOR.EDWA006_MAPPED_PMT_TYPE_F not in ('W', 'I') then 'E' &#xA;		else SOR.EDWA006_MAPPED_PMT_TYPE_F &#xA;	end as payment,&#xA;	extract(year from SOR.EDWA006_INVOICE_Y) as BusinessY,&#xA;	extract(month from SOR.EDWA006_INVOICE_Y) as BusinessM,&#xA;	extract(quarter from SOR.EDWA006_INVOICE_Y) as BusinessQ,&#xA;	SOR.EDWAZ41_CUST_GRPZ_MKTG_ATTR_K as MKTG,&#xA;	SOR.EDWAO30_FORD_CUSTOMER_C as UCC,&#xA;	SOR.EDWA006_SELLOUT_CHANNEL_D as channel,&#xA;	--SOR.EDWA006_SELLOUT_CHANNEL_C as channel_new,&#xA;	--SOR.EDWAO30_CUST_DISPLAY_N as custname,&#xA;	Sum(SOR.EDWA006_LINE_ITEM_NET_A) as LOC_Invoiced,&#xA;	Sum(SOR.EDWA006_BASE_DISCOUNT_A) as LOC_BDN,&#xA;	Sum(SOR.EDWA006_RETAIL_PRICE_A) as LOC_RRP,&#xA;	Sum(SOR.EDWA006_LINE_ITEM_NET_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_Invoiced,&#xA;	Sum(SOR.EDWA006_BASE_DISCOUNT_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_BDN,&#xA;	Sum(SOR.EDWA006_RETAIL_PRICE_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_RRP,&#xA;	Sum(SOR.EDWA006_SOLD_Q) as qty,&#xA;from &#xA;	`prj-dfad-1242-uapd-p-1242.bq_594_sor_bq_lc_vw.edwa006_report_data_vw` as SOR &#xA;	inner join `prj-dfad-1242-uapd-p-1242.bq_594_sor_bq_lc_vw.edwaz36_market_vw` as  mark &#xA;		on mark.EDWAZ36_ISO2_CNTRY_C = SOR.EDWA006_SEL_DLR_MKT_I2_CNTRY_C &#xA;where &#xA;	SOR.EDWA006_MLI_C not in ('#') &#xA;	and SOR.EDWA006_DATA_QUAL_STATUS_C = 'A' &#xA;	and extract(year from SOR.EDWA006_INVOICE_Y) in (2026) &#xA;	and SOR.EDWA006_SEL_DLR_MKT_I2_CNTRY_C in ('NL') &#xA;group by&#xA;	1,2,3,4,5,6,7,8,9,10,11,12;" type="Int64" />
+                <Field name="MKTG" source="File: odbc:DSN=GCP_BQ|||select mark.EDWAZ36_ISO3_CNTRY_C as Market,&#xA;	SOR.EDWA006_MAPPED_SELL_DLR_C as DealerCode,&#xA;	SOR.EDWA006_MLI_C as MLI,&#xA;	FORMAT_DATE('%Y%m', SOR.EDWA006_INVOICE_Y) AS Months,&#xA;	--SOR.EDWA006_INVOICE_Y as inv_date,&#xA;	SOR.EDWA006_SELLOUT_CHANNEL_D as channel,&#xA;	case &#xA;		when SOR.EDWA006_MAPPED_PMT_TYPE_F not in ('W', 'I') then 'E' &#xA;		else SOR.EDWA006_MAPPED_PMT_TYPE_F &#xA;	end as payment,&#xA;	extract(year from SOR.EDWA006_INVOICE_Y) as BusinessY,&#xA;	extract(month from SOR.EDWA006_INVOICE_Y) as BusinessM,&#xA;	extract(quarter from SOR.EDWA006_INVOICE_Y) as BusinessQ,&#xA;	SOR.EDWAZ41_CUST_GRPZ_MKTG_ATTR_K as MKTG,&#xA;	SOR.EDWAO30_FORD_CUSTOMER_C as UCC,&#xA;	SOR.EDWA006_SELLOUT_CHANNEL_D as channel,&#xA;	--SOR.EDWA006_SELLOUT_CHANNEL_C as channel_new,&#xA;	--SOR.EDWAO30_CUST_DISPLAY_N as custname,&#xA;	Sum(SOR.EDWA006_LINE_ITEM_NET_A) as LOC_Invoiced,&#xA;	Sum(SOR.EDWA006_BASE_DISCOUNT_A) as LOC_BDN,&#xA;	Sum(SOR.EDWA006_RETAIL_PRICE_A) as LOC_RRP,&#xA;	Sum(SOR.EDWA006_LINE_ITEM_NET_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_Invoiced,&#xA;	Sum(SOR.EDWA006_BASE_DISCOUNT_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_BDN,&#xA;	Sum(SOR.EDWA006_RETAIL_PRICE_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_RRP,&#xA;	Sum(SOR.EDWA006_SOLD_Q) as qty,&#xA;from &#xA;	`prj-dfad-1242-uapd-p-1242.bq_594_sor_bq_lc_vw.edwa006_report_data_vw` as SOR &#xA;	inner join `prj-dfad-1242-uapd-p-1242.bq_594_sor_bq_lc_vw.edwaz36_market_vw` as  mark &#xA;		on mark.EDWAZ36_ISO2_CNTRY_C = SOR.EDWA006_SEL_DLR_MKT_I2_CNTRY_C &#xA;where &#xA;	SOR.EDWA006_MLI_C not in ('#') &#xA;	and SOR.EDWA006_DATA_QUAL_STATUS_C = 'A' &#xA;	and extract(year from SOR.EDWA006_INVOICE_Y) in (2026) &#xA;	and SOR.EDWA006_SEL_DLR_MKT_I2_CNTRY_C in ('NL') &#xA;group by&#xA;	1,2,3,4,5,6,7,8,9,10,11,12;" type="Int64" />
+                <Field name="UCC" size="16384" source="File: odbc:DSN=GCP_BQ|||select mark.EDWAZ36_ISO3_CNTRY_C as Market,&#xA;	SOR.EDWA006_MAPPED_SELL_DLR_C as DealerCode,&#xA;	SOR.EDWA006_MLI_C as MLI,&#xA;	FORMAT_DATE('%Y%m', SOR.EDWA006_INVOICE_Y) AS Months,&#xA;	--SOR.EDWA006_INVOICE_Y as inv_date,&#xA;	SOR.EDWA006_SELLOUT_CHANNEL_D as channel,&#xA;	case &#xA;		when SOR.EDWA006_MAPPED_PMT_TYPE_F not in ('W', 'I') then 'E' &#xA;		else SOR.EDWA006_MAPPED_PMT_TYPE_F &#xA;	end as payment,&#xA;	extract(year from SOR.EDWA006_INVOICE_Y) as BusinessY,&#xA;	extract(month from SOR.EDWA006_INVOICE_Y) as BusinessM,&#xA;	extract(quarter from SOR.EDWA006_INVOICE_Y) as BusinessQ,&#xA;	SOR.EDWAZ41_CUST_GRPZ_MKTG_ATTR_K as MKTG,&#xA;	SOR.EDWAO30_FORD_CUSTOMER_C as UCC,&#xA;	SOR.EDWA006_SELLOUT_CHANNEL_D as channel,&#xA;	--SOR.EDWA006_SELLOUT_CHANNEL_C as channel_new,&#xA;	--SOR.EDWAO30_CUST_DISPLAY_N as custname,&#xA;	Sum(SOR.EDWA006_LINE_ITEM_NET_A) as LOC_Invoiced,&#xA;	Sum(SOR.EDWA006_BASE_DISCOUNT_A) as LOC_BDN,&#xA;	Sum(SOR.EDWA006_RETAIL_PRICE_A) as LOC_RRP,&#xA;	Sum(SOR.EDWA006_LINE_ITEM_NET_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_Invoiced,&#xA;	Sum(SOR.EDWA006_BASE_DISCOUNT_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_BDN,&#xA;	Sum(SOR.EDWA006_RETAIL_PRICE_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_RRP,&#xA;	Sum(SOR.EDWA006_SOLD_Q) as qty,&#xA;from &#xA;	`prj-dfad-1242-uapd-p-1242.bq_594_sor_bq_lc_vw.edwa006_report_data_vw` as SOR &#xA;	inner join `prj-dfad-1242-uapd-p-1242.bq_594_sor_bq_lc_vw.edwaz36_market_vw` as  mark &#xA;		on mark.EDWAZ36_ISO2_CNTRY_C = SOR.EDWA006_SEL_DLR_MKT_I2_CNTRY_C &#xA;where &#xA;	SOR.EDWA006_MLI_C not in ('#') &#xA;	and SOR.EDWA006_DATA_QUAL_STATUS_C = 'A' &#xA;	and extract(year from SOR.EDWA006_INVOICE_Y) in (2026) &#xA;	and SOR.EDWA006_SEL_DLR_MKT_I2_CNTRY_C in ('NL') &#xA;group by&#xA;	1,2,3,4,5,6,7,8,9,10,11,12;" type="V_WString" />
+                <Field name="channel_1" source="File: odbc:DSN=GCP_BQ|||select mark.EDWAZ36_ISO3_CNTRY_C as Market,&#xA;	SOR.EDWA006_MAPPED_SELL_DLR_C as DealerCode,&#xA;	SOR.EDWA006_MLI_C as MLI,&#xA;	FORMAT_DATE('%Y%m', SOR.EDWA006_INVOICE_Y) AS Months,&#xA;	--SOR.EDWA006_INVOICE_Y as inv_date,&#xA;	SOR.EDWA006_SELLOUT_CHANNEL_D as channel,&#xA;	case &#xA;		when SOR.EDWA006_MAPPED_PMT_TYPE_F not in ('W', 'I') then 'E' &#xA;		else SOR.EDWA006_MAPPED_PMT_TYPE_F &#xA;	end as payment,&#xA;	extract(year from SOR.EDWA006_INVOICE_Y) as BusinessY,&#xA;	extract(month from SOR.EDWA006_INVOICE_Y) as BusinessM,&#xA;	extract(quarter from SOR.EDWA006_INVOICE_Y) as BusinessQ,&#xA;	SOR.EDWAZ41_CUST_GRPZ_MKTG_ATTR_K as MKTG,&#xA;	SOR.EDWAO30_FORD_CUSTOMER_C as UCC,&#xA;	SOR.EDWA006_SELLOUT_CHANNEL_D as channel,&#xA;	--SOR.EDWA006_SELLOUT_CHANNEL_C as channel_new,&#xA;	--SOR.EDWAO30_CUST_DISPLAY_N as custname,&#xA;	Sum(SOR.EDWA006_LINE_ITEM_NET_A) as LOC_Invoiced,&#xA;	Sum(SOR.EDWA006_BASE_DISCOUNT_A) as LOC_BDN,&#xA;	Sum(SOR.EDWA006_RETAIL_PRICE_A) as LOC_RRP,&#xA;	Sum(SOR.EDWA006_LINE_ITEM_NET_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_Invoiced,&#xA;	Sum(SOR.EDWA006_BASE_DISCOUNT_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_BDN,&#xA;	Sum(SOR.EDWA006_RETAIL_PRICE_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_RRP,&#xA;	Sum(SOR.EDWA006_SOLD_Q) as qty,&#xA;from &#xA;	`prj-dfad-1242-uapd-p-1242.bq_594_sor_bq_lc_vw.edwa006_report_data_vw` as SOR &#xA;	inner join `prj-dfad-1242-uapd-p-1242.bq_594_sor_bq_lc_vw.edwaz36_market_vw` as  mark &#xA;		on mark.EDWAZ36_ISO2_CNTRY_C = SOR.EDWA006_SEL_DLR_MKT_I2_CNTRY_C &#xA;where &#xA;	SOR.EDWA006_MLI_C not in ('#') &#xA;	and SOR.EDWA006_DATA_QUAL_STATUS_C = 'A' &#xA;	and extract(year from SOR.EDWA006_INVOICE_Y) in (2026) &#xA;	and SOR.EDWA006_SEL_DLR_MKT_I2_CNTRY_C in ('NL') &#xA;group by&#xA;	1,2,3,4,5,6,7,8,9,10,11,12;" type="Int64" />
+                <Field name="LOC_Invoiced" scale="9" size="40" source="File: odbc:DSN=GCP_BQ|||select mark.EDWAZ36_ISO3_CNTRY_C as Market,&#xA;	SOR.EDWA006_MAPPED_SELL_DLR_C as DealerCode,&#xA;	SOR.EDWA006_MLI_C as MLI,&#xA;	FORMAT_DATE('%Y%m', SOR.EDWA006_INVOICE_Y) AS Months,&#xA;	--SOR.EDWA006_INVOICE_Y as inv_date,&#xA;	SOR.EDWA006_SELLOUT_CHANNEL_D as channel,&#xA;	case &#xA;		when SOR.EDWA006_MAPPED_PMT_TYPE_F not in ('W', 'I') then 'E' &#xA;		else SOR.EDWA006_MAPPED_PMT_TYPE_F &#xA;	end as payment,&#xA;	extract(year from SOR.EDWA006_INVOICE_Y) as BusinessY,&#xA;	extract(month from SOR.EDWA006_INVOICE_Y) as BusinessM,&#xA;	extract(quarter from SOR.EDWA006_INVOICE_Y) as BusinessQ,&#xA;	SOR.EDWAZ41_CUST_GRPZ_MKTG_ATTR_K as MKTG,&#xA;	SOR.EDWAO30_FORD_CUSTOMER_C as UCC,&#xA;	SOR.EDWA006_SELLOUT_CHANNEL_D as channel,&#xA;	--SOR.EDWA006_SELLOUT_CHANNEL_C as channel_new,&#xA;	--SOR.EDWAO30_CUST_DISPLAY_N as custname,&#xA;	Sum(SOR.EDWA006_LINE_ITEM_NET_A) as LOC_Invoiced,&#xA;	Sum(SOR.EDWA006_BASE_DISCOUNT_A) as LOC_BDN,&#xA;	Sum(SOR.EDWA006_RETAIL_PRICE_A) as LOC_RRP,&#xA;	Sum(SOR.EDWA006_LINE_ITEM_NET_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_Invoiced,&#xA;	Sum(SOR.EDWA006_BASE_DISCOUNT_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_BDN,&#xA;	Sum(SOR.EDWA006_RETAIL_PRICE_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_RRP,&#xA;	Sum(SOR.EDWA006_SOLD_Q) as qty,&#xA;from &#xA;	`prj-dfad-1242-uapd-p-1242.bq_594_sor_bq_lc_vw.edwa006_report_data_vw` as SOR &#xA;	inner join `prj-dfad-1242-uapd-p-1242.bq_594_sor_bq_lc_vw.edwaz36_market_vw` as  mark &#xA;		on mark.EDWAZ36_ISO2_CNTRY_C = SOR.EDWA006_SEL_DLR_MKT_I2_CNTRY_C &#xA;where &#xA;	SOR.EDWA006_MLI_C not in ('#') &#xA;	and SOR.EDWA006_DATA_QUAL_STATUS_C = 'A' &#xA;	and extract(year from SOR.EDWA006_INVOICE_Y) in (2026) &#xA;	and SOR.EDWA006_SEL_DLR_MKT_I2_CNTRY_C in ('NL') &#xA;group by&#xA;	1,2,3,4,5,6,7,8,9,10,11,12;" type="FixedDecimal" />
+                <Field name="LOC_BDN" scale="9" size="40" source="File: odbc:DSN=GCP_BQ|||select mark.EDWAZ36_ISO3_CNTRY_C as Market,&#xA;	SOR.EDWA006_MAPPED_SELL_DLR_C as DealerCode,&#xA;	SOR.EDWA006_MLI_C as MLI,&#xA;	FORMAT_DATE('%Y%m', SOR.EDWA006_INVOICE_Y) AS Months,&#xA;	--SOR.EDWA006_INVOICE_Y as inv_date,&#xA;	SOR.EDWA006_SELLOUT_CHANNEL_D as channel,&#xA;	case &#xA;		when SOR.EDWA006_MAPPED_PMT_TYPE_F not in ('W', 'I') then 'E' &#xA;		else SOR.EDWA006_MAPPED_PMT_TYPE_F &#xA;	end as payment,&#xA;	extract(year from SOR.EDWA006_INVOICE_Y) as BusinessY,&#xA;	extract(month from SOR.EDWA006_INVOICE_Y) as BusinessM,&#xA;	extract(quarter from SOR.EDWA006_INVOICE_Y) as BusinessQ,&#xA;	SOR.EDWAZ41_CUST_GRPZ_MKTG_ATTR_K as MKTG,&#xA;	SOR.EDWAO30_FORD_CUSTOMER_C as UCC,&#xA;	SOR.EDWA006_SELLOUT_CHANNEL_D as channel,&#xA;	--SOR.EDWA006_SELLOUT_CHANNEL_C as channel_new,&#xA;	--SOR.EDWAO30_CUST_DISPLAY_N as custname,&#xA;	Sum(SOR.EDWA006_LINE_ITEM_NET_A) as LOC_Invoiced,&#xA;	Sum(SOR.EDWA006_BASE_DISCOUNT_A) as LOC_BDN,&#xA;	Sum(SOR.EDWA006_RETAIL_PRICE_A) as LOC_RRP,&#xA;	Sum(SOR.EDWA006_LINE_ITEM_NET_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_Invoiced,&#xA;	Sum(SOR.EDWA006_BASE_DISCOUNT_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_BDN,&#xA;	Sum(SOR.EDWA006_RETAIL_PRICE_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_RRP,&#xA;	Sum(SOR.EDWA006_SOLD_Q) as qty,&#xA;from &#xA;	`prj-dfad-1242-uapd-p-1242.bq_594_sor_bq_lc_vw.edwa006_report_data_vw` as SOR &#xA;	inner join `prj-dfad-1242-uapd-p-1242.bq_594_sor_bq_lc_vw.edwaz36_market_vw` as  mark &#xA;		on mark.EDWAZ36_ISO2_CNTRY_C = SOR.EDWA006_SEL_DLR_MKT_I2_CNTRY_C &#xA;where &#xA;	SOR.EDWA006_MLI_C not in ('#') &#xA;	and SOR.EDWA006_DATA_QUAL_STATUS_C = 'A' &#xA;	and extract(year from SOR.EDWA006_INVOICE_Y) in (2026) &#xA;	and SOR.EDWA006_SEL_DLR_MKT_I2_CNTRY_C in ('NL') &#xA;group by&#xA;	1,2,3,4,5,6,7,8,9,10,11,12;" type="FixedDecimal" />
+                <Field name="LOC_RRP" scale="9" size="40" source="File: odbc:DSN=GCP_BQ|||select mark.EDWAZ36_ISO3_CNTRY_C as Market,&#xA;	SOR.EDWA006_MAPPED_SELL_DLR_C as DealerCode,&#xA;	SOR.EDWA006_MLI_C as MLI,&#xA;	FORMAT_DATE('%Y%m', SOR.EDWA006_INVOICE_Y) AS Months,&#xA;	--SOR.EDWA006_INVOICE_Y as inv_date,&#xA;	SOR.EDWA006_SELLOUT_CHANNEL_D as channel,&#xA;	case &#xA;		when SOR.EDWA006_MAPPED_PMT_TYPE_F not in ('W', 'I') then 'E' &#xA;		else SOR.EDWA006_MAPPED_PMT_TYPE_F &#xA;	end as payment,&#xA;	extract(year from SOR.EDWA006_INVOICE_Y) as BusinessY,&#xA;	extract(month from SOR.EDWA006_INVOICE_Y) as BusinessM,&#xA;	extract(quarter from SOR.EDWA006_INVOICE_Y) as BusinessQ,&#xA;	SOR.EDWAZ41_CUST_GRPZ_MKTG_ATTR_K as MKTG,&#xA;	SOR.EDWAO30_FORD_CUSTOMER_C as UCC,&#xA;	SOR.EDWA006_SELLOUT_CHANNEL_D as channel,&#xA;	--SOR.EDWA006_SELLOUT_CHANNEL_C as channel_new,&#xA;	--SOR.EDWAO30_CUST_DISPLAY_N as custname,&#xA;	Sum(SOR.EDWA006_LINE_ITEM_NET_A) as LOC_Invoiced,&#xA;	Sum(SOR.EDWA006_BASE_DISCOUNT_A) as LOC_BDN,&#xA;	Sum(SOR.EDWA006_RETAIL_PRICE_A) as LOC_RRP,&#xA;	Sum(SOR.EDWA006_LINE_ITEM_NET_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_Invoiced,&#xA;	Sum(SOR.EDWA006_BASE_DISCOUNT_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_BDN,&#xA;	Sum(SOR.EDWA006_RETAIL_PRICE_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_RRP,&#xA;	Sum(SOR.EDWA006_SOLD_Q) as qty,&#xA;from &#xA;	`prj-dfad-1242-uapd-p-1242.bq_594_sor_bq_lc_vw.edwa006_report_data_vw` as SOR &#xA;	inner join `prj-dfad-1242-uapd-p-1242.bq_594_sor_bq_lc_vw.edwaz36_market_vw` as  mark &#xA;		on mark.EDWAZ36_ISO2_CNTRY_C = SOR.EDWA006_SEL_DLR_MKT_I2_CNTRY_C &#xA;where &#xA;	SOR.EDWA006_MLI_C not in ('#') &#xA;	and SOR.EDWA006_DATA_QUAL_STATUS_C = 'A' &#xA;	and extract(year from SOR.EDWA006_INVOICE_Y) in (2026) &#xA;	and SOR.EDWA006_SEL_DLR_MKT_I2_CNTRY_C in ('NL') &#xA;group by&#xA;	1,2,3,4,5,6,7,8,9,10,11,12;" type="FixedDecimal" />
+                <Field name="USD_Invoiced" scale="9" size="40" source="File: odbc:DSN=GCP_BQ|||select mark.EDWAZ36_ISO3_CNTRY_C as Market,&#xA;	SOR.EDWA006_MAPPED_SELL_DLR_C as DealerCode,&#xA;	SOR.EDWA006_MLI_C as MLI,&#xA;	FORMAT_DATE('%Y%m', SOR.EDWA006_INVOICE_Y) AS Months,&#xA;	--SOR.EDWA006_INVOICE_Y as inv_date,&#xA;	SOR.EDWA006_SELLOUT_CHANNEL_D as channel,&#xA;	case &#xA;		when SOR.EDWA006_MAPPED_PMT_TYPE_F not in ('W', 'I') then 'E' &#xA;		else SOR.EDWA006_MAPPED_PMT_TYPE_F &#xA;	end as payment,&#xA;	extract(year from SOR.EDWA006_INVOICE_Y) as BusinessY,&#xA;	extract(month from SOR.EDWA006_INVOICE_Y) as BusinessM,&#xA;	extract(quarter from SOR.EDWA006_INVOICE_Y) as BusinessQ,&#xA;	SOR.EDWAZ41_CUST_GRPZ_MKTG_ATTR_K as MKTG,&#xA;	SOR.EDWAO30_FORD_CUSTOMER_C as UCC,&#xA;	SOR.EDWA006_SELLOUT_CHANNEL_D as channel,&#xA;	--SOR.EDWA006_SELLOUT_CHANNEL_C as channel_new,&#xA;	--SOR.EDWAO30_CUST_DISPLAY_N as custname,&#xA;	Sum(SOR.EDWA006_LINE_ITEM_NET_A) as LOC_Invoiced,&#xA;	Sum(SOR.EDWA006_BASE_DISCOUNT_A) as LOC_BDN,&#xA;	Sum(SOR.EDWA006_RETAIL_PRICE_A) as LOC_RRP,&#xA;	Sum(SOR.EDWA006_LINE_ITEM_NET_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_Invoiced,&#xA;	Sum(SOR.EDWA006_BASE_DISCOUNT_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_BDN,&#xA;	Sum(SOR.EDWA006_RETAIL_PRICE_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_RRP,&#xA;	Sum(SOR.EDWA006_SOLD_Q) as qty,&#xA;from &#xA;	`prj-dfad-1242-uapd-p-1242.bq_594_sor_bq_lc_vw.edwa006_report_data_vw` as SOR &#xA;	inner join `prj-dfad-1242-uapd-p-1242.bq_594_sor_bq_lc_vw.edwaz36_market_vw` as  mark &#xA;		on mark.EDWAZ36_ISO2_CNTRY_C = SOR.EDWA006_SEL_DLR_MKT_I2_CNTRY_C &#xA;where &#xA;	SOR.EDWA006_MLI_C not in ('#') &#xA;	and SOR.EDWA006_DATA_QUAL_STATUS_C = 'A' &#xA;	and extract(year from SOR.EDWA006_INVOICE_Y) in (2026) &#xA;	and SOR.EDWA006_SEL_DLR_MKT_I2_CNTRY_C in ('NL') &#xA;group by&#xA;	1,2,3,4,5,6,7,8,9,10,11,12;" type="FixedDecimal" />
+                <Field name="USD_BDN" scale="9" size="40" source="File: odbc:DSN=GCP_BQ|||select mark.EDWAZ36_ISO3_CNTRY_C as Market,&#xA;	SOR.EDWA006_MAPPED_SELL_DLR_C as DealerCode,&#xA;	SOR.EDWA006_MLI_C as MLI,&#xA;	FORMAT_DATE('%Y%m', SOR.EDWA006_INVOICE_Y) AS Months,&#xA;	--SOR.EDWA006_INVOICE_Y as inv_date,&#xA;	SOR.EDWA006_SELLOUT_CHANNEL_D as channel,&#xA;	case &#xA;		when SOR.EDWA006_MAPPED_PMT_TYPE_F not in ('W', 'I') then 'E' &#xA;		else SOR.EDWA006_MAPPED_PMT_TYPE_F &#xA;	end as payment,&#xA;	extract(year from SOR.EDWA006_INVOICE_Y) as BusinessY,&#xA;	extract(month from SOR.EDWA006_INVOICE_Y) as BusinessM,&#xA;	extract(quarter from SOR.EDWA006_INVOICE_Y) as BusinessQ,&#xA;	SOR.EDWAZ41_CUST_GRPZ_MKTG_ATTR_K as MKTG,&#xA;	SOR.EDWAO30_FORD_CUSTOMER_C as UCC,&#xA;	SOR.EDWA006_SELLOUT_CHANNEL_D as channel,&#xA;	--SOR.EDWA006_SELLOUT_CHANNEL_C as channel_new,&#xA;	--SOR.EDWAO30_CUST_DISPLAY_N as custname,&#xA;	Sum(SOR.EDWA006_LINE_ITEM_NET_A) as LOC_Invoiced,&#xA;	Sum(SOR.EDWA006_BASE_DISCOUNT_A) as LOC_BDN,&#xA;	Sum(SOR.EDWA006_RETAIL_PRICE_A) as LOC_RRP,&#xA;	Sum(SOR.EDWA006_LINE_ITEM_NET_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_Invoiced,&#xA;	Sum(SOR.EDWA006_BASE_DISCOUNT_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_BDN,&#xA;	Sum(SOR.EDWA006_RETAIL_PRICE_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_RRP,&#xA;	Sum(SOR.EDWA006_SOLD_Q) as qty,&#xA;from &#xA;	`prj-dfad-1242-uapd-p-1242.bq_594_sor_bq_lc_vw.edwa006_report_data_vw` as SOR &#xA;	inner join `prj-dfad-1242-uapd-p-1242.bq_594_sor_bq_lc_vw.edwaz36_market_vw` as  mark &#xA;		on mark.EDWAZ36_ISO2_CNTRY_C = SOR.EDWA006_SEL_DLR_MKT_I2_CNTRY_C &#xA;where &#xA;	SOR.EDWA006_MLI_C not in ('#') &#xA;	and SOR.EDWA006_DATA_QUAL_STATUS_C = 'A' &#xA;	and extract(year from SOR.EDWA006_INVOICE_Y) in (2026) &#xA;	and SOR.EDWA006_SEL_DLR_MKT_I2_CNTRY_C in ('NL') &#xA;group by&#xA;	1,2,3,4,5,6,7,8,9,10,11,12;" type="FixedDecimal" />
+                <Field name="USD_RRP" scale="9" size="40" source="File: odbc:DSN=GCP_BQ|||select mark.EDWAZ36_ISO3_CNTRY_C as Market,&#xA;	SOR.EDWA006_MAPPED_SELL_DLR_C as DealerCode,&#xA;	SOR.EDWA006_MLI_C as MLI,&#xA;	FORMAT_DATE('%Y%m', SOR.EDWA006_INVOICE_Y) AS Months,&#xA;	--SOR.EDWA006_INVOICE_Y as inv_date,&#xA;	SOR.EDWA006_SELLOUT_CHANNEL_D as channel,&#xA;	case &#xA;		when SOR.EDWA006_MAPPED_PMT_TYPE_F not in ('W', 'I') then 'E' &#xA;		else SOR.EDWA006_MAPPED_PMT_TYPE_F &#xA;	end as payment,&#xA;	extract(year from SOR.EDWA006_INVOICE_Y) as BusinessY,&#xA;	extract(month from SOR.EDWA006_INVOICE_Y) as BusinessM,&#xA;	extract(quarter from SOR.EDWA006_INVOICE_Y) as BusinessQ,&#xA;	SOR.EDWAZ41_CUST_GRPZ_MKTG_ATTR_K as MKTG,&#xA;	SOR.EDWAO30_FORD_CUSTOMER_C as UCC,&#xA;	SOR.EDWA006_SELLOUT_CHANNEL_D as channel,&#xA;	--SOR.EDWA006_SELLOUT_CHANNEL_C as channel_new,&#xA;	--SOR.EDWAO30_CUST_DISPLAY_N as custname,&#xA;	Sum(SOR.EDWA006_LINE_ITEM_NET_A) as LOC_Invoiced,&#xA;	Sum(SOR.EDWA006_BASE_DISCOUNT_A) as LOC_BDN,&#xA;	Sum(SOR.EDWA006_RETAIL_PRICE_A) as LOC_RRP,&#xA;	Sum(SOR.EDWA006_LINE_ITEM_NET_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_Invoiced,&#xA;	Sum(SOR.EDWA006_BASE_DISCOUNT_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_BDN,&#xA;	Sum(SOR.EDWA006_RETAIL_PRICE_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_RRP,&#xA;	Sum(SOR.EDWA006_SOLD_Q) as qty,&#xA;from &#xA;	`prj-dfad-1242-uapd-p-1242.bq_594_sor_bq_lc_vw.edwa006_report_data_vw` as SOR &#xA;	inner join `prj-dfad-1242-uapd-p-1242.bq_594_sor_bq_lc_vw.edwaz36_market_vw` as  mark &#xA;		on mark.EDWAZ36_ISO2_CNTRY_C = SOR.EDWA006_SEL_DLR_MKT_I2_CNTRY_C &#xA;where &#xA;	SOR.EDWA006_MLI_C not in ('#') &#xA;	and SOR.EDWA006_DATA_QUAL_STATUS_C = 'A' &#xA;	and extract(year from SOR.EDWA006_INVOICE_Y) in (2026) &#xA;	and SOR.EDWA006_SEL_DLR_MKT_I2_CNTRY_C in ('NL') &#xA;group by&#xA;	1,2,3,4,5,6,7,8,9,10,11,12;" type="FixedDecimal" />
+                <Field name="qty" scale="9" size="40" source="File: odbc:DSN=GCP_BQ|||select mark.EDWAZ36_ISO3_CNTRY_C as Market,&#xA;	SOR.EDWA006_MAPPED_SELL_DLR_C as DealerCode,&#xA;	SOR.EDWA006_MLI_C as MLI,&#xA;	FORMAT_DATE('%Y%m', SOR.EDWA006_INVOICE_Y) AS Months,&#xA;	--SOR.EDWA006_INVOICE_Y as inv_date,&#xA;	SOR.EDWA006_SELLOUT_CHANNEL_D as channel,&#xA;	case &#xA;		when SOR.EDWA006_MAPPED_PMT_TYPE_F not in ('W', 'I') then 'E' &#xA;		else SOR.EDWA006_MAPPED_PMT_TYPE_F &#xA;	end as payment,&#xA;	extract(year from SOR.EDWA006_INVOICE_Y) as BusinessY,&#xA;	extract(month from SOR.EDWA006_INVOICE_Y) as BusinessM,&#xA;	extract(quarter from SOR.EDWA006_INVOICE_Y) as BusinessQ,&#xA;	SOR.EDWAZ41_CUST_GRPZ_MKTG_ATTR_K as MKTG,&#xA;	SOR.EDWAO30_FORD_CUSTOMER_C as UCC,&#xA;	SOR.EDWA006_SELLOUT_CHANNEL_D as channel,&#xA;	--SOR.EDWA006_SELLOUT_CHANNEL_C as channel_new,&#xA;	--SOR.EDWAO30_CUST_DISPLAY_N as custname,&#xA;	Sum(SOR.EDWA006_LINE_ITEM_NET_A) as LOC_Invoiced,&#xA;	Sum(SOR.EDWA006_BASE_DISCOUNT_A) as LOC_BDN,&#xA;	Sum(SOR.EDWA006_RETAIL_PRICE_A) as LOC_RRP,&#xA;	Sum(SOR.EDWA006_LINE_ITEM_NET_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_Invoiced,&#xA;	Sum(SOR.EDWA006_BASE_DISCOUNT_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_BDN,&#xA;	Sum(SOR.EDWA006_RETAIL_PRICE_A * SOR.EDWAZ36_DOLLAR_EXCHG_RATE_A) as USD_RRP,&#xA;	Sum(SOR.EDWA006_SOLD_Q) as qty,&#xA;from &#xA;	`prj-dfad-1242-uapd-p-1242.bq_594_sor_bq_lc_vw.edwa006_report_data_vw` as SOR &#xA;	inner join `prj-dfad-1242-uapd-p-1242.bq_594_sor_bq_lc_vw.edwaz36_market_vw` as  mark &#xA;		on mark.EDWAZ36_ISO2_CNTRY_C = SOR.EDWA006_SEL_DLR_MKT_I2_CNTRY_C &#xA;where &#xA;	SOR.EDWA006_MLI_C not in ('#') &#xA;	and SOR.EDWA006_DATA_QUAL_STATUS_C = 'A' &#xA;	and extract(year from SOR.EDWA006_INVOICE_Y) in (2026) &#xA;	and SOR.EDWA006_SEL_DLR_MKT_I2_CNTRY_C in ('NL') &#xA;group by&#xA;	1,2,3,4,5,6,7,8,9,10,11,12;" type="FixedDecimal" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="13">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="246" y="366" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="LOC_Invoiced" selected="True" size="40.2" />
+                <SelectField field="LOC_BDN" selected="True" size="40.2" />
+                <SelectField field="LOC_RRP" selected="True" size="40.2" />
+                <SelectField field="USD_Invoiced" selected="True" size="40.2" />
+                <SelectField field="USD_BDN" selected="True" size="40.2" />
+                <SelectField field="USD_RRP" selected="True" size="40.2" />
+                <SelectField field="qty" selected="True" size="40.2" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="18">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="414" y="499" width="335" height="195" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Basket (MLI Classification)</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="15">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="643" y="548" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Mode>Simple</Mode>
+              <Simple>
+                <Operator>IsNotNull</Operator>
+                <Field>MLI</Field>
+                <Operands>
+                  <IgnoreTimeInDateTime>False</IgnoreTimeInDateTime>
+                  <DateType>fixed</DateType>
+                  <PeriodDate>2020-01-24 09:42:34</PeriodDate>
+                  <PeriodType>
+                  </PeriodType>
+                  <PeriodCount>0</PeriodCount>
+                  <Operand>
+                  </Operand>
+                  <StartDate>2020-01-24 09:42:34</StartDate>
+                  <EndDate>2020-01-24 09:42:34</EndDate>
+                </Operands>
+              </Simple>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>!IsNull([MLI])</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="16">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="535" y="548" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Text MLI" selected="True" rename="MLI" />
+                <SelectField field="MLI DESCRIPTION" selected="False" />
+                <SelectField field="PCT&#xA;code" selected="True" rename="PCT" />
+                <SelectField field="PCT" selected="False" />
+                <SelectField field="Brand Indicator" selected="False" />
+                <SelectField field="BUSINESS UNIT" selected="False" />
+                <SelectField field="GROUP" selected="False" />
+                <SelectField field="BU" selected="False" />
+                <SelectField field="Central Billing" selected="False" />
+                <SelectField field="Bonus" selected="False" />
+                <SelectField field="Weight" selected="False" />
+                <SelectField field="GPARTS table status" selected="False" />
+                <SelectField field="F12" selected="False" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="17">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="439" y="548" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">\\ner9010201\PROJ\FCSD\Customer_Service_EU\VM Shared Service Center\Data team\MLI Classification for 2026TT_V1.0.xlsx|||`Alteryx$`</File>
+              <FormatSpecificOptions>
+                <FirstRowData>False</FirstRowData>
+                <ImportLine>1</ImportLine>
+              </FormatSpecificOptions>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>MLI Classification for 2026TT_V1.0.xlsx
+Query=`Alteryx$`</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="MLI" size="255" source="File: \\ner9010201\PROJ\FCSD\Customer_Service_EU\VM Shared Service Center\Data team\MLI Classification for 2026TT_V1.0.xlsx|||`Alteryx$`" type="V_String" />
+                <Field name="MLI DESCRIPTION" size="255" source="File: \\ner9010201\PROJ\FCSD\Customer_Service_EU\VM Shared Service Center\Data team\MLI Classification for 2026TT_V1.0.xlsx|||`Alteryx$`" type="V_String" />
+                <Field name="Basket" size="255" source="File: \\ner9010201\PROJ\FCSD\Customer_Service_EU\VM Shared Service Center\Data team\MLI Classification for 2026TT_V1.0.xlsx|||`Alteryx$`" type="V_String" />
+                <Field name="PCT&#xA;code" size="255" source="File: \\ner9010201\PROJ\FCSD\Customer_Service_EU\VM Shared Service Center\Data team\MLI Classification for 2026TT_V1.0.xlsx|||`Alteryx$`" type="V_String" />
+                <Field name="CG&#xA;Code" size="255" source="File: \\ner9010201\PROJ\FCSD\Customer_Service_EU\VM Shared Service Center\Data team\MLI Classification for 2026TT_V1.0.xlsx|||`Alteryx$`" type="V_String" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="28">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="54" y="54" width="457" height="195" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>DID</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="24">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="79" y="103" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <File RecordLimit="" FileFormat="23">odbc:DSN=GCP_BQ|||select did.i22_parts_alias,
+	did.i22_iso_mktcd,
+	did.i22_dealer_cd,
+	did.i22_dlrname 
+from `prj-dfad-1242-uapd-p-1242.bq_65_diddnf_lnd_lc_vw.dlt_i22_eu_location_vw` as did 
+where did.i22_iso_mktcd = 'NLD'</File>
+              <FormatSpecificOptions>
+                <PreSQL />
+                <PreSQLOnConfig>True</PreSQLOnConfig>
+                <NoProgress>True</NoProgress>
+                <SessionReadOnly>True</SessionReadOnly>
+                <CacheData>False</CacheData>
+                <TableStyle>Quoted</TableStyle>
+                <ReadUncommitted>False</ReadUncommitted>
+                <PostSQL />
+              </FormatSpecificOptions>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>DSN=GCP_BQ
+Query=select did.i22_parts_alias,...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="i22_parts_alias" size="16384" source="File: odbc:DSN=GCP_BQ|||select did.i22_parts_alias,&#xA;	did.i22_iso_mktcd,&#xA;	did.i22_dealer_cd,&#xA;	did.i22_dlrname &#xA;from `prj-dfad-1242-uapd-p-1242.bq_65_diddnf_lnd_lc_vw.dlt_i22_eu_location_vw` as did &#xA;where did.i22_iso_mktcd = 'NLD'" type="V_WString" />
+                <Field name="i22_iso_mktcd" size="16384" source="File: odbc:DSN=GCP_BQ|||select did.i22_parts_alias,&#xA;	did.i22_iso_mktcd,&#xA;	did.i22_dealer_cd,&#xA;	did.i22_dlrname &#xA;from `prj-dfad-1242-uapd-p-1242.bq_65_diddnf_lnd_lc_vw.dlt_i22_eu_location_vw` as did &#xA;where did.i22_iso_mktcd = 'NLD'" type="V_WString" />
+                <Field name="i22_dealer_cd" size="16384" source="File: odbc:DSN=GCP_BQ|||select did.i22_parts_alias,&#xA;	did.i22_iso_mktcd,&#xA;	did.i22_dealer_cd,&#xA;	did.i22_dlrname &#xA;from `prj-dfad-1242-uapd-p-1242.bq_65_diddnf_lnd_lc_vw.dlt_i22_eu_location_vw` as did &#xA;where did.i22_iso_mktcd = 'NLD'" type="V_WString" />
+                <Field name="i22_dlrname" size="16384" source="File: odbc:DSN=GCP_BQ|||select did.i22_parts_alias,&#xA;	did.i22_iso_mktcd,&#xA;	did.i22_dealer_cd,&#xA;	did.i22_dlrname &#xA;from `prj-dfad-1242-uapd-p-1242.bq_65_diddnf_lnd_lc_vw.dlt_i22_eu_location_vw` as did &#xA;where did.i22_iso_mktcd = 'NLD'" type="V_WString" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="25">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="175" y="104" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="i22_parts_alias" selected="False" />
+                <SelectField field="i22_iso_mktcd" selected="True" rename="Market" />
+                <SelectField field="i22_dealer_cd" selected="True" rename="DealerCode" />
+                <SelectField field="i22_dlrname" selected="True" rename="DealerName" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="26">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="283" y="104" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="Market" action="GroupBy" rename="Market" />
+                <SummarizeField field="DealerCode" action="GroupBy" rename="DealerCode" />
+                <SummarizeField field="DealerName" action="GroupBy" rename="DealerName" />
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+        <Node ToolID="27">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Unique.Unique">
+            <Position x="427" y="104" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <UniqueFields>
+                <Field field="DealerCode" />
+              </UniqueFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnique" />
+        </Node>
+      </ChildNodes>
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Right" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="1" Connection="Join" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="1" Connection="Right" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="5" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="True" />
+      <Destination ToolID="5" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Join" />
+      <Destination ToolID="30" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="29" Connection="Output26" />
+      <Destination ToolID="1" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="27" Connection="Unique" />
+      <Destination ToolID="1" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="30" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="12" Connection="Output" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="29" Connection="Input2" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="16" Connection="Output" />
+      <Destination ToolID="15" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="17" Connection="Output" />
+      <Destination ToolID="16" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="24" Connection="Output" />
+      <Destination ToolID="25" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="25" Connection="Output" />
+      <Destination ToolID="26" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="26" Connection="Output" />
+      <Destination ToolID="27" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <IsTemplate value="False" />
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>NLD_SOR_2026_GCP_DID</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="fbd5a201-4de8-42b2-a05c-05b52e0c74c1" />
+      <Telemetry>
+        <PreviousWorkflowId value="13f80501-4c7b-4cd4-87c6-d170e967c3c7" />
+        <OriginWorkflowId value="f68366b1-d926-46b9-8ca6-b5a4494292d5" />
+      </Telemetry>
+      <PlatformWorkflowId value="" />
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>

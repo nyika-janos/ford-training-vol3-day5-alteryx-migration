@@ -1,0 +1,9 @@
+config {
+  type: "table",
+  schema: require("../../includes/config").gold_dataset,
+  name: "uk_sor_kas_dealers"
+}
+
+SELECT *
+FROM ${ref("uk_sor_kas_dealers_stage")}
+WHERE PV_CV != "CV"

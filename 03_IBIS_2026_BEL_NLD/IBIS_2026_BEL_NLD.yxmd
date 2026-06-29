@@ -1,0 +1,1318 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2024.2" RunE2="T">
+  <Nodes>
+    <Node ToolID="20">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="54" y="248" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">\\Ner9010201\proj\FCSD\Customer_Service_EU\VM Shared Service Center\Data team\MLI Classification for 2026TT_V1.0.xlsx|||`Alteryx$`</File>
+          <FormatSpecificOptions>
+            <FirstRowData>False</FirstRowData>
+            <ImportLine>1</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>MLI Classification for 2026TT_V1.0.xlsx
+Query=`Alteryx$`</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="MLI" size="255" source="File: \\Ner9010201\proj\FCSD\Customer_Service_EU\VM Shared Service Center\Data team\MLI Classification for 2026TT_V1.0.xlsx|||`Alteryx$`" type="V_String" />
+            <Field name="MLI DESCRIPTION" size="255" source="File: \\Ner9010201\proj\FCSD\Customer_Service_EU\VM Shared Service Center\Data team\MLI Classification for 2026TT_V1.0.xlsx|||`Alteryx$`" type="V_String" />
+            <Field name="Basket" size="255" source="File: \\Ner9010201\proj\FCSD\Customer_Service_EU\VM Shared Service Center\Data team\MLI Classification for 2026TT_V1.0.xlsx|||`Alteryx$`" type="V_String" />
+            <Field name="PCT&#xA;code" size="255" source="File: \\Ner9010201\proj\FCSD\Customer_Service_EU\VM Shared Service Center\Data team\MLI Classification for 2026TT_V1.0.xlsx|||`Alteryx$`" type="V_String" />
+            <Field name="CG&#xA;Code" size="255" source="File: \\Ner9010201\proj\FCSD\Customer_Service_EU\VM Shared Service Center\Data team\MLI Classification for 2026TT_V1.0.xlsx|||`Alteryx$`" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="22">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="339" y="54" width="1071" height="627" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>NLD</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="1">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="678" y="174" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="MLI" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="MLI" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="True" />
+                  <CommaDecimal value="False" />
+                  <SelectFields>
+                    <SelectField field="Left_MLI DESCRIPTION" selected="False" />
+                    <SelectField field="Right_MKT_CUSTOMER_ID_C" selected="True" />
+                    <SelectField field="Right_SSA_TRADE_N" selected="True" />
+                    <SelectField field="Right_market" selected="True" />
+                    <SelectField field="Right_billing_country" selected="False" />
+                    <SelectField field="Right_MLI" selected="False" rename="Right_MLI" />
+                    <SelectField field="Right_MDSMT_MNTHYR_Y" selected="True" />
+                    <SelectField field="Left_MLI" selected="True" />
+                    <SelectField field="Left_Basket" selected="True" />
+                    <SelectField field="Right_billed_revenue" selected="True" />
+                    <SelectField field="Right_gross_revenue" selected="True" />
+                    <SelectField field="Left_PCT" selected="True" />
+                    <SelectField field="Right_gross_pieces" selected="True" />
+                    <SelectField field="Right_FINIS" selected="True" input="Right_" />
+                    <SelectField field="Right_part_description" selected="True" input="Right_" />
+                    <SelectField field="Right_LOC_BDN" selected="True" input="Right_" />
+                    <SelectField field="Left_Text MLI" selected="True" input="Left_" />
+                    <SelectField field="Left_MPL Code" selected="True" input="Left_" />
+                    <SelectField field="Left_PCT&#xA;code" selected="True" input="Left_" />
+                    <SelectField field="Left_CG&#xA;Code" selected="True" input="Left_" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="2">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="774" y="176" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="billed_revenue" selected="True" size="20.2" />
+                <SelectField field="gross_revenue" selected="True" size="20.2" />
+                <SelectField field="gross_pieces" selected="True" size="40.2" />
+                <SelectField field="PCT" selected="False" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="3">
+          <GuiSettings>
+            <Position x="870" y="176" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Value name="Check Box (135)">False</Value>
+              <Value name="Check Box (136)">False</Value>
+              <Value name="List Box (11)">""</Value>
+              <Value name="Check Box (84)">False</Value>
+              <Value name="Check Box (117)">False</Value>
+              <Value name="Check Box (15)">True</Value>
+              <Value name="Check Box (109)">False</Value>
+              <Value name="Check Box (122)">False</Value>
+              <Value name="Check Box (53)">False</Value>
+              <Value name="Check Box (58)">False</Value>
+              <Value name="Check Box (70)">False</Value>
+              <Value name="Check Box (77)">False</Value>
+              <Value name="Drop Down (81)">upper</Value>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings Macro="Cleanse.yxmc" />
+        </Node>
+        <Node ToolID="4">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="966" y="176" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Mode>Simple</Mode>
+              <Simple>
+                <Operator>!=</Operator>
+                <Field>MKT_CUSTOMER_ID_C</Field>
+                <Operands>
+                  <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+                  <DateType>fixed</DateType>
+                  <PeriodDate>2022-03-10 05:21:15</PeriodDate>
+                  <PeriodType>
+                  </PeriodType>
+                  <PeriodCount>0</PeriodCount>
+                  <Operand>DNLD1</Operand>
+                  <StartDate>2022-03-10 05:21:15</StartDate>
+                  <EndDate>2022-03-10 05:21:15</EndDate>
+                </Operands>
+              </Simple>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>[MKT_CUSTOMER_ID_C] != "DNLD1"</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="5">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="1158" y="163" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="MKT_CUSTOMER_ID_C" action="GroupBy" rename="MKT_CUSTOMER_ID_C" />
+                <SummarizeField field="SSA_TRADE_N" action="GroupBy" rename="SSA_TRADE_N" />
+                <SummarizeField field="market" action="GroupBy" rename="market" />
+                <SummarizeField field="MDSMT_MNTHYR_Y" action="GroupBy" rename="MDSMT_MNTHYR_Y" />
+                <SummarizeField field="MLI" action="GroupBy" rename="MLI" />
+                <SummarizeField field="Basket" action="GroupBy" rename="Basket" />
+                <SummarizeField field="billed_revenue" action="Sum" rename="Sum_billed_revenue" />
+                <SummarizeField field="gross_revenue" action="Sum" rename="Sum_gross_revenue" />
+                <SummarizeField field="LOC_BDN" action="Sum" rename="Sum_LOC_BDN" />
+                <SummarizeField field="gross_pieces" action="Sum" rename="Sum_gross_pieces" />
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+        <Node ToolID="7">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="510" y="163" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Text MLI" selected="True" rename="MLI" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="10">
+          <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+            <Position x="1229" y="103" width="156" height="195" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Caption>Container 224</Caption>
+              <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+              <Disabled value="False" />
+              <Folded value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <ChildNodes>
+            <Node ToolID="8">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+                <Position x="1254" y="152" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <File MaxRecords="" FileFormat="25">\\Ner9010201\proj\FCSD\Customer_Service_EU\VM Shared Service Center\NSC - The Netherlands\Daily_tracking\2026\NLD IBIS SalesData_2026.xlsx|||SalesData</File>
+                  <Passwords />
+                  <Disable>False</Disable>
+                  <FormatSpecificOptions>
+                    <PreserveFormat>False</PreserveFormat>
+                    <UNCLocal>False</UNCLocal>
+                    <SkipFieldNames>False</SkipFieldNames>
+                    <SuppressBlankFile>False</SuppressBlankFile>
+                    <OutputOption>Overwrite</OutputOption>
+                  </FormatSpecificOptions>
+                  <MultiFile value="False" />
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText>NLD IBIS SalesData_2026.xlsx
+Query=SalesData</DefaultAnnotationText>
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+            </Node>
+          </ChildNodes>
+        </Node>
+        <Node ToolID="18">
+          <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+            <Position x="364" y="247" width="302" height="409" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Caption>GCP - IBIS</Caption>
+              <Style TextColor="#314c4a" FillColor="#ffff80" BorderColor="#314c4a" Transparency="25" Margin="25" />
+              <Disabled value="False" />
+              <Folded value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <ChildNodes>
+            <Node ToolID="11">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+                <Position x="582" y="392" />
+              </GuiSettings>
+              <Properties>
+                <Configuration joinByRecordPos="False">
+                  <JoinInfo connection="Left">
+                    <Field field="FINIS" />
+                  </JoinInfo>
+                  <JoinInfo connection="Right">
+                    <Field field="FINIS" />
+                  </JoinInfo>
+                  <SelectConfiguration>
+                    <Configuration outputConnection="Join">
+                      <OrderChanged value="False" />
+                      <CommaDecimal value="False" />
+                      <SelectFields>
+                        <SelectField field="Right_FINIS" selected="False" rename="Right_FINIS" input="Right_" />
+                        <SelectField field="*Unknown" selected="True" />
+                      </SelectFields>
+                    </Configuration>
+                  </SelectConfiguration>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+            </Node>
+            <Node ToolID="12">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+                <Position x="389" y="296" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <Passwords />
+                  <File RecordLimit="" FileFormat="23">odbc:DSN=GCP_BQ|||select substr(customer.MRKT_MARKET_C, 2, 3) as market,
+	customer.MKT_CUSTOMER_ID_C,
+	customer.SSA_TRADE_N,
+	sales.COUNTRY_ISO3_C as billing_country,
+	sales.SBASEPRT_NBR as FINIS,
+	parts.PTHR_PRODUCT_C as MLI,
+	sales.MDSMT_MNTHYR_Y,
+	Sum(sales.SALES_GROSS_REV_A / xrates.MONEX_B_RATE_R) as LOC_BDN,
+	Sum(sales.SALES_GROSS_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as gross_revenue,
+	Sum(sales.SALES_BILLED_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as billed_revenue,
+	Sum(sales.SALES_GROSS_PART_T) as gross_pieces 
+from `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM06` as sales 
+	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDP01` as parts on parts.SBASEPRT_NBR = sales.SBASEPRT_NBR and parts.SPRFXPRT_PREFIX_R = sales.SPRFXPRT_PREFIX_R 
+	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM01` as customer on customer.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and customer.MKT_CUSTOMER_ID_C = sales.MKT_CUSTOMER_ID_C 
+	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates on xrates.MONEX_MNTHYR_Y = sales.MDSMT_MNTHYR_Y 
+	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC12` as curr on curr.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and curr.FUND_CODE_C = xrates.FUND_CODE_C 
+	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates2 on xrates2.FUND_CODE_C = xrates.FUND_CODE_C 
+where substr(customer.MRKT_MARKET_C, 2, 3) in ('NLD') 
+	and sales.MDSMT_MNTHYR_Y Between 202601 
+	and 202612 
+	and xrates2.MONEX_MNTHYR_Y = 202601 
+	and customer.MNMKT_MAIN_MKT_C Like 'D' 
+	and customer.MKT_CUST_TYPE_C Like '1' 
+group by customer.MKT_CUSTOMER_ID_C, customer.SSA_TRADE_N, sales.COUNTRY_ISO3_C, sales.SBASEPRT_NBR, parts.PTHR_PRODUCT_C, sales.MDSMT_MNTHYR_Y, customer.MRKT_MARKET_C</File>
+                  <FormatSpecificOptions>
+                    <PreSQL />
+                    <PreSQLOnConfig>True</PreSQLOnConfig>
+                    <NoProgress>True</NoProgress>
+                    <SessionReadOnly>True</SessionReadOnly>
+                    <CacheData>False</CacheData>
+                    <TableStyle>Quoted</TableStyle>
+                    <ReadUncommitted>False</ReadUncommitted>
+                    <PostSQL />
+                  </FormatSpecificOptions>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText>DSN=GCP_BQ
+Query=select substr(customer.MRKT_...</DefaultAnnotationText>
+                  <Left value="False" />
+                </Annotation>
+                <MetaInfo connection="Output">
+                  <RecordInfo>
+                    <Field name="market" size="16384" source="File: odbc:DSN=GCP_BQ|||select substr(customer.MRKT_MARKET_C, 2, 3) as market,&#xA;	customer.MKT_CUSTOMER_ID_C,&#xA;	customer.SSA_TRADE_N,&#xA;	sales.COUNTRY_ISO3_C as billing_country,&#xA;	sales.SBASEPRT_NBR as FINIS,&#xA;	parts.PTHR_PRODUCT_C as MLI,&#xA;	sales.MDSMT_MNTHYR_Y,&#xA;	Sum(sales.SALES_GROSS_REV_A / xrates.MONEX_B_RATE_R) as LOC_BDN,&#xA;	Sum(sales.SALES_GROSS_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as gross_revenue,&#xA;	Sum(sales.SALES_BILLED_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as billed_revenue,&#xA;	Sum(sales.SALES_GROSS_PART_T) as gross_pieces &#xA;from `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM06` as sales &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDP01` as parts on parts.SBASEPRT_NBR = sales.SBASEPRT_NBR and parts.SPRFXPRT_PREFIX_R = sales.SPRFXPRT_PREFIX_R &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM01` as customer on customer.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and customer.MKT_CUSTOMER_ID_C = sales.MKT_CUSTOMER_ID_C &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates on xrates.MONEX_MNTHYR_Y = sales.MDSMT_MNTHYR_Y &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC12` as curr on curr.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and curr.FUND_CODE_C = xrates.FUND_CODE_C &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates2 on xrates2.FUND_CODE_C = xrates.FUND_CODE_C &#xA;where substr(customer.MRKT_MARKET_C, 2, 3) in ('NLD') &#xA;	and sales.MDSMT_MNTHYR_Y Between 202601 &#xA;	and 202612 &#xA;	and xrates2.MONEX_MNTHYR_Y = 202601 &#xA;	and customer.MNMKT_MAIN_MKT_C Like 'D' &#xA;	and customer.MKT_CUST_TYPE_C Like '1' &#xA;group by customer.MKT_CUSTOMER_ID_C, customer.SSA_TRADE_N, sales.COUNTRY_ISO3_C, sales.SBASEPRT_NBR, parts.PTHR_PRODUCT_C, sales.MDSMT_MNTHYR_Y, customer.MRKT_MARKET_C" type="V_WString" />
+                    <Field name="MKT_CUSTOMER_ID_C" size="16384" source="File: odbc:DSN=GCP_BQ|||select substr(customer.MRKT_MARKET_C, 2, 3) as market,&#xA;	customer.MKT_CUSTOMER_ID_C,&#xA;	customer.SSA_TRADE_N,&#xA;	sales.COUNTRY_ISO3_C as billing_country,&#xA;	sales.SBASEPRT_NBR as FINIS,&#xA;	parts.PTHR_PRODUCT_C as MLI,&#xA;	sales.MDSMT_MNTHYR_Y,&#xA;	Sum(sales.SALES_GROSS_REV_A / xrates.MONEX_B_RATE_R) as LOC_BDN,&#xA;	Sum(sales.SALES_GROSS_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as gross_revenue,&#xA;	Sum(sales.SALES_BILLED_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as billed_revenue,&#xA;	Sum(sales.SALES_GROSS_PART_T) as gross_pieces &#xA;from `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM06` as sales &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDP01` as parts on parts.SBASEPRT_NBR = sales.SBASEPRT_NBR and parts.SPRFXPRT_PREFIX_R = sales.SPRFXPRT_PREFIX_R &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM01` as customer on customer.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and customer.MKT_CUSTOMER_ID_C = sales.MKT_CUSTOMER_ID_C &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates on xrates.MONEX_MNTHYR_Y = sales.MDSMT_MNTHYR_Y &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC12` as curr on curr.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and curr.FUND_CODE_C = xrates.FUND_CODE_C &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates2 on xrates2.FUND_CODE_C = xrates.FUND_CODE_C &#xA;where substr(customer.MRKT_MARKET_C, 2, 3) in ('NLD') &#xA;	and sales.MDSMT_MNTHYR_Y Between 202601 &#xA;	and 202612 &#xA;	and xrates2.MONEX_MNTHYR_Y = 202601 &#xA;	and customer.MNMKT_MAIN_MKT_C Like 'D' &#xA;	and customer.MKT_CUST_TYPE_C Like '1' &#xA;group by customer.MKT_CUSTOMER_ID_C, customer.SSA_TRADE_N, sales.COUNTRY_ISO3_C, sales.SBASEPRT_NBR, parts.PTHR_PRODUCT_C, sales.MDSMT_MNTHYR_Y, customer.MRKT_MARKET_C" type="V_WString" />
+                    <Field name="SSA_TRADE_N" size="16384" source="File: odbc:DSN=GCP_BQ|||select substr(customer.MRKT_MARKET_C, 2, 3) as market,&#xA;	customer.MKT_CUSTOMER_ID_C,&#xA;	customer.SSA_TRADE_N,&#xA;	sales.COUNTRY_ISO3_C as billing_country,&#xA;	sales.SBASEPRT_NBR as FINIS,&#xA;	parts.PTHR_PRODUCT_C as MLI,&#xA;	sales.MDSMT_MNTHYR_Y,&#xA;	Sum(sales.SALES_GROSS_REV_A / xrates.MONEX_B_RATE_R) as LOC_BDN,&#xA;	Sum(sales.SALES_GROSS_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as gross_revenue,&#xA;	Sum(sales.SALES_BILLED_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as billed_revenue,&#xA;	Sum(sales.SALES_GROSS_PART_T) as gross_pieces &#xA;from `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM06` as sales &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDP01` as parts on parts.SBASEPRT_NBR = sales.SBASEPRT_NBR and parts.SPRFXPRT_PREFIX_R = sales.SPRFXPRT_PREFIX_R &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM01` as customer on customer.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and customer.MKT_CUSTOMER_ID_C = sales.MKT_CUSTOMER_ID_C &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates on xrates.MONEX_MNTHYR_Y = sales.MDSMT_MNTHYR_Y &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC12` as curr on curr.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and curr.FUND_CODE_C = xrates.FUND_CODE_C &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates2 on xrates2.FUND_CODE_C = xrates.FUND_CODE_C &#xA;where substr(customer.MRKT_MARKET_C, 2, 3) in ('NLD') &#xA;	and sales.MDSMT_MNTHYR_Y Between 202601 &#xA;	and 202612 &#xA;	and xrates2.MONEX_MNTHYR_Y = 202601 &#xA;	and customer.MNMKT_MAIN_MKT_C Like 'D' &#xA;	and customer.MKT_CUST_TYPE_C Like '1' &#xA;group by customer.MKT_CUSTOMER_ID_C, customer.SSA_TRADE_N, sales.COUNTRY_ISO3_C, sales.SBASEPRT_NBR, parts.PTHR_PRODUCT_C, sales.MDSMT_MNTHYR_Y, customer.MRKT_MARKET_C" type="V_WString" />
+                    <Field name="billing_country" size="16384" source="File: odbc:DSN=GCP_BQ|||select substr(customer.MRKT_MARKET_C, 2, 3) as market,&#xA;	customer.MKT_CUSTOMER_ID_C,&#xA;	customer.SSA_TRADE_N,&#xA;	sales.COUNTRY_ISO3_C as billing_country,&#xA;	sales.SBASEPRT_NBR as FINIS,&#xA;	parts.PTHR_PRODUCT_C as MLI,&#xA;	sales.MDSMT_MNTHYR_Y,&#xA;	Sum(sales.SALES_GROSS_REV_A / xrates.MONEX_B_RATE_R) as LOC_BDN,&#xA;	Sum(sales.SALES_GROSS_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as gross_revenue,&#xA;	Sum(sales.SALES_BILLED_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as billed_revenue,&#xA;	Sum(sales.SALES_GROSS_PART_T) as gross_pieces &#xA;from `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM06` as sales &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDP01` as parts on parts.SBASEPRT_NBR = sales.SBASEPRT_NBR and parts.SPRFXPRT_PREFIX_R = sales.SPRFXPRT_PREFIX_R &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM01` as customer on customer.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and customer.MKT_CUSTOMER_ID_C = sales.MKT_CUSTOMER_ID_C &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates on xrates.MONEX_MNTHYR_Y = sales.MDSMT_MNTHYR_Y &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC12` as curr on curr.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and curr.FUND_CODE_C = xrates.FUND_CODE_C &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates2 on xrates2.FUND_CODE_C = xrates.FUND_CODE_C &#xA;where substr(customer.MRKT_MARKET_C, 2, 3) in ('NLD') &#xA;	and sales.MDSMT_MNTHYR_Y Between 202601 &#xA;	and 202612 &#xA;	and xrates2.MONEX_MNTHYR_Y = 202601 &#xA;	and customer.MNMKT_MAIN_MKT_C Like 'D' &#xA;	and customer.MKT_CUST_TYPE_C Like '1' &#xA;group by customer.MKT_CUSTOMER_ID_C, customer.SSA_TRADE_N, sales.COUNTRY_ISO3_C, sales.SBASEPRT_NBR, parts.PTHR_PRODUCT_C, sales.MDSMT_MNTHYR_Y, customer.MRKT_MARKET_C" type="V_WString" />
+                    <Field name="FINIS" size="16384" source="File: odbc:DSN=GCP_BQ|||select substr(customer.MRKT_MARKET_C, 2, 3) as market,&#xA;	customer.MKT_CUSTOMER_ID_C,&#xA;	customer.SSA_TRADE_N,&#xA;	sales.COUNTRY_ISO3_C as billing_country,&#xA;	sales.SBASEPRT_NBR as FINIS,&#xA;	parts.PTHR_PRODUCT_C as MLI,&#xA;	sales.MDSMT_MNTHYR_Y,&#xA;	Sum(sales.SALES_GROSS_REV_A / xrates.MONEX_B_RATE_R) as LOC_BDN,&#xA;	Sum(sales.SALES_GROSS_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as gross_revenue,&#xA;	Sum(sales.SALES_BILLED_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as billed_revenue,&#xA;	Sum(sales.SALES_GROSS_PART_T) as gross_pieces &#xA;from `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM06` as sales &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDP01` as parts on parts.SBASEPRT_NBR = sales.SBASEPRT_NBR and parts.SPRFXPRT_PREFIX_R = sales.SPRFXPRT_PREFIX_R &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM01` as customer on customer.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and customer.MKT_CUSTOMER_ID_C = sales.MKT_CUSTOMER_ID_C &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates on xrates.MONEX_MNTHYR_Y = sales.MDSMT_MNTHYR_Y &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC12` as curr on curr.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and curr.FUND_CODE_C = xrates.FUND_CODE_C &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates2 on xrates2.FUND_CODE_C = xrates.FUND_CODE_C &#xA;where substr(customer.MRKT_MARKET_C, 2, 3) in ('NLD') &#xA;	and sales.MDSMT_MNTHYR_Y Between 202601 &#xA;	and 202612 &#xA;	and xrates2.MONEX_MNTHYR_Y = 202601 &#xA;	and customer.MNMKT_MAIN_MKT_C Like 'D' &#xA;	and customer.MKT_CUST_TYPE_C Like '1' &#xA;group by customer.MKT_CUSTOMER_ID_C, customer.SSA_TRADE_N, sales.COUNTRY_ISO3_C, sales.SBASEPRT_NBR, parts.PTHR_PRODUCT_C, sales.MDSMT_MNTHYR_Y, customer.MRKT_MARKET_C" type="V_WString" />
+                    <Field name="MLI" size="16384" source="File: odbc:DSN=GCP_BQ|||select substr(customer.MRKT_MARKET_C, 2, 3) as market,&#xA;	customer.MKT_CUSTOMER_ID_C,&#xA;	customer.SSA_TRADE_N,&#xA;	sales.COUNTRY_ISO3_C as billing_country,&#xA;	sales.SBASEPRT_NBR as FINIS,&#xA;	parts.PTHR_PRODUCT_C as MLI,&#xA;	sales.MDSMT_MNTHYR_Y,&#xA;	Sum(sales.SALES_GROSS_REV_A / xrates.MONEX_B_RATE_R) as LOC_BDN,&#xA;	Sum(sales.SALES_GROSS_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as gross_revenue,&#xA;	Sum(sales.SALES_BILLED_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as billed_revenue,&#xA;	Sum(sales.SALES_GROSS_PART_T) as gross_pieces &#xA;from `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM06` as sales &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDP01` as parts on parts.SBASEPRT_NBR = sales.SBASEPRT_NBR and parts.SPRFXPRT_PREFIX_R = sales.SPRFXPRT_PREFIX_R &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM01` as customer on customer.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and customer.MKT_CUSTOMER_ID_C = sales.MKT_CUSTOMER_ID_C &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates on xrates.MONEX_MNTHYR_Y = sales.MDSMT_MNTHYR_Y &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC12` as curr on curr.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and curr.FUND_CODE_C = xrates.FUND_CODE_C &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates2 on xrates2.FUND_CODE_C = xrates.FUND_CODE_C &#xA;where substr(customer.MRKT_MARKET_C, 2, 3) in ('NLD') &#xA;	and sales.MDSMT_MNTHYR_Y Between 202601 &#xA;	and 202612 &#xA;	and xrates2.MONEX_MNTHYR_Y = 202601 &#xA;	and customer.MNMKT_MAIN_MKT_C Like 'D' &#xA;	and customer.MKT_CUST_TYPE_C Like '1' &#xA;group by customer.MKT_CUSTOMER_ID_C, customer.SSA_TRADE_N, sales.COUNTRY_ISO3_C, sales.SBASEPRT_NBR, parts.PTHR_PRODUCT_C, sales.MDSMT_MNTHYR_Y, customer.MRKT_MARKET_C" type="V_WString" />
+                    <Field name="MDSMT_MNTHYR_Y" source="File: odbc:DSN=GCP_BQ|||select substr(customer.MRKT_MARKET_C, 2, 3) as market,&#xA;	customer.MKT_CUSTOMER_ID_C,&#xA;	customer.SSA_TRADE_N,&#xA;	sales.COUNTRY_ISO3_C as billing_country,&#xA;	sales.SBASEPRT_NBR as FINIS,&#xA;	parts.PTHR_PRODUCT_C as MLI,&#xA;	sales.MDSMT_MNTHYR_Y,&#xA;	Sum(sales.SALES_GROSS_REV_A / xrates.MONEX_B_RATE_R) as LOC_BDN,&#xA;	Sum(sales.SALES_GROSS_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as gross_revenue,&#xA;	Sum(sales.SALES_BILLED_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as billed_revenue,&#xA;	Sum(sales.SALES_GROSS_PART_T) as gross_pieces &#xA;from `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM06` as sales &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDP01` as parts on parts.SBASEPRT_NBR = sales.SBASEPRT_NBR and parts.SPRFXPRT_PREFIX_R = sales.SPRFXPRT_PREFIX_R &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM01` as customer on customer.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and customer.MKT_CUSTOMER_ID_C = sales.MKT_CUSTOMER_ID_C &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates on xrates.MONEX_MNTHYR_Y = sales.MDSMT_MNTHYR_Y &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC12` as curr on curr.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and curr.FUND_CODE_C = xrates.FUND_CODE_C &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates2 on xrates2.FUND_CODE_C = xrates.FUND_CODE_C &#xA;where substr(customer.MRKT_MARKET_C, 2, 3) in ('NLD') &#xA;	and sales.MDSMT_MNTHYR_Y Between 202601 &#xA;	and 202612 &#xA;	and xrates2.MONEX_MNTHYR_Y = 202601 &#xA;	and customer.MNMKT_MAIN_MKT_C Like 'D' &#xA;	and customer.MKT_CUST_TYPE_C Like '1' &#xA;group by customer.MKT_CUSTOMER_ID_C, customer.SSA_TRADE_N, sales.COUNTRY_ISO3_C, sales.SBASEPRT_NBR, parts.PTHR_PRODUCT_C, sales.MDSMT_MNTHYR_Y, customer.MRKT_MARKET_C" type="Int64" />
+                    <Field name="LOC_BDN" scale="9" size="40" source="File: odbc:DSN=GCP_BQ|||select substr(customer.MRKT_MARKET_C, 2, 3) as market,&#xA;	customer.MKT_CUSTOMER_ID_C,&#xA;	customer.SSA_TRADE_N,&#xA;	sales.COUNTRY_ISO3_C as billing_country,&#xA;	sales.SBASEPRT_NBR as FINIS,&#xA;	parts.PTHR_PRODUCT_C as MLI,&#xA;	sales.MDSMT_MNTHYR_Y,&#xA;	Sum(sales.SALES_GROSS_REV_A / xrates.MONEX_B_RATE_R) as LOC_BDN,&#xA;	Sum(sales.SALES_GROSS_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as gross_revenue,&#xA;	Sum(sales.SALES_BILLED_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as billed_revenue,&#xA;	Sum(sales.SALES_GROSS_PART_T) as gross_pieces &#xA;from `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM06` as sales &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDP01` as parts on parts.SBASEPRT_NBR = sales.SBASEPRT_NBR and parts.SPRFXPRT_PREFIX_R = sales.SPRFXPRT_PREFIX_R &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM01` as customer on customer.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and customer.MKT_CUSTOMER_ID_C = sales.MKT_CUSTOMER_ID_C &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates on xrates.MONEX_MNTHYR_Y = sales.MDSMT_MNTHYR_Y &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC12` as curr on curr.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and curr.FUND_CODE_C = xrates.FUND_CODE_C &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates2 on xrates2.FUND_CODE_C = xrates.FUND_CODE_C &#xA;where substr(customer.MRKT_MARKET_C, 2, 3) in ('NLD') &#xA;	and sales.MDSMT_MNTHYR_Y Between 202601 &#xA;	and 202612 &#xA;	and xrates2.MONEX_MNTHYR_Y = 202601 &#xA;	and customer.MNMKT_MAIN_MKT_C Like 'D' &#xA;	and customer.MKT_CUST_TYPE_C Like '1' &#xA;group by customer.MKT_CUSTOMER_ID_C, customer.SSA_TRADE_N, sales.COUNTRY_ISO3_C, sales.SBASEPRT_NBR, parts.PTHR_PRODUCT_C, sales.MDSMT_MNTHYR_Y, customer.MRKT_MARKET_C" type="FixedDecimal" />
+                    <Field name="gross_revenue" scale="9" size="40" source="File: odbc:DSN=GCP_BQ|||select substr(customer.MRKT_MARKET_C, 2, 3) as market,&#xA;	customer.MKT_CUSTOMER_ID_C,&#xA;	customer.SSA_TRADE_N,&#xA;	sales.COUNTRY_ISO3_C as billing_country,&#xA;	sales.SBASEPRT_NBR as FINIS,&#xA;	parts.PTHR_PRODUCT_C as MLI,&#xA;	sales.MDSMT_MNTHYR_Y,&#xA;	Sum(sales.SALES_GROSS_REV_A / xrates.MONEX_B_RATE_R) as LOC_BDN,&#xA;	Sum(sales.SALES_GROSS_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as gross_revenue,&#xA;	Sum(sales.SALES_BILLED_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as billed_revenue,&#xA;	Sum(sales.SALES_GROSS_PART_T) as gross_pieces &#xA;from `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM06` as sales &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDP01` as parts on parts.SBASEPRT_NBR = sales.SBASEPRT_NBR and parts.SPRFXPRT_PREFIX_R = sales.SPRFXPRT_PREFIX_R &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM01` as customer on customer.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and customer.MKT_CUSTOMER_ID_C = sales.MKT_CUSTOMER_ID_C &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates on xrates.MONEX_MNTHYR_Y = sales.MDSMT_MNTHYR_Y &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC12` as curr on curr.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and curr.FUND_CODE_C = xrates.FUND_CODE_C &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates2 on xrates2.FUND_CODE_C = xrates.FUND_CODE_C &#xA;where substr(customer.MRKT_MARKET_C, 2, 3) in ('NLD') &#xA;	and sales.MDSMT_MNTHYR_Y Between 202601 &#xA;	and 202612 &#xA;	and xrates2.MONEX_MNTHYR_Y = 202601 &#xA;	and customer.MNMKT_MAIN_MKT_C Like 'D' &#xA;	and customer.MKT_CUST_TYPE_C Like '1' &#xA;group by customer.MKT_CUSTOMER_ID_C, customer.SSA_TRADE_N, sales.COUNTRY_ISO3_C, sales.SBASEPRT_NBR, parts.PTHR_PRODUCT_C, sales.MDSMT_MNTHYR_Y, customer.MRKT_MARKET_C" type="FixedDecimal" />
+                    <Field name="billed_revenue" scale="9" size="40" source="File: odbc:DSN=GCP_BQ|||select substr(customer.MRKT_MARKET_C, 2, 3) as market,&#xA;	customer.MKT_CUSTOMER_ID_C,&#xA;	customer.SSA_TRADE_N,&#xA;	sales.COUNTRY_ISO3_C as billing_country,&#xA;	sales.SBASEPRT_NBR as FINIS,&#xA;	parts.PTHR_PRODUCT_C as MLI,&#xA;	sales.MDSMT_MNTHYR_Y,&#xA;	Sum(sales.SALES_GROSS_REV_A / xrates.MONEX_B_RATE_R) as LOC_BDN,&#xA;	Sum(sales.SALES_GROSS_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as gross_revenue,&#xA;	Sum(sales.SALES_BILLED_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as billed_revenue,&#xA;	Sum(sales.SALES_GROSS_PART_T) as gross_pieces &#xA;from `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM06` as sales &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDP01` as parts on parts.SBASEPRT_NBR = sales.SBASEPRT_NBR and parts.SPRFXPRT_PREFIX_R = sales.SPRFXPRT_PREFIX_R &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM01` as customer on customer.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and customer.MKT_CUSTOMER_ID_C = sales.MKT_CUSTOMER_ID_C &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates on xrates.MONEX_MNTHYR_Y = sales.MDSMT_MNTHYR_Y &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC12` as curr on curr.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and curr.FUND_CODE_C = xrates.FUND_CODE_C &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates2 on xrates2.FUND_CODE_C = xrates.FUND_CODE_C &#xA;where substr(customer.MRKT_MARKET_C, 2, 3) in ('NLD') &#xA;	and sales.MDSMT_MNTHYR_Y Between 202601 &#xA;	and 202612 &#xA;	and xrates2.MONEX_MNTHYR_Y = 202601 &#xA;	and customer.MNMKT_MAIN_MKT_C Like 'D' &#xA;	and customer.MKT_CUST_TYPE_C Like '1' &#xA;group by customer.MKT_CUSTOMER_ID_C, customer.SSA_TRADE_N, sales.COUNTRY_ISO3_C, sales.SBASEPRT_NBR, parts.PTHR_PRODUCT_C, sales.MDSMT_MNTHYR_Y, customer.MRKT_MARKET_C" type="FixedDecimal" />
+                    <Field name="gross_pieces" scale="9" size="40" source="File: odbc:DSN=GCP_BQ|||select substr(customer.MRKT_MARKET_C, 2, 3) as market,&#xA;	customer.MKT_CUSTOMER_ID_C,&#xA;	customer.SSA_TRADE_N,&#xA;	sales.COUNTRY_ISO3_C as billing_country,&#xA;	sales.SBASEPRT_NBR as FINIS,&#xA;	parts.PTHR_PRODUCT_C as MLI,&#xA;	sales.MDSMT_MNTHYR_Y,&#xA;	Sum(sales.SALES_GROSS_REV_A / xrates.MONEX_B_RATE_R) as LOC_BDN,&#xA;	Sum(sales.SALES_GROSS_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as gross_revenue,&#xA;	Sum(sales.SALES_BILLED_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as billed_revenue,&#xA;	Sum(sales.SALES_GROSS_PART_T) as gross_pieces &#xA;from `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM06` as sales &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDP01` as parts on parts.SBASEPRT_NBR = sales.SBASEPRT_NBR and parts.SPRFXPRT_PREFIX_R = sales.SPRFXPRT_PREFIX_R &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM01` as customer on customer.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and customer.MKT_CUSTOMER_ID_C = sales.MKT_CUSTOMER_ID_C &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates on xrates.MONEX_MNTHYR_Y = sales.MDSMT_MNTHYR_Y &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC12` as curr on curr.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and curr.FUND_CODE_C = xrates.FUND_CODE_C &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates2 on xrates2.FUND_CODE_C = xrates.FUND_CODE_C &#xA;where substr(customer.MRKT_MARKET_C, 2, 3) in ('NLD') &#xA;	and sales.MDSMT_MNTHYR_Y Between 202601 &#xA;	and 202612 &#xA;	and xrates2.MONEX_MNTHYR_Y = 202601 &#xA;	and customer.MNMKT_MAIN_MKT_C Like 'D' &#xA;	and customer.MKT_CUST_TYPE_C Like '1' &#xA;group by customer.MKT_CUSTOMER_ID_C, customer.SSA_TRADE_N, sales.COUNTRY_ISO3_C, sales.SBASEPRT_NBR, parts.PTHR_PRODUCT_C, sales.MDSMT_MNTHYR_Y, customer.MRKT_MARKET_C" type="FixedDecimal" />
+                  </RecordInfo>
+                </MetaInfo>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+            </Node>
+            <Node ToolID="13">
+              <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+                <Position x="498" y="512" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <SummarizeFields>
+                    <SummarizeField field="part_description" action="GroupBy" rename="part_description" />
+                    <SummarizeField field="FINIS" action="GroupBy" rename="FINIS" />
+                  </SummarizeFields>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+            </Node>
+            <Node ToolID="17">
+              <GuiSettings>
+                <Position x="486" y="320" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <Value name="Check Box (135)">False</Value>
+                  <Value name="Check Box (136)">False</Value>
+                  <Value name="List Box (11)">"FINIS"</Value>
+                  <Value name="Check Box (84)">True</Value>
+                  <Value name="Check Box (117)">True</Value>
+                  <Value name="Check Box (15)">True</Value>
+                  <Value name="Check Box (109)">False</Value>
+                  <Value name="Check Box (122)">False</Value>
+                  <Value name="Check Box (53)">False</Value>
+                  <Value name="Check Box (58)">False</Value>
+                  <Value name="Check Box (70)">False</Value>
+                  <Value name="Check Box (77)">False</Value>
+                  <Value name="Drop Down (81)">upper</Value>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings Macro="Cleanse.yxmc" />
+            </Node>
+            <Node ToolID="41">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+                <Position x="390" y="510" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <Passwords />
+                  <File RecordLimit="" FileFormat="23">odbc:DSN=GCP_BQ|||select parts.PROD_PART_DESC_X as part_description,
+TRIM(parts.SBASEPRT_NBR) as FINIS 
+from `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDP01` as parts</File>
+                  <FormatSpecificOptions>
+                    <PreSQL />
+                    <PreSQLOnConfig>True</PreSQLOnConfig>
+                    <NoProgress>True</NoProgress>
+                    <SessionReadOnly>True</SessionReadOnly>
+                    <CacheData>False</CacheData>
+                    <TableStyle>Quoted</TableStyle>
+                    <ReadUncommitted>False</ReadUncommitted>
+                    <PostSQL />
+                  </FormatSpecificOptions>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText>DSN=GCP_BQ
+Query=select parts.PROD_PART_DESC_...</DefaultAnnotationText>
+                  <Left value="False" />
+                </Annotation>
+                <MetaInfo connection="Output">
+                  <RecordInfo>
+                    <Field name="part_description" size="16384" source="File: odbc:DSN=GCP_BQ|||select parts.PROD_PART_DESC_X as part_description,&#xA;TRIM(parts.SBASEPRT_NBR) as FINIS &#xA;from `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDP01` as parts" type="V_WString" />
+                    <Field name="FINIS" size="16384" source="File: odbc:DSN=GCP_BQ|||select parts.PROD_PART_DESC_X as part_description,&#xA;TRIM(parts.SBASEPRT_NBR) as FINIS &#xA;from `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDP01` as parts" type="V_WString" />
+                  </RecordInfo>
+                </MetaInfo>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+            </Node>
+          </ChildNodes>
+        </Node>
+        <Node ToolID="19">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="413" y="150" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Mode>Simple</Mode>
+              <Simple>
+                <Operator>IsNotNull</Operator>
+                <Field>MLI</Field>
+                <Operands>
+                  <IgnoreTimeInDateTime>False</IgnoreTimeInDateTime>
+                  <DateType>fixed</DateType>
+                  <PeriodDate>2026-01-09 15:18:57</PeriodDate>
+                  <PeriodType>
+                  </PeriodType>
+                  <PeriodCount>0</PeriodCount>
+                  <Operand>
+                  </Operand>
+                  <StartDate>2026-01-09 15:18:57</StartDate>
+                  <EndDate>2026-01-09 15:18:57</EndDate>
+                </Operands>
+              </Simple>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>!IsNull([MLI])</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="21">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BlockUntilDone.BlockUntilDone">
+            <Position x="1062" y="164" />
+          </GuiSettings>
+          <Properties>
+            <Configuration />
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBlockUntilDone" />
+        </Node>
+        <Node ToolID="42">
+          <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+            <Position x="665" y="485" width="156" height="165" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Caption>Container 42</Caption>
+              <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+              <Disabled value="True" />
+              <Folded value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <ChildNodes>
+            <Node ToolID="40">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+                <Position x="690" y="534" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <Passwords />
+                  <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">\\ner9010201\PROJ\FCSD\Customer_Service_EU\VM Shared Service Center\Data team\GCP\part_description.csv</File>
+                  <FormatSpecificOptions>
+                    <HeaderRow>True</HeaderRow>
+                    <IgnoreErrors>False</IgnoreErrors>
+                    <AllowShareWrite>False</AllowShareWrite>
+                    <ImportLine>1</ImportLine>
+                    <FieldLen>254</FieldLen>
+                    <SingleThreadRead>False</SingleThreadRead>
+                    <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+                    <Delimeter>,</Delimeter>
+                    <QuoteRecordBreak>False</QuoteRecordBreak>
+                    <CodePage>28591</CodePage>
+                  </FormatSpecificOptions>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText>part_description.csv</DefaultAnnotationText>
+                  <Left value="False" />
+                </Annotation>
+                <MetaInfo connection="Output">
+                  <RecordInfo>
+                    <Field name="Field_1" size="254" source="File: \\ner9010201\PROJ\FCSD\Customer_Service_EU\VM Shared Service Center\Data team\GCP\part_description.csv" type="V_String" />
+                    <Field name="part_description" size="254" source="File: \\ner9010201\PROJ\FCSD\Customer_Service_EU\VM Shared Service Center\Data team\GCP\part_description.csv" type="V_String" />
+                    <Field name="FINIS" size="254" source="File: \\ner9010201\PROJ\FCSD\Customer_Service_EU\VM Shared Service Center\Data team\GCP\part_description.csv" type="V_String" />
+                  </RecordInfo>
+                </MetaInfo>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+            </Node>
+          </ChildNodes>
+        </Node>
+        <Node ToolID="43">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="1242" y="342" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File MaxRecords="" FileFormat="25">\\Ner9010201\proj\FCSD\Customer_Service_EU\VM Shared Service Center\NSC - The Netherlands\Daily_tracking\2026\NLD IBIS SalesData_2026.xlsx|||SalesData FINIS</File>
+              <Passwords />
+              <Disable>False</Disable>
+              <FormatSpecificOptions>
+                <PreserveFormat>False</PreserveFormat>
+                <UNCLocal>False</UNCLocal>
+                <SkipFieldNames>False</SkipFieldNames>
+                <SuppressBlankFile>False</SuppressBlankFile>
+                <OutputOption>Overwrite</OutputOption>
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>NLD IBIS SalesData_2026.xlsx
+Query=SalesData FINIS</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+        <Node ToolID="44">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="1146" y="342" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="MKT_CUSTOMER_ID_C" action="GroupBy" rename="MKT_CUSTOMER_ID_C" />
+                <SummarizeField field="SSA_TRADE_N" action="GroupBy" rename="SSA_TRADE_N" />
+                <SummarizeField field="market" action="GroupBy" rename="market" />
+                <SummarizeField field="MDSMT_MNTHYR_Y" action="GroupBy" rename="MDSMT_MNTHYR_Y" />
+                <SummarizeField field="MLI" action="GroupBy" rename="MLI" />
+                <SummarizeField field="Basket" action="GroupBy" rename="Basket" />
+                <SummarizeField field="FINIS" action="GroupBy" rename="FINIS" />
+                <SummarizeField field="PCT&#xA;code" action="GroupBy" rename="PCT&#xA;code" />
+                <SummarizeField field="billed_revenue" action="Sum" rename="Sum_billed_revenue" />
+                <SummarizeField field="gross_revenue" action="Sum" rename="Sum_gross_revenue" />
+                <SummarizeField field="LOC_BDN" action="Sum" rename="Sum_LOC_BDN" />
+                <SummarizeField field="gross_pieces" action="Sum" rename="Sum_gross_pieces" />
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="39">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="388" y="690" width="1142" height="464" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>BEL</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="23">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="630" y="800" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="MLI" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="MLI" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="True" />
+                  <CommaDecimal value="False" />
+                  <SelectFields>
+                    <SelectField field="Left_MLI DESCRIPTION" selected="False" />
+                    <SelectField field="Right_MKT_CUSTOMER_ID_C" selected="True" />
+                    <SelectField field="Right_SSA_TRADE_N" selected="True" />
+                    <SelectField field="Right_market" selected="True" />
+                    <SelectField field="Right_billing_country" selected="False" />
+                    <SelectField field="Right_MLI" selected="False" rename="Right_MLI" />
+                    <SelectField field="Right_MDSMT_MNTHYR_Y" selected="True" />
+                    <SelectField field="Left_MLI" selected="True" />
+                    <SelectField field="Left_Basket" selected="True" />
+                    <SelectField field="Right_billed_revenue" selected="True" />
+                    <SelectField field="Right_gross_revenue" selected="True" />
+                    <SelectField field="Left_PCT" selected="True" />
+                    <SelectField field="Right_gross_pieces" selected="True" />
+                    <SelectField field="Right_FINIS" selected="True" input="Right_" />
+                    <SelectField field="Right_part_description" selected="True" input="Right_" />
+                    <SelectField field="Right_LOC_BDN" selected="True" input="Right_" />
+                    <SelectField field="Left_MPL Code" selected="True" input="Left_" />
+                    <SelectField field="Left_CG&#xA;Code" selected="True" input="Left_" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="24">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="438" y="800" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Mode>Simple</Mode>
+              <Simple>
+                <Operator>IsNotNull</Operator>
+                <Field>MLI</Field>
+                <Operands>
+                  <IgnoreTimeInDateTime>False</IgnoreTimeInDateTime>
+                  <DateType>fixed</DateType>
+                  <PeriodDate>2026-01-09 15:19:10</PeriodDate>
+                  <PeriodType>
+                  </PeriodType>
+                  <PeriodCount>0</PeriodCount>
+                  <StartDate>2026-01-09 15:19:10</StartDate>
+                  <EndDate>2026-01-09 15:19:10</EndDate>
+                  <Operand>
+                  </Operand>
+                </Operands>
+              </Simple>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>!IsNull([MLI])</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="25">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="726" y="800" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="billed_revenue" selected="True" size="20.2" />
+                <SelectField field="gross_revenue" selected="True" size="20.2" />
+                <SelectField field="PCT" selected="False" />
+                <SelectField field="gross_pieces" selected="True" size="40.2" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="26">
+          <GuiSettings>
+            <Position x="822" y="800" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Value name="Check Box (135)">False</Value>
+              <Value name="Check Box (136)">False</Value>
+              <Value name="List Box (11)">""</Value>
+              <Value name="Check Box (84)">False</Value>
+              <Value name="Check Box (117)">False</Value>
+              <Value name="Check Box (15)">True</Value>
+              <Value name="Check Box (109)">False</Value>
+              <Value name="Check Box (122)">False</Value>
+              <Value name="Check Box (53)">False</Value>
+              <Value name="Check Box (58)">False</Value>
+              <Value name="Check Box (70)">False</Value>
+              <Value name="Check Box (77)">False</Value>
+              <Value name="Drop Down (81)">upper</Value>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings Macro="Cleanse.yxmc" />
+        </Node>
+        <Node ToolID="27">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="918" y="800" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Mode>Simple</Mode>
+              <Simple>
+                <Operator>!=</Operator>
+                <Field>MKT_CUSTOMER_ID_C</Field>
+                <Operands>
+                  <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+                  <DateType>fixed</DateType>
+                  <PeriodDate>2022-03-10 05:21:15</PeriodDate>
+                  <PeriodType>
+                  </PeriodType>
+                  <PeriodCount>0</PeriodCount>
+                  <Operand>DBEL1</Operand>
+                  <StartDate>2022-03-10 05:21:15</StartDate>
+                  <EndDate>2022-03-10 05:21:15</EndDate>
+                </Operands>
+              </Simple>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>[MKT_CUSTOMER_ID_C] != "DBEL1"</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="28">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="1206" y="788" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="MKT_CUSTOMER_ID_C" action="GroupBy" rename="MKT_CUSTOMER_ID_C" />
+                <SummarizeField field="SSA_TRADE_N" action="GroupBy" rename="SSA_TRADE_N" />
+                <SummarizeField field="market" action="GroupBy" rename="market" />
+                <SummarizeField field="MDSMT_MNTHYR_Y" action="GroupBy" rename="MDSMT_MNTHYR_Y" />
+                <SummarizeField field="MLI" action="GroupBy" rename="MLI" />
+                <SummarizeField field="Basket" action="GroupBy" rename="Basket" />
+                <SummarizeField field="billed_revenue" action="Sum" rename="Sum_billed_revenue" />
+                <SummarizeField field="gross_revenue" action="Sum" rename="Sum_gross_revenue" />
+                <SummarizeField field="LOC_BDN" action="Sum" rename="Sum_LOC_BDN" />
+                <SummarizeField field="gross_pieces" action="Sum" rename="Sum_gross_pieces" />
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+        <Node ToolID="29">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="1206" y="932" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="True" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="MKT_CUSTOMER_ID_C" selected="True" />
+                <SelectField field="SSA_TRADE_N" selected="True" />
+                <SelectField field="market" selected="True" />
+                <SelectField field="MDSMT_MNTHYR_Y" selected="True" />
+                <SelectField field="FINIS" selected="True" rename="Finis" />
+                <SelectField field="part_description" selected="True" rename="Finis_desc" />
+                <SelectField field="MLI" selected="True" />
+                <SelectField field="Basket" selected="True" />
+                <SelectField field="billed_revenue" selected="True" />
+                <SelectField field="gross_revenue" selected="True" />
+                <SelectField field="gross_pieces" selected="True" />
+                <SelectField field="LOC_BDN" selected="True" />
+                <SelectField field="MPL Code" selected="True" />
+                <SelectField field="CG&#xA;Code" selected="True" />
+                <SelectField field="retail_revenue" selected="True" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="30">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="534" y="788" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Text MLI" selected="True" rename="MLI" />
+                <SelectField field="PCT&#xA;code" selected="True" rename="PCT" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="33">
+          <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+            <Position x="1337" y="739" width="168" height="277" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Caption>Container 225</Caption>
+              <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+              <Disabled value="False" />
+              <Folded value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <ChildNodes>
+            <Node ToolID="31">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+                <Position x="1374" y="788" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <File MaxRecords="" FileFormat="25">\\Ner9010201\proj\FCSD\Customer_Service_EU\VM Shared Service Center\NSC - Belgium\Daily tracking\2026\BEL IBIS SalesData_2026.xlsx|||SalesData</File>
+                  <Passwords />
+                  <Disable>False</Disable>
+                  <FormatSpecificOptions>
+                    <PreserveFormat>False</PreserveFormat>
+                    <UNCLocal>False</UNCLocal>
+                    <SkipFieldNames>False</SkipFieldNames>
+                    <SuppressBlankFile>False</SuppressBlankFile>
+                    <OutputOption>Overwrite</OutputOption>
+                  </FormatSpecificOptions>
+                  <MultiFile value="False" />
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText>BEL IBIS SalesData_2026.xlsx
+Query=SalesData</DefaultAnnotationText>
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+            </Node>
+            <Node ToolID="32">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+                <Position x="1362" y="932" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <File MaxRecords="" FileFormat="25">\\Ner9010201\proj\FCSD\Customer_Service_EU\VM Shared Service Center\NSC - Belgium\Daily tracking\2026\BEL IBIS SalesData_Finis_2026.xlsx|||SalesData</File>
+                  <Passwords />
+                  <Disable>False</Disable>
+                  <FormatSpecificOptions>
+                    <PreserveFormat>False</PreserveFormat>
+                    <UNCLocal>False</UNCLocal>
+                    <SkipFieldNames>False</SkipFieldNames>
+                    <SuppressBlankFile>False</SuppressBlankFile>
+                    <OutputOption>Overwrite</OutputOption>
+                  </FormatSpecificOptions>
+                  <MultiFile value="False" />
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText>BEL IBIS SalesData_Finis_2026.xlsx
+Query=SalesData</DefaultAnnotationText>
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+            </Node>
+          </ChildNodes>
+        </Node>
+        <Node ToolID="37">
+          <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+            <Position x="413" y="919" width="265" height="210" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Caption>GCP - IBIS</Caption>
+              <Style TextColor="#314c4a" FillColor="#ffff80" BorderColor="#314c4a" Transparency="25" Margin="25" />
+              <Disabled value="False" />
+              <Folded value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <ChildNodes>
+            <Node ToolID="34">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+                <Position x="438" y="968" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <Passwords />
+                  <File RecordLimit="" FileFormat="23">odbc:DSN=GCP_BQ|||select substr(customer.MRKT_MARKET_C, 2, 3) as market,
+	customer.MKT_CUSTOMER_ID_C,
+	customer.SSA_TRADE_N,
+	sales.COUNTRY_ISO3_C as billing_country,
+	sales.SBASEPRT_NBR as FINIS,
+	parts.PTHR_PRODUCT_C as MLI,
+	sales.MDSMT_MNTHYR_Y,
+	Sum(sales.SALES_GROSS_REV_A / xrates.MONEX_B_RATE_R) as LOC_BDN,
+	Sum(sales.SALES_GROSS_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as gross_revenue,
+	Sum(sales.SALES_BILLED_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as billed_revenue,
+	Sum(sales.SALES_GROSS_PART_T) as gross_pieces 
+from `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM06` as sales 
+	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDP01` as parts on parts.SBASEPRT_NBR = sales.SBASEPRT_NBR and parts.SPRFXPRT_PREFIX_R = sales.SPRFXPRT_PREFIX_R 
+	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM01` as customer on customer.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and customer.MKT_CUSTOMER_ID_C = sales.MKT_CUSTOMER_ID_C 
+	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates on xrates.MONEX_MNTHYR_Y = sales.MDSMT_MNTHYR_Y 
+	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC12` as curr on curr.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and curr.FUND_CODE_C = xrates.FUND_CODE_C 
+	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates2 on xrates2.FUND_CODE_C = xrates.FUND_CODE_C 
+where substr(customer.MRKT_MARKET_C, 2, 3) in ('BEL') 
+	and sales.MDSMT_MNTHYR_Y Between 202601 
+	and 202612 
+	and xrates2.MONEX_MNTHYR_Y = 202601 
+	and customer.MNMKT_MAIN_MKT_C Like 'D' 
+	and customer.MKT_CUST_TYPE_C Like '1' 
+group by customer.MKT_CUSTOMER_ID_C, customer.SSA_TRADE_N, sales.COUNTRY_ISO3_C, sales.SBASEPRT_NBR, parts.PTHR_PRODUCT_C, sales.MDSMT_MNTHYR_Y, customer.MRKT_MARKET_C</File>
+                  <FormatSpecificOptions>
+                    <PreSQL />
+                    <PreSQLOnConfig>True</PreSQLOnConfig>
+                    <NoProgress>True</NoProgress>
+                    <SessionReadOnly>True</SessionReadOnly>
+                    <CacheData>False</CacheData>
+                    <TableStyle>Quoted</TableStyle>
+                    <ReadUncommitted>False</ReadUncommitted>
+                    <PostSQL />
+                  </FormatSpecificOptions>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText>DSN=GCP_BQ
+Query=select substr(customer.MRKT_...</DefaultAnnotationText>
+                  <Left value="False" />
+                </Annotation>
+                <MetaInfo connection="Output">
+                  <RecordInfo>
+                    <Field name="market" size="16384" source="File: odbc:DSN=GCP_BQ|||select substr(customer.MRKT_MARKET_C, 2, 3) as market,&#xA;	customer.MKT_CUSTOMER_ID_C,&#xA;	customer.SSA_TRADE_N,&#xA;	sales.COUNTRY_ISO3_C as billing_country,&#xA;	sales.SBASEPRT_NBR as FINIS,&#xA;	parts.PTHR_PRODUCT_C as MLI,&#xA;	sales.MDSMT_MNTHYR_Y,&#xA;	Sum(sales.SALES_GROSS_REV_A / xrates.MONEX_B_RATE_R) as LOC_BDN,&#xA;	Sum(sales.SALES_GROSS_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as gross_revenue,&#xA;	Sum(sales.SALES_BILLED_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as billed_revenue,&#xA;	Sum(sales.SALES_GROSS_PART_T) as gross_pieces &#xA;from `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM06` as sales &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDP01` as parts on parts.SBASEPRT_NBR = sales.SBASEPRT_NBR and parts.SPRFXPRT_PREFIX_R = sales.SPRFXPRT_PREFIX_R &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM01` as customer on customer.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and customer.MKT_CUSTOMER_ID_C = sales.MKT_CUSTOMER_ID_C &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates on xrates.MONEX_MNTHYR_Y = sales.MDSMT_MNTHYR_Y &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC12` as curr on curr.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and curr.FUND_CODE_C = xrates.FUND_CODE_C &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates2 on xrates2.FUND_CODE_C = xrates.FUND_CODE_C &#xA;where substr(customer.MRKT_MARKET_C, 2, 3) in ('BEL') &#xA;	and sales.MDSMT_MNTHYR_Y Between 202601 &#xA;	and 202612 &#xA;	and xrates2.MONEX_MNTHYR_Y = 202601 &#xA;	and customer.MNMKT_MAIN_MKT_C Like 'D' &#xA;	and customer.MKT_CUST_TYPE_C Like '1' &#xA;group by customer.MKT_CUSTOMER_ID_C, customer.SSA_TRADE_N, sales.COUNTRY_ISO3_C, sales.SBASEPRT_NBR, parts.PTHR_PRODUCT_C, sales.MDSMT_MNTHYR_Y, customer.MRKT_MARKET_C" type="V_WString" />
+                    <Field name="MKT_CUSTOMER_ID_C" size="16384" source="File: odbc:DSN=GCP_BQ|||select substr(customer.MRKT_MARKET_C, 2, 3) as market,&#xA;	customer.MKT_CUSTOMER_ID_C,&#xA;	customer.SSA_TRADE_N,&#xA;	sales.COUNTRY_ISO3_C as billing_country,&#xA;	sales.SBASEPRT_NBR as FINIS,&#xA;	parts.PTHR_PRODUCT_C as MLI,&#xA;	sales.MDSMT_MNTHYR_Y,&#xA;	Sum(sales.SALES_GROSS_REV_A / xrates.MONEX_B_RATE_R) as LOC_BDN,&#xA;	Sum(sales.SALES_GROSS_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as gross_revenue,&#xA;	Sum(sales.SALES_BILLED_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as billed_revenue,&#xA;	Sum(sales.SALES_GROSS_PART_T) as gross_pieces &#xA;from `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM06` as sales &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDP01` as parts on parts.SBASEPRT_NBR = sales.SBASEPRT_NBR and parts.SPRFXPRT_PREFIX_R = sales.SPRFXPRT_PREFIX_R &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM01` as customer on customer.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and customer.MKT_CUSTOMER_ID_C = sales.MKT_CUSTOMER_ID_C &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates on xrates.MONEX_MNTHYR_Y = sales.MDSMT_MNTHYR_Y &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC12` as curr on curr.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and curr.FUND_CODE_C = xrates.FUND_CODE_C &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates2 on xrates2.FUND_CODE_C = xrates.FUND_CODE_C &#xA;where substr(customer.MRKT_MARKET_C, 2, 3) in ('BEL') &#xA;	and sales.MDSMT_MNTHYR_Y Between 202601 &#xA;	and 202612 &#xA;	and xrates2.MONEX_MNTHYR_Y = 202601 &#xA;	and customer.MNMKT_MAIN_MKT_C Like 'D' &#xA;	and customer.MKT_CUST_TYPE_C Like '1' &#xA;group by customer.MKT_CUSTOMER_ID_C, customer.SSA_TRADE_N, sales.COUNTRY_ISO3_C, sales.SBASEPRT_NBR, parts.PTHR_PRODUCT_C, sales.MDSMT_MNTHYR_Y, customer.MRKT_MARKET_C" type="V_WString" />
+                    <Field name="SSA_TRADE_N" size="16384" source="File: odbc:DSN=GCP_BQ|||select substr(customer.MRKT_MARKET_C, 2, 3) as market,&#xA;	customer.MKT_CUSTOMER_ID_C,&#xA;	customer.SSA_TRADE_N,&#xA;	sales.COUNTRY_ISO3_C as billing_country,&#xA;	sales.SBASEPRT_NBR as FINIS,&#xA;	parts.PTHR_PRODUCT_C as MLI,&#xA;	sales.MDSMT_MNTHYR_Y,&#xA;	Sum(sales.SALES_GROSS_REV_A / xrates.MONEX_B_RATE_R) as LOC_BDN,&#xA;	Sum(sales.SALES_GROSS_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as gross_revenue,&#xA;	Sum(sales.SALES_BILLED_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as billed_revenue,&#xA;	Sum(sales.SALES_GROSS_PART_T) as gross_pieces &#xA;from `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM06` as sales &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDP01` as parts on parts.SBASEPRT_NBR = sales.SBASEPRT_NBR and parts.SPRFXPRT_PREFIX_R = sales.SPRFXPRT_PREFIX_R &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM01` as customer on customer.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and customer.MKT_CUSTOMER_ID_C = sales.MKT_CUSTOMER_ID_C &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates on xrates.MONEX_MNTHYR_Y = sales.MDSMT_MNTHYR_Y &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC12` as curr on curr.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and curr.FUND_CODE_C = xrates.FUND_CODE_C &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates2 on xrates2.FUND_CODE_C = xrates.FUND_CODE_C &#xA;where substr(customer.MRKT_MARKET_C, 2, 3) in ('BEL') &#xA;	and sales.MDSMT_MNTHYR_Y Between 202601 &#xA;	and 202612 &#xA;	and xrates2.MONEX_MNTHYR_Y = 202601 &#xA;	and customer.MNMKT_MAIN_MKT_C Like 'D' &#xA;	and customer.MKT_CUST_TYPE_C Like '1' &#xA;group by customer.MKT_CUSTOMER_ID_C, customer.SSA_TRADE_N, sales.COUNTRY_ISO3_C, sales.SBASEPRT_NBR, parts.PTHR_PRODUCT_C, sales.MDSMT_MNTHYR_Y, customer.MRKT_MARKET_C" type="V_WString" />
+                    <Field name="billing_country" size="16384" source="File: odbc:DSN=GCP_BQ|||select substr(customer.MRKT_MARKET_C, 2, 3) as market,&#xA;	customer.MKT_CUSTOMER_ID_C,&#xA;	customer.SSA_TRADE_N,&#xA;	sales.COUNTRY_ISO3_C as billing_country,&#xA;	sales.SBASEPRT_NBR as FINIS,&#xA;	parts.PTHR_PRODUCT_C as MLI,&#xA;	sales.MDSMT_MNTHYR_Y,&#xA;	Sum(sales.SALES_GROSS_REV_A / xrates.MONEX_B_RATE_R) as LOC_BDN,&#xA;	Sum(sales.SALES_GROSS_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as gross_revenue,&#xA;	Sum(sales.SALES_BILLED_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as billed_revenue,&#xA;	Sum(sales.SALES_GROSS_PART_T) as gross_pieces &#xA;from `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM06` as sales &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDP01` as parts on parts.SBASEPRT_NBR = sales.SBASEPRT_NBR and parts.SPRFXPRT_PREFIX_R = sales.SPRFXPRT_PREFIX_R &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM01` as customer on customer.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and customer.MKT_CUSTOMER_ID_C = sales.MKT_CUSTOMER_ID_C &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates on xrates.MONEX_MNTHYR_Y = sales.MDSMT_MNTHYR_Y &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC12` as curr on curr.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and curr.FUND_CODE_C = xrates.FUND_CODE_C &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates2 on xrates2.FUND_CODE_C = xrates.FUND_CODE_C &#xA;where substr(customer.MRKT_MARKET_C, 2, 3) in ('BEL') &#xA;	and sales.MDSMT_MNTHYR_Y Between 202601 &#xA;	and 202612 &#xA;	and xrates2.MONEX_MNTHYR_Y = 202601 &#xA;	and customer.MNMKT_MAIN_MKT_C Like 'D' &#xA;	and customer.MKT_CUST_TYPE_C Like '1' &#xA;group by customer.MKT_CUSTOMER_ID_C, customer.SSA_TRADE_N, sales.COUNTRY_ISO3_C, sales.SBASEPRT_NBR, parts.PTHR_PRODUCT_C, sales.MDSMT_MNTHYR_Y, customer.MRKT_MARKET_C" type="V_WString" />
+                    <Field name="FINIS" size="16384" source="File: odbc:DSN=GCP_BQ|||select substr(customer.MRKT_MARKET_C, 2, 3) as market,&#xA;	customer.MKT_CUSTOMER_ID_C,&#xA;	customer.SSA_TRADE_N,&#xA;	sales.COUNTRY_ISO3_C as billing_country,&#xA;	sales.SBASEPRT_NBR as FINIS,&#xA;	parts.PTHR_PRODUCT_C as MLI,&#xA;	sales.MDSMT_MNTHYR_Y,&#xA;	Sum(sales.SALES_GROSS_REV_A / xrates.MONEX_B_RATE_R) as LOC_BDN,&#xA;	Sum(sales.SALES_GROSS_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as gross_revenue,&#xA;	Sum(sales.SALES_BILLED_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as billed_revenue,&#xA;	Sum(sales.SALES_GROSS_PART_T) as gross_pieces &#xA;from `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM06` as sales &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDP01` as parts on parts.SBASEPRT_NBR = sales.SBASEPRT_NBR and parts.SPRFXPRT_PREFIX_R = sales.SPRFXPRT_PREFIX_R &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM01` as customer on customer.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and customer.MKT_CUSTOMER_ID_C = sales.MKT_CUSTOMER_ID_C &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates on xrates.MONEX_MNTHYR_Y = sales.MDSMT_MNTHYR_Y &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC12` as curr on curr.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and curr.FUND_CODE_C = xrates.FUND_CODE_C &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates2 on xrates2.FUND_CODE_C = xrates.FUND_CODE_C &#xA;where substr(customer.MRKT_MARKET_C, 2, 3) in ('BEL') &#xA;	and sales.MDSMT_MNTHYR_Y Between 202601 &#xA;	and 202612 &#xA;	and xrates2.MONEX_MNTHYR_Y = 202601 &#xA;	and customer.MNMKT_MAIN_MKT_C Like 'D' &#xA;	and customer.MKT_CUST_TYPE_C Like '1' &#xA;group by customer.MKT_CUSTOMER_ID_C, customer.SSA_TRADE_N, sales.COUNTRY_ISO3_C, sales.SBASEPRT_NBR, parts.PTHR_PRODUCT_C, sales.MDSMT_MNTHYR_Y, customer.MRKT_MARKET_C" type="V_WString" />
+                    <Field name="MLI" size="16384" source="File: odbc:DSN=GCP_BQ|||select substr(customer.MRKT_MARKET_C, 2, 3) as market,&#xA;	customer.MKT_CUSTOMER_ID_C,&#xA;	customer.SSA_TRADE_N,&#xA;	sales.COUNTRY_ISO3_C as billing_country,&#xA;	sales.SBASEPRT_NBR as FINIS,&#xA;	parts.PTHR_PRODUCT_C as MLI,&#xA;	sales.MDSMT_MNTHYR_Y,&#xA;	Sum(sales.SALES_GROSS_REV_A / xrates.MONEX_B_RATE_R) as LOC_BDN,&#xA;	Sum(sales.SALES_GROSS_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as gross_revenue,&#xA;	Sum(sales.SALES_BILLED_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as billed_revenue,&#xA;	Sum(sales.SALES_GROSS_PART_T) as gross_pieces &#xA;from `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM06` as sales &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDP01` as parts on parts.SBASEPRT_NBR = sales.SBASEPRT_NBR and parts.SPRFXPRT_PREFIX_R = sales.SPRFXPRT_PREFIX_R &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM01` as customer on customer.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and customer.MKT_CUSTOMER_ID_C = sales.MKT_CUSTOMER_ID_C &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates on xrates.MONEX_MNTHYR_Y = sales.MDSMT_MNTHYR_Y &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC12` as curr on curr.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and curr.FUND_CODE_C = xrates.FUND_CODE_C &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates2 on xrates2.FUND_CODE_C = xrates.FUND_CODE_C &#xA;where substr(customer.MRKT_MARKET_C, 2, 3) in ('BEL') &#xA;	and sales.MDSMT_MNTHYR_Y Between 202601 &#xA;	and 202612 &#xA;	and xrates2.MONEX_MNTHYR_Y = 202601 &#xA;	and customer.MNMKT_MAIN_MKT_C Like 'D' &#xA;	and customer.MKT_CUST_TYPE_C Like '1' &#xA;group by customer.MKT_CUSTOMER_ID_C, customer.SSA_TRADE_N, sales.COUNTRY_ISO3_C, sales.SBASEPRT_NBR, parts.PTHR_PRODUCT_C, sales.MDSMT_MNTHYR_Y, customer.MRKT_MARKET_C" type="V_WString" />
+                    <Field name="MDSMT_MNTHYR_Y" source="File: odbc:DSN=GCP_BQ|||select substr(customer.MRKT_MARKET_C, 2, 3) as market,&#xA;	customer.MKT_CUSTOMER_ID_C,&#xA;	customer.SSA_TRADE_N,&#xA;	sales.COUNTRY_ISO3_C as billing_country,&#xA;	sales.SBASEPRT_NBR as FINIS,&#xA;	parts.PTHR_PRODUCT_C as MLI,&#xA;	sales.MDSMT_MNTHYR_Y,&#xA;	Sum(sales.SALES_GROSS_REV_A / xrates.MONEX_B_RATE_R) as LOC_BDN,&#xA;	Sum(sales.SALES_GROSS_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as gross_revenue,&#xA;	Sum(sales.SALES_BILLED_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as billed_revenue,&#xA;	Sum(sales.SALES_GROSS_PART_T) as gross_pieces &#xA;from `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM06` as sales &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDP01` as parts on parts.SBASEPRT_NBR = sales.SBASEPRT_NBR and parts.SPRFXPRT_PREFIX_R = sales.SPRFXPRT_PREFIX_R &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM01` as customer on customer.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and customer.MKT_CUSTOMER_ID_C = sales.MKT_CUSTOMER_ID_C &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates on xrates.MONEX_MNTHYR_Y = sales.MDSMT_MNTHYR_Y &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC12` as curr on curr.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and curr.FUND_CODE_C = xrates.FUND_CODE_C &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates2 on xrates2.FUND_CODE_C = xrates.FUND_CODE_C &#xA;where substr(customer.MRKT_MARKET_C, 2, 3) in ('BEL') &#xA;	and sales.MDSMT_MNTHYR_Y Between 202601 &#xA;	and 202612 &#xA;	and xrates2.MONEX_MNTHYR_Y = 202601 &#xA;	and customer.MNMKT_MAIN_MKT_C Like 'D' &#xA;	and customer.MKT_CUST_TYPE_C Like '1' &#xA;group by customer.MKT_CUSTOMER_ID_C, customer.SSA_TRADE_N, sales.COUNTRY_ISO3_C, sales.SBASEPRT_NBR, parts.PTHR_PRODUCT_C, sales.MDSMT_MNTHYR_Y, customer.MRKT_MARKET_C" type="Int64" />
+                    <Field name="LOC_BDN" scale="9" size="40" source="File: odbc:DSN=GCP_BQ|||select substr(customer.MRKT_MARKET_C, 2, 3) as market,&#xA;	customer.MKT_CUSTOMER_ID_C,&#xA;	customer.SSA_TRADE_N,&#xA;	sales.COUNTRY_ISO3_C as billing_country,&#xA;	sales.SBASEPRT_NBR as FINIS,&#xA;	parts.PTHR_PRODUCT_C as MLI,&#xA;	sales.MDSMT_MNTHYR_Y,&#xA;	Sum(sales.SALES_GROSS_REV_A / xrates.MONEX_B_RATE_R) as LOC_BDN,&#xA;	Sum(sales.SALES_GROSS_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as gross_revenue,&#xA;	Sum(sales.SALES_BILLED_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as billed_revenue,&#xA;	Sum(sales.SALES_GROSS_PART_T) as gross_pieces &#xA;from `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM06` as sales &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDP01` as parts on parts.SBASEPRT_NBR = sales.SBASEPRT_NBR and parts.SPRFXPRT_PREFIX_R = sales.SPRFXPRT_PREFIX_R &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM01` as customer on customer.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and customer.MKT_CUSTOMER_ID_C = sales.MKT_CUSTOMER_ID_C &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates on xrates.MONEX_MNTHYR_Y = sales.MDSMT_MNTHYR_Y &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC12` as curr on curr.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and curr.FUND_CODE_C = xrates.FUND_CODE_C &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates2 on xrates2.FUND_CODE_C = xrates.FUND_CODE_C &#xA;where substr(customer.MRKT_MARKET_C, 2, 3) in ('BEL') &#xA;	and sales.MDSMT_MNTHYR_Y Between 202601 &#xA;	and 202612 &#xA;	and xrates2.MONEX_MNTHYR_Y = 202601 &#xA;	and customer.MNMKT_MAIN_MKT_C Like 'D' &#xA;	and customer.MKT_CUST_TYPE_C Like '1' &#xA;group by customer.MKT_CUSTOMER_ID_C, customer.SSA_TRADE_N, sales.COUNTRY_ISO3_C, sales.SBASEPRT_NBR, parts.PTHR_PRODUCT_C, sales.MDSMT_MNTHYR_Y, customer.MRKT_MARKET_C" type="FixedDecimal" />
+                    <Field name="gross_revenue" scale="9" size="40" source="File: odbc:DSN=GCP_BQ|||select substr(customer.MRKT_MARKET_C, 2, 3) as market,&#xA;	customer.MKT_CUSTOMER_ID_C,&#xA;	customer.SSA_TRADE_N,&#xA;	sales.COUNTRY_ISO3_C as billing_country,&#xA;	sales.SBASEPRT_NBR as FINIS,&#xA;	parts.PTHR_PRODUCT_C as MLI,&#xA;	sales.MDSMT_MNTHYR_Y,&#xA;	Sum(sales.SALES_GROSS_REV_A / xrates.MONEX_B_RATE_R) as LOC_BDN,&#xA;	Sum(sales.SALES_GROSS_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as gross_revenue,&#xA;	Sum(sales.SALES_BILLED_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as billed_revenue,&#xA;	Sum(sales.SALES_GROSS_PART_T) as gross_pieces &#xA;from `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM06` as sales &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDP01` as parts on parts.SBASEPRT_NBR = sales.SBASEPRT_NBR and parts.SPRFXPRT_PREFIX_R = sales.SPRFXPRT_PREFIX_R &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM01` as customer on customer.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and customer.MKT_CUSTOMER_ID_C = sales.MKT_CUSTOMER_ID_C &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates on xrates.MONEX_MNTHYR_Y = sales.MDSMT_MNTHYR_Y &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC12` as curr on curr.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and curr.FUND_CODE_C = xrates.FUND_CODE_C &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates2 on xrates2.FUND_CODE_C = xrates.FUND_CODE_C &#xA;where substr(customer.MRKT_MARKET_C, 2, 3) in ('BEL') &#xA;	and sales.MDSMT_MNTHYR_Y Between 202601 &#xA;	and 202612 &#xA;	and xrates2.MONEX_MNTHYR_Y = 202601 &#xA;	and customer.MNMKT_MAIN_MKT_C Like 'D' &#xA;	and customer.MKT_CUST_TYPE_C Like '1' &#xA;group by customer.MKT_CUSTOMER_ID_C, customer.SSA_TRADE_N, sales.COUNTRY_ISO3_C, sales.SBASEPRT_NBR, parts.PTHR_PRODUCT_C, sales.MDSMT_MNTHYR_Y, customer.MRKT_MARKET_C" type="FixedDecimal" />
+                    <Field name="billed_revenue" scale="9" size="40" source="File: odbc:DSN=GCP_BQ|||select substr(customer.MRKT_MARKET_C, 2, 3) as market,&#xA;	customer.MKT_CUSTOMER_ID_C,&#xA;	customer.SSA_TRADE_N,&#xA;	sales.COUNTRY_ISO3_C as billing_country,&#xA;	sales.SBASEPRT_NBR as FINIS,&#xA;	parts.PTHR_PRODUCT_C as MLI,&#xA;	sales.MDSMT_MNTHYR_Y,&#xA;	Sum(sales.SALES_GROSS_REV_A / xrates.MONEX_B_RATE_R) as LOC_BDN,&#xA;	Sum(sales.SALES_GROSS_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as gross_revenue,&#xA;	Sum(sales.SALES_BILLED_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as billed_revenue,&#xA;	Sum(sales.SALES_GROSS_PART_T) as gross_pieces &#xA;from `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM06` as sales &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDP01` as parts on parts.SBASEPRT_NBR = sales.SBASEPRT_NBR and parts.SPRFXPRT_PREFIX_R = sales.SPRFXPRT_PREFIX_R &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM01` as customer on customer.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and customer.MKT_CUSTOMER_ID_C = sales.MKT_CUSTOMER_ID_C &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates on xrates.MONEX_MNTHYR_Y = sales.MDSMT_MNTHYR_Y &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC12` as curr on curr.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and curr.FUND_CODE_C = xrates.FUND_CODE_C &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates2 on xrates2.FUND_CODE_C = xrates.FUND_CODE_C &#xA;where substr(customer.MRKT_MARKET_C, 2, 3) in ('BEL') &#xA;	and sales.MDSMT_MNTHYR_Y Between 202601 &#xA;	and 202612 &#xA;	and xrates2.MONEX_MNTHYR_Y = 202601 &#xA;	and customer.MNMKT_MAIN_MKT_C Like 'D' &#xA;	and customer.MKT_CUST_TYPE_C Like '1' &#xA;group by customer.MKT_CUSTOMER_ID_C, customer.SSA_TRADE_N, sales.COUNTRY_ISO3_C, sales.SBASEPRT_NBR, parts.PTHR_PRODUCT_C, sales.MDSMT_MNTHYR_Y, customer.MRKT_MARKET_C" type="FixedDecimal" />
+                    <Field name="gross_pieces" scale="9" size="40" source="File: odbc:DSN=GCP_BQ|||select substr(customer.MRKT_MARKET_C, 2, 3) as market,&#xA;	customer.MKT_CUSTOMER_ID_C,&#xA;	customer.SSA_TRADE_N,&#xA;	sales.COUNTRY_ISO3_C as billing_country,&#xA;	sales.SBASEPRT_NBR as FINIS,&#xA;	parts.PTHR_PRODUCT_C as MLI,&#xA;	sales.MDSMT_MNTHYR_Y,&#xA;	Sum(sales.SALES_GROSS_REV_A / xrates.MONEX_B_RATE_R) as LOC_BDN,&#xA;	Sum(sales.SALES_GROSS_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as gross_revenue,&#xA;	Sum(sales.SALES_BILLED_REV_A / (xrates.MONEX_B_RATE_R / xrates2.MONEX_G_RATE_R)) as billed_revenue,&#xA;	Sum(sales.SALES_GROSS_PART_T) as gross_pieces &#xA;from `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM06` as sales &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDP01` as parts on parts.SBASEPRT_NBR = sales.SBASEPRT_NBR and parts.SPRFXPRT_PREFIX_R = sales.SPRFXPRT_PREFIX_R &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDM01` as customer on customer.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and customer.MKT_CUSTOMER_ID_C = sales.MKT_CUSTOMER_ID_C &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates on xrates.MONEX_MNTHYR_Y = sales.MDSMT_MNTHYR_Y &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC12` as curr on curr.COUNTRY_ISO3_C = sales.COUNTRY_ISO3_C and curr.FUND_CODE_C = xrates.FUND_CODE_C &#xA;	inner join `ford-26a2ac333716a2247a514420.GFIN_VIEW.SGFDC21` as xrates2 on xrates2.FUND_CODE_C = xrates.FUND_CODE_C &#xA;where substr(customer.MRKT_MARKET_C, 2, 3) in ('BEL') &#xA;	and sales.MDSMT_MNTHYR_Y Between 202601 &#xA;	and 202612 &#xA;	and xrates2.MONEX_MNTHYR_Y = 202601 &#xA;	and customer.MNMKT_MAIN_MKT_C Like 'D' &#xA;	and customer.MKT_CUST_TYPE_C Like '1' &#xA;group by customer.MKT_CUSTOMER_ID_C, customer.SSA_TRADE_N, sales.COUNTRY_ISO3_C, sales.SBASEPRT_NBR, parts.PTHR_PRODUCT_C, sales.MDSMT_MNTHYR_Y, customer.MRKT_MARKET_C" type="FixedDecimal" />
+                  </RecordInfo>
+                </MetaInfo>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+            </Node>
+            <Node ToolID="35">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+                <Position x="594" y="980" />
+              </GuiSettings>
+              <Properties>
+                <Configuration joinByRecordPos="False">
+                  <JoinInfo connection="Left">
+                    <Field field="FINIS" />
+                  </JoinInfo>
+                  <JoinInfo connection="Right">
+                    <Field field="FINIS" />
+                  </JoinInfo>
+                  <SelectConfiguration>
+                    <Configuration outputConnection="Join">
+                      <OrderChanged value="False" />
+                      <CommaDecimal value="False" />
+                      <SelectFields>
+                        <SelectField field="Right_FINIS" selected="False" rename="Right_FINIS" input="Right_" />
+                        <SelectField field="*Unknown" selected="True" />
+                      </SelectFields>
+                    </Configuration>
+                  </SelectConfiguration>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+            </Node>
+            <Node ToolID="36">
+              <GuiSettings>
+                <Position x="522" y="968" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <Value name="Check Box (135)">False</Value>
+                  <Value name="Check Box (136)">False</Value>
+                  <Value name="List Box (11)">"FINIS"</Value>
+                  <Value name="Check Box (84)">False</Value>
+                  <Value name="Check Box (117)">False</Value>
+                  <Value name="Check Box (15)">True</Value>
+                  <Value name="Check Box (109)">False</Value>
+                  <Value name="Check Box (122)">False</Value>
+                  <Value name="Check Box (53)">False</Value>
+                  <Value name="Check Box (58)">False</Value>
+                  <Value name="Check Box (70)">False</Value>
+                  <Value name="Check Box (77)">False</Value>
+                  <Value name="Drop Down (81)">upper</Value>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings Macro="Cleanse.yxmc" />
+            </Node>
+          </ChildNodes>
+        </Node>
+        <Node ToolID="38">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BlockUntilDone.BlockUntilDone">
+            <Position x="1110" y="788" />
+          </GuiSettings>
+          <Properties>
+            <Configuration />
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBlockUntilDone" />
+        </Node>
+      </ChildNodes>
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="20" Connection="Output" />
+      <Destination ToolID="19" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="20" Connection="Output" />
+      <Destination ToolID="24" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Join" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="3" Connection="Input2" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output26" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="True" />
+      <Destination ToolID="21" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="True" />
+      <Destination ToolID="44" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="1" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Join" />
+      <Destination ToolID="1" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="12" Connection="Output" />
+      <Destination ToolID="17" Connection="Input2" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="11" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="17" Connection="Output26" />
+      <Destination ToolID="11" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="35" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="36" Connection="Output26" />
+      <Destination ToolID="35" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="41" Connection="Output" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="19" Connection="True" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="21" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="44" Connection="Output" />
+      <Destination ToolID="43" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="23" Connection="Join" />
+      <Destination ToolID="25" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="24" Connection="True" />
+      <Destination ToolID="30" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="25" Connection="Output" />
+      <Destination ToolID="26" Connection="Input2" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="26" Connection="Output26" />
+      <Destination ToolID="27" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="27" Connection="True" />
+      <Destination ToolID="38" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="28" Connection="Output" />
+      <Destination ToolID="31" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="29" Connection="Output" />
+      <Destination ToolID="32" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="30" Connection="Output" />
+      <Destination ToolID="23" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="35" Connection="Join" />
+      <Destination ToolID="23" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="34" Connection="Output" />
+      <Destination ToolID="36" Connection="Input2" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="38" Connection="Output2" />
+      <Destination ToolID="28" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="38" Connection="Output" />
+      <Destination ToolID="29" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <RunWithE2 value="True" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <IsTemplate value="False" />
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>IBIS_2026_BEL_NLD</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="448379e1-bd92-4f3a-8fdc-edd21d258ef0" />
+      <Telemetry>
+        <PreviousWorkflowId value="57a04f86-bf54-4306-a4a5-9d708dd9f083" />
+        <OriginWorkflowId value="293459b6-5003-4a89-81d7-d3896a166589" />
+      </Telemetry>
+      <PlatformWorkflowId value="" />
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
