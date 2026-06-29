@@ -1,0 +1,8 @@
+config {
+  type: "assertion",
+  name: "assertion_nld_sor_mli_join_coverage"
+}
+
+SELECT *
+FROM ${ref("nld_sor_enriched")}
+WHERE MliMappingFound = FALSE

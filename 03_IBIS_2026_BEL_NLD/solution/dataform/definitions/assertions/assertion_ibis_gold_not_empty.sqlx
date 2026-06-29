@@ -1,0 +1,10 @@
+config {
+  type: "assertion",
+  name: "assertion_ibis_gold_not_empty"
+}
+
+SELECT 1 AS failed
+WHERE NOT EXISTS (
+  SELECT 1
+  FROM ${ref("ibis_market_salesdata")}
+)

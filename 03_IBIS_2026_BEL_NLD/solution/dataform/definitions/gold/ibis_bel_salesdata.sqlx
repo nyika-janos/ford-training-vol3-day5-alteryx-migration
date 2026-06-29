@@ -1,0 +1,9 @@
+config {
+  type: "view",
+  schema: require("../../includes/config").gold_dataset,
+  name: "ibis_bel_salesdata"
+}
+
+SELECT *
+FROM ${ref("ibis_market_salesdata")}
+WHERE market = "BEL"

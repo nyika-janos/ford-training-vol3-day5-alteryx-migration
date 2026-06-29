@@ -1,0 +1,11 @@
+config {
+  type: "assertion",
+  name: "assertion_nld_sor_required_fields"
+}
+
+SELECT *
+FROM ${ref("nld_sor_stage")}
+WHERE Market IS NULL
+  OR DealerCode IS NULL
+  OR MLI IS NULL
+  OR Months IS NULL

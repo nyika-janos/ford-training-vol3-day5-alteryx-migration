@@ -1,0 +1,19 @@
+config {
+  type: "table",
+  schema: require("../../includes/config").stage_dataset,
+  name: "mli_classification_stage"
+}
+
+js {
+  const { raw_dataset } = require("../../includes/config");
+}
+
+SELECT DISTINCT
+  LPAD(TRIM(CAST(text_mli AS STRING)), 4, "0") AS MLI,
+  TRIM(CAST(mli_description AS STRING)) AS MLI_DESCRIPTION,
+  TRIM(CAST(basket AS STRING)) AS Basket,
+  TRIM(CAST(mpl_code AS STRING)) AS MPL,
+  TRIM(CAST(pct_code AS STRING)) AS PCT,
+  TRIM(CAST(cg_code AS STRING)) AS GC
+FROM `${raw_dataset}.mli_classification_alteryx_raw`
+WHERE text_mli IS NOT NULL

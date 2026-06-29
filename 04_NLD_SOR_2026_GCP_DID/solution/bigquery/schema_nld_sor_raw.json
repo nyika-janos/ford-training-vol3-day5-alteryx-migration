@@ -1,0 +1,21 @@
+[
+  {"name": "Market", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "DealerCode", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "MLI", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "Months", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "channel", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "payment", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "BusinessY", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "BusinessM", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "BusinessQ", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "MKTG", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "UCC", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "channel_1", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "LOC_Invoiced", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "LOC_BDN", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "LOC_RRP", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "USD_Invoiced", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "USD_BDN", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "USD_RRP", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "qty", "type": "STRING", "mode": "NULLABLE"}
+]

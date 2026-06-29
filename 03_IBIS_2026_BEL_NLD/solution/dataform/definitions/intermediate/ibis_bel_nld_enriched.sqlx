@@ -1,0 +1,33 @@
+config {
+  type: "table",
+  schema: require("../../includes/config").intermediate_dataset,
+  name: "ibis_bel_nld_enriched"
+}
+
+SELECT
+  s.market,
+  s.MKT_CUSTOMER_ID_C,
+  s.SSA_TRADE_N,
+  s.billing_country,
+  s.FINIS,
+  p.part_description,
+  s.MLI,
+  m.MLI_DESCRIPTION,
+  m.Basket,
+  m.MPL,
+  m.PCT,
+  m.GC,
+  s.MDSMT_MNTHYR_Y,
+  s.year,
+  s.month,
+  s.LOC_BDN,
+  s.gross_revenue,
+  s.billed_revenue,
+  s.gross_pieces,
+  m.MLI IS NOT NULL AS MliMappingFound,
+  p.FINIS IS NOT NULL AS PartsMappingFound
+FROM ${ref("ibis_sales_stage")} AS s
+LEFT JOIN ${ref("mli_classification_stage")} AS m
+  ON s.MLI = m.MLI
+LEFT JOIN ${ref("nld_parts_stage")} AS p
+  ON s.FINIS_JOIN_KEY = p.FINIS_JOIN_KEY

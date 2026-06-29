@@ -1,0 +1,6 @@
+[
+  {"name": "i22_parts_alias", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "i22_iso_mktcd", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "i22_dealer_cd", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "i22_dlrname", "type": "STRING", "mode": "NULLABLE"}
+]

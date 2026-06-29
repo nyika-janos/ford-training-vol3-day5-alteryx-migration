@@ -1,0 +1,8 @@
+defaultProject: ford-training-430008
+defaultLocation: europe-west4
+defaultDataset: 04_nld_sor_gold
+vars:
+  raw_dataset: 04_nld_sor_raw
+  stage_dataset: 04_nld_sor_stage
+  intermediate_dataset: 04_nld_sor_intermediate
+  gold_dataset: 04_nld_sor_gold

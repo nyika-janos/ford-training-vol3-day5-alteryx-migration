@@ -1,0 +1,8 @@
+config {
+  type: "assertion",
+  name: "assertion_ibis_mli_join_coverage"
+}
+
+SELECT *
+FROM ${ref("ibis_bel_nld_enriched")}
+WHERE MliMappingFound = FALSE

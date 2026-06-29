@@ -1,0 +1,16 @@
+config {
+  type: "table",
+  schema: require("../../includes/config").stage_dataset,
+  name: "nld_parts_stage"
+}
+
+js {
+  const { raw_dataset } = require("../../includes/config");
+}
+
+SELECT DISTINCT
+  TRIM(CAST(FINIS AS STRING)) AS FINIS,
+  NULLIF(REGEXP_REPLACE(TRIM(CAST(FINIS AS STRING)), r"^0+", ""), "") AS FINIS_JOIN_KEY,
+  TRIM(CAST(part_description AS STRING)) AS part_description
+FROM `${raw_dataset}.nld_parts_raw`
+WHERE FINIS IS NOT NULL

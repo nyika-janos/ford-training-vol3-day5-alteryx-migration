@@ -1,0 +1,30 @@
+config {
+  type: "table",
+  schema: require("../../includes/config").gold_dataset,
+  name: "nld_sor_salesdata"
+}
+
+SELECT
+  Market,
+  DealerCode,
+  DealerName,
+  MLI,
+  Basket,
+  Months,
+  channel,
+  payment,
+  BusinessY,
+  BusinessM,
+  BusinessQ,
+  LOC_Invoiced,
+  LOC_BDN,
+  LOC_RRP,
+  USD_Invoiced,
+  USD_BDN,
+  USD_RRP,
+  qty,
+  channel_1,
+  MPL_Code AS `MPL Code`,
+  PCT,
+  CG_Code AS `CG Code`
+FROM ${ref("nld_sor_enriched")}

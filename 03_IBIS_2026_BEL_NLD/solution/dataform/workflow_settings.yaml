@@ -1,0 +1,8 @@
+defaultProject: ford-training-430008
+defaultLocation: europe-west4
+defaultDataset: 03_ibis_bel_nld_gold
+vars:
+  raw_dataset: 03_ibis_bel_nld_raw
+  stage_dataset: 03_ibis_bel_nld_stage
+  intermediate_dataset: 03_ibis_bel_nld_intermediate
+  gold_dataset: 03_ibis_bel_nld_gold

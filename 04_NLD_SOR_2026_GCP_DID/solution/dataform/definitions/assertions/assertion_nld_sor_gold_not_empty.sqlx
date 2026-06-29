@@ -1,0 +1,10 @@
+config {
+  type: "assertion",
+  name: "assertion_nld_sor_gold_not_empty"
+}
+
+SELECT 1 AS failed
+WHERE NOT EXISTS (
+  SELECT 1
+  FROM ${ref("nld_sor_salesdata")}
+)

@@ -1,0 +1,13 @@
+[
+  {"name": "market", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "MKT_CUSTOMER_ID_C", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "SSA_TRADE_N", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "billing_country", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "FINIS", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "MLI", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "MDSMT_MNTHYR_Y", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "LOC_BDN", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "gross_revenue", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "billed_revenue", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "gross_pieces", "type": "STRING", "mode": "NULLABLE"}
+]

@@ -1,0 +1,11 @@
+config {
+  type: "assertion",
+  name: "assertion_ibis_required_fields"
+}
+
+SELECT *
+FROM ${ref("ibis_sales_stage")}
+WHERE market IS NULL
+  OR FINIS IS NULL
+  OR MLI IS NULL
+  OR MDSMT_MNTHYR_Y IS NULL

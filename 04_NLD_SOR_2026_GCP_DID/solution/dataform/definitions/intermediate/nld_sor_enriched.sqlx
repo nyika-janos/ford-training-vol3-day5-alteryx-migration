@@ -1,0 +1,40 @@
+config {
+  type: "table",
+  schema: require("../../includes/config").intermediate_dataset,
+  name: "nld_sor_enriched"
+}
+
+SELECT
+  s.Market,
+  s.DealerCode,
+  d.DealerName,
+  s.MLI,
+  m.MLI_DESCRIPTION,
+  m.Basket,
+  m.MPL_Code,
+  m.PCT,
+  m.CG_Code,
+  s.Months,
+  s.channel,
+  s.payment,
+  s.BusinessY,
+  s.BusinessM,
+  s.BusinessQ,
+  s.MKTG,
+  s.UCC,
+  s.channel_1,
+  s.LOC_Invoiced,
+  s.LOC_BDN,
+  s.LOC_RRP,
+  s.USD_Invoiced,
+  s.USD_BDN,
+  s.USD_RRP,
+  s.qty,
+  d.DealerCode IS NOT NULL AS DidMappingFound,
+  m.MLI IS NOT NULL AS MliMappingFound
+FROM ${ref("nld_sor_stage")} AS s
+LEFT JOIN ${ref("nld_did_stage")} AS d
+  ON s.Market = d.Market
+ AND s.DealerCode = d.DealerCode
+LEFT JOIN ${ref("mli_classification_stage")} AS m
+  ON s.MLI = m.MLI

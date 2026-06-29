@@ -1,0 +1,25 @@
+config {
+  type: "table",
+  schema: require("../../includes/config").gold_dataset,
+  name: "ibis_market_salesdata_finis"
+}
+
+SELECT
+  market,
+  MKT_CUSTOMER_ID_C,
+  SSA_TRADE_N,
+  billing_country,
+  FINIS,
+  part_description,
+  MLI,
+  Basket,
+  PCT,
+  MDSMT_MNTHYR_Y,
+  year,
+  month,
+  SUM(LOC_BDN) AS Sum_LOC_BDN,
+  SUM(gross_revenue) AS Sum_gross_revenue,
+  SUM(billed_revenue) AS Sum_billed_revenue,
+  SUM(gross_pieces) AS Sum_gross_pieces
+FROM ${ref("ibis_bel_nld_enriched")}
+GROUP BY market, MKT_CUSTOMER_ID_C, SSA_TRADE_N, billing_country, FINIS, part_description, MLI, Basket, PCT, MDSMT_MNTHYR_Y, year, month

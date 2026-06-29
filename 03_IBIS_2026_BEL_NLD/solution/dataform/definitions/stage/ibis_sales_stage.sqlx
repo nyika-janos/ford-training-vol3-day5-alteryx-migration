@@ -1,0 +1,32 @@
+config {
+  type: "table",
+  schema: require("../../includes/config").stage_dataset,
+  name: "ibis_sales_stage"
+}
+
+js {
+  const { raw_dataset } = require("../../includes/config");
+}
+
+WITH source AS (
+  SELECT * FROM `${raw_dataset}.ibis_nld_raw`
+  UNION ALL
+  SELECT * FROM `${raw_dataset}.ibis_bel_raw`
+)
+
+SELECT
+  UPPER(TRIM(CAST(market AS STRING))) AS market,
+  TRIM(CAST(MKT_CUSTOMER_ID_C AS STRING)) AS MKT_CUSTOMER_ID_C,
+  TRIM(CAST(SSA_TRADE_N AS STRING)) AS SSA_TRADE_N,
+  TRIM(CAST(billing_country AS STRING)) AS billing_country,
+  TRIM(CAST(FINIS AS STRING)) AS FINIS,
+  NULLIF(REGEXP_REPLACE(TRIM(CAST(FINIS AS STRING)), r"^0+", ""), "") AS FINIS_JOIN_KEY,
+  LPAD(TRIM(CAST(MLI AS STRING)), 4, "0") AS MLI,
+  TRIM(CAST(MDSMT_MNTHYR_Y AS STRING)) AS MDSMT_MNTHYR_Y,
+  SAFE_CAST(LOC_BDN AS NUMERIC) AS LOC_BDN,
+  SAFE_CAST(gross_revenue AS NUMERIC) AS gross_revenue,
+  SAFE_CAST(billed_revenue AS NUMERIC) AS billed_revenue,
+  SAFE_CAST(gross_pieces AS NUMERIC) AS gross_pieces,
+  SUBSTR(TRIM(CAST(MDSMT_MNTHYR_Y AS STRING)), 1, 4) AS year,
+  SUBSTR(TRIM(CAST(MDSMT_MNTHYR_Y AS STRING)), 5, 2) AS month
+FROM source

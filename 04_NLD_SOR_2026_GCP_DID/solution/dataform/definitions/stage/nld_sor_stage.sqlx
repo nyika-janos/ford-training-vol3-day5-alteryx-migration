@@ -1,0 +1,31 @@
+config {
+  type: "table",
+  schema: require("../../includes/config").stage_dataset,
+  name: "nld_sor_stage"
+}
+
+js {
+  const { raw_dataset } = require("../../includes/config");
+}
+
+SELECT
+  UPPER(TRIM(CAST(Market AS STRING))) AS Market,
+  TRIM(CAST(DealerCode AS STRING)) AS DealerCode,
+  LPAD(TRIM(CAST(MLI AS STRING)), 4, "0") AS MLI,
+  TRIM(CAST(Months AS STRING)) AS Months,
+  TRIM(CAST(channel AS STRING)) AS channel,
+  TRIM(CAST(payment AS STRING)) AS payment,
+  SAFE_CAST(BusinessY AS INT64) AS BusinessY,
+  SAFE_CAST(BusinessM AS INT64) AS BusinessM,
+  SAFE_CAST(BusinessQ AS INT64) AS BusinessQ,
+  TRIM(CAST(MKTG AS STRING)) AS MKTG,
+  TRIM(CAST(UCC AS STRING)) AS UCC,
+  TRIM(CAST(channel_1 AS STRING)) AS channel_1,
+  SAFE_CAST(LOC_Invoiced AS NUMERIC) AS LOC_Invoiced,
+  SAFE_CAST(LOC_BDN AS NUMERIC) AS LOC_BDN,
+  SAFE_CAST(LOC_RRP AS NUMERIC) AS LOC_RRP,
+  SAFE_CAST(USD_Invoiced AS NUMERIC) AS USD_Invoiced,
+  SAFE_CAST(USD_BDN AS NUMERIC) AS USD_BDN,
+  SAFE_CAST(USD_RRP AS NUMERIC) AS USD_RRP,
+  SAFE_CAST(qty AS NUMERIC) AS qty
+FROM `${raw_dataset}.nld_sor_raw`

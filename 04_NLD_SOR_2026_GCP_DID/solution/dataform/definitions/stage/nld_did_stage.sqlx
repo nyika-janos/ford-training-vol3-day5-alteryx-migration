@@ -1,0 +1,17 @@
+config {
+  type: "table",
+  schema: require("../../includes/config").stage_dataset,
+  name: "nld_did_stage"
+}
+
+js {
+  const { raw_dataset } = require("../../includes/config");
+}
+
+SELECT DISTINCT
+  UPPER(TRIM(CAST(i22_iso_mktcd AS STRING))) AS Market,
+  TRIM(CAST(i22_dealer_cd AS STRING)) AS DealerCode,
+  TRIM(CAST(i22_dlrname AS STRING)) AS DealerName
+FROM `${raw_dataset}.nld_did_raw`
+WHERE UPPER(TRIM(CAST(i22_iso_mktcd AS STRING))) = "NLD"
+  AND i22_dealer_cd IS NOT NULL
