@@ -13,7 +13,7 @@ Az egyezőség feltételei:
 
 - ugyanaz a source extract kerül a raw táblába;
 - a `SALUTATION` split ugyanazzal a logikával fut: első szó = `SALUTATION`, maradék = `EMAIL`;
-- a Data Cleansing lépésnek megfelelő uppercase/trim tisztítás elfogadott;
+- a Data Cleansing lépésnek megfelelő trim tisztítás elfogadott, de kis/nagybetűt nem módosítunk;
 - a normál output `PV_CV != 'CV'`, a CV output `PV_CV = 'CV'`;
 - a dátum/numerikus mezők típuseltéréseit validációkor figyelembe vesszük, mert az Excel és BigQuery nem mindig ugyanúgy jeleníti meg őket.
 
@@ -236,7 +236,7 @@ solution/dataform/definitions/stage/uk_sor_kas_dealers_stage.sqlx
 Feladata:
 
 - raw CSV mezők beolvasása;
-- string mezők `TRIM` + `UPPER` tisztítása az Alteryx Data Cleansing alapján;
+- string mezők `TRIM` tisztítása az Alteryx Data Cleansing alapján, kis/nagybetű módosítás nélkül;
 - `INV_DATE` parse-olása;
 - `INV_TOTAL_LOCAL` numerikus mezővé alakítása;
 - `SALUTATION` szétbontása:
