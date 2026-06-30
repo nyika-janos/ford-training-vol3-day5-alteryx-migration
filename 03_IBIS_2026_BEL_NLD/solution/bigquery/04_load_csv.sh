@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-PROJECT_ID="${PROJECT_ID:-ford-training-430008}"
-LOCATION="${LOCATION:-europe-west4}"
-RAW_DATASET="${RAW_DATASET:-03_ibis_bel_nld_raw}"
+PROJECT_ID="ford-training-430008"
+LOCATION="europe-west4"
+RAW_DATASET="03_ibis_bel_nld_raw"
 BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 CSV_DIR="${BASE_DIR}/solution/generated_csv"
 SCHEMA_DIR="${BASE_DIR}/solution/bigquery"

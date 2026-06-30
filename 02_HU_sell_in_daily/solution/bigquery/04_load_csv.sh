@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-PROJECT_ID="${PROJECT_ID:-ford-training-430008}"
-RAW_DATASET="${RAW_DATASET:-02_hu_sell_in_raw}"
-CSV_DIR="${CSV_DIR:-solution/generated_csv}"
-SCHEMA_DIR="${SCHEMA_DIR:-solution/bigquery}"
+PROJECT_ID="ford-training-430008"
+RAW_DATASET="02_hu_sell_in_raw"
+CSV_DIR="solution/generated_csv"
+SCHEMA_DIR="solution/bigquery"
 
 bq load \
   --project_id="${PROJECT_ID}" \

@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-PROJECT_ID="${PROJECT_ID:-ford-training-430008}"
-RAW_DATASET="${RAW_DATASET:-01_uk_sor_raw}"
-TABLE_NAME="${TABLE_NAME:-uk_sor_kas_dealers_raw}"
-CSV_PATH="${CSV_PATH:-input/Input_UK_SOR_KAS_Dealers_v14_GCP.csv}"
-SCHEMA_PATH="${SCHEMA_PATH:-solution/bigquery/schema_uk_sor_kas_dealers_raw.json}"
+PROJECT_ID="ford-training-430008"
+RAW_DATASET="01_uk_sor_raw"
+TABLE_NAME="uk_sor_kas_dealers_raw"
+CSV_PATH="input/Input_UK_SOR_KAS_Dealers_v14_GCP.csv"
+SCHEMA_PATH="solution/bigquery/schema_uk_sor_kas_dealers_raw.json"
 
 bq load \
   --project_id="${PROJECT_ID}" \
