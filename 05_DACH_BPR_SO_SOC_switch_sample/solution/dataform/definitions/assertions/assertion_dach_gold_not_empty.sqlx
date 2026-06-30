@@ -1,0 +1,10 @@
+config {
+  type: "assertion",
+  name: "assertion_dach_gold_not_empty"
+}
+
+SELECT 1 AS failed
+WHERE NOT EXISTS (
+  SELECT 1
+  FROM ${ref("dach_bpr_sellout_detail")}
+)

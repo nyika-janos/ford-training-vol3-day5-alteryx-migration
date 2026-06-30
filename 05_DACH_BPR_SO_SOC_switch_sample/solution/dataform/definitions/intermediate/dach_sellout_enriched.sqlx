@@ -1,0 +1,71 @@
+config {
+  type: "table",
+  schema: require("../../includes/config").intermediate_dataset,
+  name: "dach_sellout_enriched"
+}
+
+js {
+  const { report_year } = require("../../includes/config");
+}
+
+SELECT
+  s.nsc,
+  s.hdlnr,
+  s.markt_haendlernummer,
+  COALESCE(a.haendlernummer, d.haendlernummer, s.hdlnr) AS haendlernummer,
+  d.region,
+  d.thg,
+  d.haendlername,
+  d.pg,
+  d.tn_teilebonus_status,
+  d.tn_teilebonus_101_freie_werkstatt,
+  d.tn_teilebonus_104_service_u_karosserie_kettengebunden,
+  d.reporting_inkludiert_teile,
+  ah.haendlerstatus,
+  s.sell_out_channel,
+  COALESCE(a.soc_sor, s.sell_out_channel) AS soc_sor,
+  COALESCE(a.soc_num_txt, c.soc_num_txt) AS soc_num_txt,
+  c.channel_name,
+  c.cluster,
+  c.cluster_fcsd,
+  a.soc_qlf,
+  CASE WHEN a.soc_qlf = 1 THEN "inkludiert" ELSE "nicht inkludiert" END AS sell_out_vereinbarung,
+  s.mli_code,
+  m.mli_short,
+  m.bezeichnung,
+  m.mli_txt,
+  m.mli_num,
+  m.mli_oil,
+  m.bu,
+  m.business_unit,
+  m.program_mli_groups,
+  m.finanz_trans_etc,
+  m.garantie,
+  m.fb_afsb,
+  s.year_yyyy,
+  s.month_mm,
+  mm.month_no,
+  mm.month_ger_short,
+  mm.quartal,
+  CASE WHEN s.year_yyyy = ${report_year} THEN "actJ" ELSE "VorJ" END AS year_txt,
+  s.quantity,
+  s.base_discount,
+  a.markt_haendlernummer IS NOT NULL AS AgreementMappingFound,
+  c.sor_code IS NOT NULL AS ChannelMappingFound,
+  m.mli_code IS NOT NULL AS MliMappingFound,
+  d.markt_haendlernummer IS NOT NULL AS DealerMappingFound,
+  ah.markt_haendlernummer IS NOT NULL AS ActiveDealerMappingFound,
+  mm.month_mm IS NOT NULL AS MonthMappingFound
+FROM ${ref("dach_bpr_sellout_stage")} AS s
+LEFT JOIN ${ref("sellout_agreements_stage")} AS a
+  ON s.markt_haendlernummer = a.markt_haendlernummer
+LEFT JOIN ${ref("sellout_channels_stage")} AS c
+  ON COALESCE(a.soc_sor, s.sell_out_channel) = c.sor_code
+LEFT JOIN ${ref("mli_master_stage")} AS m
+  ON s.mli_code = m.mli_code
+LEFT JOIN ${ref("tbl_haendler_all_stage")} AS d
+  ON s.markt_haendlernummer = d.markt_haendlernummer
+LEFT JOIN ${ref("tbl_aktive_haendler_stage")} AS ah
+  ON s.markt_haendlernummer = ah.markt_haendlernummer
+LEFT JOIN ${ref("month_mapping_stage")} AS mm
+  ON s.month_mm = mm.month_mm

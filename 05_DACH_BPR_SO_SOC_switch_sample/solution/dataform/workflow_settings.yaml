@@ -1,0 +1,9 @@
+defaultProject: ford-training-430008
+defaultLocation: europe-west4
+defaultDataset: 05_dach_bpr_so_gold
+vars:
+  raw_dataset: 05_dach_bpr_so_raw
+  stage_dataset: 05_dach_bpr_so_stage
+  intermediate_dataset: 05_dach_bpr_so_intermediate
+  gold_dataset: 05_dach_bpr_so_gold
+  report_year: "2026"

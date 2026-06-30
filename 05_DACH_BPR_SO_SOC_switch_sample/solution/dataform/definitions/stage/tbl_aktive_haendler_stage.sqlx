@@ -1,0 +1,21 @@
+config {
+  type: "table",
+  schema: require("../../includes/config").stage_dataset,
+  name: "tbl_aktive_haendler_stage"
+}
+
+js {
+  const { raw_dataset } = require("../../includes/config");
+}
+
+SELECT DISTINCT
+  UPPER(TRIM(CAST(markt AS STRING))) AS nsc,
+  TRIM(CAST(markt_haendlernummer AS STRING)) AS markt_haendlernummer,
+  TRIM(CAST(haendlernummer AS STRING)) AS haendlernummer,
+  TRIM(CAST(haendlerstatus AS STRING)) AS haendlerstatus,
+  TRIM(CAST(region_teile AS STRING)) AS region,
+  TRIM(CAST(thg AS STRING)) AS thg,
+  SAFE_CAST(tn_teilebonus_status AS BOOL) AS tn_teilebonus_status,
+  SAFE_CAST(reporting_inkludiert_teile AS BOOL) AS reporting_inkludiert_teile
+FROM `${raw_dataset}.tbl_aktive_haendler_raw`
+WHERE markt_haendlernummer IS NOT NULL

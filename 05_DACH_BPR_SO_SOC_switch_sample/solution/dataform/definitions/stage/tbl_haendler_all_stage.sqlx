@@ -1,0 +1,27 @@
+config {
+  type: "table",
+  schema: require("../../includes/config").stage_dataset,
+  name: "tbl_haendler_all_stage"
+}
+
+js {
+  const { raw_dataset } = require("../../includes/config");
+}
+
+SELECT DISTINCT
+  UPPER(TRIM(CAST(markt AS STRING))) AS nsc,
+  TRIM(CAST(haendlernummer AS STRING)) AS haendlernummer,
+  TRIM(CAST(markt_haendlernummer AS STRING)) AS markt_haendlernummer,
+  CASE
+    WHEN TRIM(CAST(markt_haendlernummer AS STRING)) = "DEU2B532" THEN "PG13"
+    ELSE TRIM(CAST(poolinggruppe_sellout AS STRING))
+  END AS pg,
+  TRIM(CAST(region_teile AS STRING)) AS region,
+  TRIM(CAST(thg AS STRING)) AS thg,
+  TRIM(CAST(haendlername AS STRING)) AS haendlername,
+  SAFE_CAST(tn_teilebonus_status AS BOOL) AS tn_teilebonus_status,
+  SAFE_CAST(tn_teilebonus_101_freie_werkstatt AS BOOL) AS tn_teilebonus_101_freie_werkstatt,
+  SAFE_CAST(tn_teilebonus_104_service_u_karosserie_kettengebunden AS BOOL) AS tn_teilebonus_104_service_u_karosserie_kettengebunden,
+  SAFE_CAST(reporting_inkludiert_teile AS BOOL) AS reporting_inkludiert_teile
+FROM `${raw_dataset}.tbl_haendler_all_raw`
+WHERE markt_haendlernummer IS NOT NULL

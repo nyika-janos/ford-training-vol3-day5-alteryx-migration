@@ -1,0 +1,39 @@
+config {
+  type: "table",
+  schema: require("../../includes/config").gold_dataset,
+  name: "dach_bpr_sellout_detail"
+}
+
+SELECT
+  nsc,
+  region,
+  thg,
+  pg,
+  markt_haendlernummer,
+  haendlernummer,
+  haendlername,
+  haendlerstatus,
+  soc_num_txt,
+  sell_out_vereinbarung,
+  cluster,
+  cluster_fcsd,
+  mli_code,
+  mli_txt,
+  mli_num,
+  mli_oil,
+  bu,
+  business_unit,
+  program_mli_groups,
+  finanz_trans_etc,
+  fb_afsb,
+  tn_teilebonus_status,
+  tn_teilebonus_101_freie_werkstatt,
+  tn_teilebonus_104_service_u_karosserie_kettengebunden,
+  year_yyyy,
+  month_mm,
+  month_ger_short,
+  quartal,
+  year_txt,
+  quantity,
+  base_discount
+FROM ${ref("dach_sellout_enriched")}

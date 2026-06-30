@@ -1,0 +1,57 @@
+[
+  {
+    "name": "markt",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "haendlernummer",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "markt_haendlernummer",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "poolinggruppe_sellout",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "region_teile",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "thg",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "haendlername",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "tn_teilebonus_status",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "tn_teilebonus_101_freie_werkstatt",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "tn_teilebonus_104_service_u_karosserie_kettengebunden",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "reporting_inkludiert_teile",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  }
+]

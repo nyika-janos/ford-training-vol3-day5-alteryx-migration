@@ -1,0 +1,40 @@
+config {
+  type: "table",
+  schema: require("../../includes/config").gold_dataset,
+  name: "dach_bpr_deu_sell_out"
+}
+
+SELECT
+  nsc,
+  region,
+  thg,
+  pg,
+  markt_haendlernummer,
+  haendlernummer,
+  haendlername,
+  soc_num_txt,
+  sell_out_vereinbarung,
+  cluster,
+  bu,
+  business_unit,
+  program_mli_groups,
+  finanz_trans_etc,
+  mli_code,
+  mli_txt,
+  mli_num,
+  mli_oil,
+  fb_afsb,
+  tn_teilebonus_status,
+  year_yyyy,
+  month_mm,
+  month_ger_short,
+  year_txt,
+  SUM(base_discount) AS bdn,
+  SUM(quantity) AS qty
+FROM ${ref("dach_sellout_enriched")}
+WHERE nsc = "DEU"
+GROUP BY
+  nsc, region, thg, pg, markt_haendlernummer, haendlernummer, haendlername,
+  soc_num_txt, sell_out_vereinbarung, cluster, bu, business_unit,
+  program_mli_groups, finanz_trans_etc, mli_code, mli_txt, mli_num,
+  mli_oil, fb_afsb, tn_teilebonus_status, year_yyyy, month_mm, month_ger_short, year_txt

@@ -1,0 +1,77 @@
+[
+  {
+    "name": "region",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "thg_betreuer_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "pg",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "mli_txt",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "fb_afsb",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "markt_haendlernummer",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "tn_teilebonus_status",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "mli_num",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "mli_oil",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "business_unit",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "program_mli_groups",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "finanz_trans_etc",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "actj",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "vorj",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "wert",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  }
+]

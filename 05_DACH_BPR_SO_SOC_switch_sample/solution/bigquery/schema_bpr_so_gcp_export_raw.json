@@ -1,0 +1,47 @@
+[
+  {
+    "name": "market_code",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "hdlnr",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "sell_out_channel",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "bes_flag",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "mli_code",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "year_yyyy",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "month_mm",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "quantity",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "base_discount",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  }
+]

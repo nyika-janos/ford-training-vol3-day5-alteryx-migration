@@ -1,0 +1,42 @@
+[
+  {
+    "name": "sellout_channel",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "sor_code",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "channel_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "kategorie_old",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "kategorie_new",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "cluster",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "soc_num_txt",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "cluster_fcsd",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  }
+]

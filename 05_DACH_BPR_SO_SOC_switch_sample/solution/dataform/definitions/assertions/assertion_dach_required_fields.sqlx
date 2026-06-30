@@ -1,0 +1,12 @@
+config {
+  type: "assertion",
+  name: "assertion_dach_required_fields"
+}
+
+SELECT *
+FROM ${ref("dach_bpr_sellout_stage")}
+WHERE nsc IS NULL
+  OR markt_haendlernummer IS NULL
+  OR mli_code IS NULL
+  OR year_yyyy IS NULL
+  OR month_mm IS NULL

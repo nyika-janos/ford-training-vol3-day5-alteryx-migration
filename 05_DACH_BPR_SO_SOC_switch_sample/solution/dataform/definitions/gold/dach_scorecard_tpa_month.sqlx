@@ -1,0 +1,29 @@
+config {
+  type: "table",
+  schema: require("../../includes/config").gold_dataset,
+  name: "dach_scorecard_tpa_month"
+}
+
+js {
+  const { report_year } = require("../../includes/config");
+}
+
+SELECT
+  pg AS PG,
+  markt_haendlernummer AS Markt_Haendlernummer,
+  program_mli_groups AS Program_MLI_Groups,
+  tn_teilebonus_status AS TN_Teilebonus_Status,
+  COALESCE(fb_afsb, 0) AS FB_AFSB,
+  soc_num_txt AS `SOR Channel`,
+  month_mm AS Month_MM,
+
+  SUM(IF(year_yyyy = ${report_year} - 1, base_discount, 0)) AS prior_year_bdn,
+  SUM(IF(year_yyyy = ${report_year}, base_discount, 0)) AS current_year_bdn,
+  SUM(IF(year_yyyy = ${report_year} - 1, quantity, 0)) AS prior_year_qty,
+  SUM(IF(year_yyyy = ${report_year}, quantity, 0)) AS current_year_qty,
+  SUM(base_discount) AS r12m_bdn,
+  SUM(quantity) AS r12m_qty,
+  "BDN" AS Wert
+FROM ${ref("dach_sellout_enriched")}
+WHERE sell_out_vereinbarung = "inkludiert"
+GROUP BY PG, Markt_Haendlernummer, Program_MLI_Groups, TN_Teilebonus_Status, FB_AFSB, `SOR Channel`, Month_MM

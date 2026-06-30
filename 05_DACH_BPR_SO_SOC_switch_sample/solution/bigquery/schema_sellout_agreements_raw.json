@@ -1,0 +1,42 @@
+[
+  {
+    "name": "nsc_iso",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "markt_haendlernummer",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "haendlernummer",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "soc_qlf",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "soc_sor",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "soc_num",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "soc_num_txt",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "eigene_werkstatt_mit_strecke",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  }
+]

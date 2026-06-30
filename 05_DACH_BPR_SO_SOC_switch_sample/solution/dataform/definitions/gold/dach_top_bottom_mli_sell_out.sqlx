@@ -1,0 +1,66 @@
+config {
+  type: "table",
+  schema: require("../../includes/config").gold_dataset,
+  name: "dach_top_bottom_mli_sell_out"
+}
+
+WITH agg AS (
+  SELECT
+    region,
+    thg,
+    pg,
+    mli_txt,
+    COALESCE(fb_afsb, 0) AS fb_afsb,
+    markt_haendlernummer,
+    tn_teilebonus_status,
+    mli_num,
+    mli_oil,
+    business_unit,
+    program_mli_groups,
+    finanz_trans_etc,
+    year_txt,
+    SUM(base_discount) AS bdn,
+    SUM(quantity) AS qty
+  FROM ${ref("dach_sellout_enriched")}
+  GROUP BY region, thg, pg, mli_txt, fb_afsb, markt_haendlernummer, tn_teilebonus_status, mli_num, mli_oil, business_unit, program_mli_groups, finanz_trans_etc, year_txt
+)
+
+SELECT
+  region AS Region,
+  thg AS THG_Betreuer_Name,
+  pg AS PG,
+  mli_txt AS MLI_txt,
+  fb_afsb AS FB_AFSB,
+  markt_haendlernummer AS Markt_Haendlernummer,
+  tn_teilebonus_status AS TN_Teilebonus_Status,
+  mli_num AS MLI_NUM,
+  mli_oil AS MLI_OIL,
+  business_unit AS BUSINESS_UNIT,
+  program_mli_groups AS Program_MLI_Groups,
+  finanz_trans_etc AS `Finanz Trans etc`,
+  SUM(IF(year_txt = "actJ", bdn, NULL)) AS actJ,
+  SUM(IF(year_txt = "VorJ", bdn, NULL)) AS VorJ,
+  "BDN" AS Wert
+FROM agg
+GROUP BY Region, THG_Betreuer_Name, PG, MLI_txt, FB_AFSB, Markt_Haendlernummer, TN_Teilebonus_Status, MLI_NUM, MLI_OIL, BUSINESS_UNIT, Program_MLI_Groups, `Finanz Trans etc`
+
+UNION ALL
+
+SELECT
+  region AS Region,
+  thg AS THG_Betreuer_Name,
+  pg AS PG,
+  mli_txt AS MLI_txt,
+  fb_afsb AS FB_AFSB,
+  markt_haendlernummer AS Markt_Haendlernummer,
+  tn_teilebonus_status AS TN_Teilebonus_Status,
+  mli_num AS MLI_NUM,
+  mli_oil AS MLI_OIL,
+  business_unit AS BUSINESS_UNIT,
+  program_mli_groups AS Program_MLI_Groups,
+  finanz_trans_etc AS `Finanz Trans etc`,
+  SUM(IF(year_txt = "actJ", qty, NULL)) AS actJ,
+  SUM(IF(year_txt = "VorJ", qty, NULL)) AS VorJ,
+  "QTY" AS Wert
+FROM agg
+GROUP BY Region, THG_Betreuer_Name, PG, MLI_txt, FB_AFSB, Markt_Haendlernummer, TN_Teilebonus_Status, MLI_NUM, MLI_OIL, BUSINESS_UNIT, Program_MLI_Groups, `Finanz Trans etc`

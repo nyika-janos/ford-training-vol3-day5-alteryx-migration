@@ -1,0 +1,77 @@
+[
+  {
+    "name": "id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "aktiv",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "cy",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "mli_oil",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "mli_0000",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "mli",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "bezeichnung",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "bu",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "business_unit",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "program_mli_groups",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "mli_num",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "finanz_trans_etc",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "garantie",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "mli_txt",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "cb_mli",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  }
+]

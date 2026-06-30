@@ -1,0 +1,21 @@
+config {
+  type: "table",
+  schema: require("../../includes/config").stage_dataset,
+  name: "sellout_channels_stage"
+}
+
+js {
+  const { raw_dataset } = require("../../includes/config");
+}
+
+SELECT DISTINCT
+  TRIM(CAST(sellout_channel AS STRING)) AS sellout_channel,
+  TRIM(CAST(sor_code AS STRING)) AS sor_code,
+  TRIM(CAST(channel_name AS STRING)) AS channel_name,
+  TRIM(CAST(kategorie_old AS STRING)) AS kategorie_old,
+  TRIM(CAST(kategorie_new AS STRING)) AS kategorie_new,
+  TRIM(CAST(cluster AS STRING)) AS cluster,
+  TRIM(CAST(soc_num_txt AS STRING)) AS soc_num_txt,
+  TRIM(CAST(cluster_fcsd AS STRING)) AS cluster_fcsd
+FROM `${raw_dataset}.sellout_channels_raw`
+WHERE sor_code IS NOT NULL

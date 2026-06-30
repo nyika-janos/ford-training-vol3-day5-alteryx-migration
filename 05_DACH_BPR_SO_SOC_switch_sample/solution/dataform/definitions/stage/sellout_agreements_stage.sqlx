@@ -1,0 +1,21 @@
+config {
+  type: "table",
+  schema: require("../../includes/config").stage_dataset,
+  name: "sellout_agreements_stage"
+}
+
+js {
+  const { raw_dataset } = require("../../includes/config");
+}
+
+SELECT DISTINCT
+  UPPER(TRIM(CAST(nsc_iso AS STRING))) AS nsc,
+  TRIM(CAST(markt_haendlernummer AS STRING)) AS markt_haendlernummer,
+  TRIM(CAST(haendlernummer AS STRING)) AS haendlernummer,
+  SAFE_CAST(soc_qlf AS INT64) AS soc_qlf,
+  TRIM(CAST(soc_sor AS STRING)) AS soc_sor,
+  SAFE_CAST(soc_num AS INT64) AS soc_num,
+  TRIM(CAST(soc_num_txt AS STRING)) AS soc_num_txt,
+  TRIM(CAST(eigene_werkstatt_mit_strecke AS STRING)) AS eigene_werkstatt_mit_strecke
+FROM `${raw_dataset}.sellout_agreements_raw`
+WHERE markt_haendlernummer IS NOT NULL

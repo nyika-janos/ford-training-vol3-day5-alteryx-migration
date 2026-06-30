@@ -1,0 +1,47 @@
+config {
+  type: "table",
+  schema: require("../../includes/config").gold_dataset,
+  name: "dach_bpr_deu_ytd"
+}
+
+js {
+  const { report_year } = require("../../includes/config");
+}
+
+WITH agg AS (
+  SELECT
+    region,
+    thg,
+    pg,
+    markt_haendlernummer,
+    haendlernummer,
+    haendlername,
+    soc_num_txt,
+    sell_out_vereinbarung,
+    program_mli_groups,
+    year_yyyy,
+    SUM(base_discount) AS bdn,
+    SUM(quantity) AS qty
+  FROM ${ref("dach_sellout_enriched")}
+  WHERE nsc = "DEU"
+  GROUP BY region, thg, pg, markt_haendlernummer, haendlernummer, haendlername, soc_num_txt, sell_out_vereinbarung, program_mli_groups, year_yyyy
+)
+
+SELECT
+  region AS Region,
+  thg AS THG_Betreuer_Name,
+  pg AS PG,
+  markt_haendlernummer AS Markt_Haendlernummer,
+  haendlernummer AS Haendlernummer,
+  haendlername AS Haendlername,
+  soc_num_txt AS `SOR Channel`,
+  sell_out_vereinbarung AS `Sell Out Vereinbarung`,
+  program_mli_groups AS Program_MLI_Groups,
+  SUM(IF(year_yyyy = ${report_year} - 1, bdn, 0)) AS prior_year_bdn,
+  SUM(IF(year_yyyy = ${report_year}, bdn, 0)) AS current_year_bdn,
+  SUM(IF(year_yyyy = ${report_year} - 1, qty, 0)) AS prior_year_qty,
+  SUM(IF(year_yyyy = ${report_year}, qty, 0)) AS current_year_qty,
+  SUM(bdn) AS r12m_bdn,
+  SUM(qty) AS r12m_qty
+FROM agg
+GROUP BY Region, THG_Betreuer_Name, PG, Markt_Haendlernummer, Haendlernummer, Haendlername, `SOR Channel`, `Sell Out Vereinbarung`, Program_MLI_Groups

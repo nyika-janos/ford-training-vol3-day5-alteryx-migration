@@ -1,0 +1,42 @@
+[
+  {
+    "name": "month_no",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "month_txt",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "month_mm",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "month_eng_short",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "month_eng_long",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "month_ger_short",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "month_ger_long",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "quartal",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  }
+]

@@ -1,0 +1,27 @@
+config {
+  type: "table",
+  schema: require("../../includes/config").stage_dataset,
+  name: "top_bottom_mli_stage"
+}
+
+js {
+  const { raw_dataset } = require("../../includes/config");
+}
+
+SELECT
+  TRIM(CAST(region AS STRING)) AS Region,
+  TRIM(CAST(thg_betreuer_name AS STRING)) AS THG_Betreuer_Name,
+  TRIM(CAST(pg AS STRING)) AS PG,
+  TRIM(CAST(mli_txt AS STRING)) AS MLI_txt,
+  SAFE_CAST(fb_afsb AS INT64) AS FB_AFSB,
+  TRIM(CAST(markt_haendlernummer AS STRING)) AS Markt_Haendlernummer,
+  SAFE_CAST(tn_teilebonus_status AS BOOL) AS TN_Teilebonus_Status,
+  SAFE_CAST(mli_num AS INT64) AS MLI_NUM,
+  TRIM(CAST(mli_oil AS STRING)) AS MLI_OIL,
+  TRIM(CAST(business_unit AS STRING)) AS BUSINESS_UNIT,
+  TRIM(CAST(program_mli_groups AS STRING)) AS Program_MLI_Groups,
+  TRIM(CAST(finanz_trans_etc AS STRING)) AS `Finanz Trans etc`,
+  SAFE_CAST(actj AS NUMERIC) AS actJ,
+  SAFE_CAST(vorj AS NUMERIC) AS VorJ,
+  TRIM(CAST(wert AS STRING)) AS Wert
+FROM `${raw_dataset}.top_bottom_mli_raw`

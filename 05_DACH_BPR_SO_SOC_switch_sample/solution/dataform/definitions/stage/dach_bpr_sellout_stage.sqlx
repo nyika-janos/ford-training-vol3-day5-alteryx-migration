@@ -1,0 +1,40 @@
+config {
+  type: "table",
+  schema: require("../../includes/config").stage_dataset,
+  name: "dach_bpr_sellout_stage"
+}
+
+js {
+  const { raw_dataset } = require("../../includes/config");
+}
+
+WITH base AS (
+  SELECT
+    CASE UPPER(TRIM(CAST(market_code AS STRING)))
+      WHEN "DE" THEN "DEU"
+      WHEN "AT" THEN "AUT"
+      WHEN "CH" THEN "CHE"
+      ELSE UPPER(TRIM(CAST(market_code AS STRING)))
+    END AS nsc,
+    TRIM(CAST(hdlnr AS STRING)) AS hdlnr,
+    TRIM(CAST(sell_out_channel AS STRING)) AS sell_out_channel,
+    TRIM(CAST(bes_flag AS STRING)) AS bes_flag,
+    LPAD(TRIM(CAST(mli_code AS STRING)), 4, "0") AS mli_code,
+    SAFE_CAST(year_yyyy AS INT64) AS year_yyyy,
+    LPAD(TRIM(CAST(month_mm AS STRING)), 2, "0") AS month_mm,
+    SAFE_CAST(quantity AS NUMERIC) AS quantity,
+    SAFE_CAST(base_discount AS NUMERIC) AS base_discount
+  FROM `${raw_dataset}.bpr_so_gcp_export_raw`
+)
+
+SELECT
+  *,
+  CONCAT(
+    nsc,
+    CASE
+      WHEN STARTS_WITH(hdlnr, "00") THEN CONCAT(RIGHT(hdlnr, 3), "00")
+      ELSE hdlnr
+    END
+  ) AS markt_haendlernummer
+FROM base
+WHERE COALESCE(bes_flag, "") != "BES"

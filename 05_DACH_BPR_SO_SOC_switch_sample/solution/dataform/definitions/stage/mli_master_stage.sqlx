@@ -1,0 +1,27 @@
+config {
+  type: "table",
+  schema: require("../../includes/config").stage_dataset,
+  name: "mli_master_stage"
+}
+
+js {
+  const { raw_dataset } = require("../../includes/config");
+}
+
+SELECT DISTINCT
+  LPAD(TRIM(CAST(mli_0000 AS STRING)), 4, "0") AS mli_code,
+  TRIM(CAST(mli AS STRING)) AS mli_short,
+  TRIM(CAST(bezeichnung AS STRING)) AS bezeichnung,
+  TRIM(CAST(mli_txt AS STRING)) AS mli_txt,
+  SAFE_CAST(mli_num AS INT64) AS mli_num,
+  TRIM(CAST(mli_oil AS STRING)) AS mli_oil,
+  TRIM(CAST(bu AS STRING)) AS bu,
+  TRIM(CAST(business_unit AS STRING)) AS business_unit,
+  TRIM(CAST(program_mli_groups AS STRING)) AS program_mli_groups,
+  TRIM(CAST(finanz_trans_etc AS STRING)) AS finanz_trans_etc,
+  TRIM(CAST(garantie AS STRING)) AS garantie,
+  SAFE_CAST(cb_mli AS INT64) AS fb_afsb,
+  SAFE_CAST(aktiv AS INT64) AS aktiv,
+  SAFE_CAST(cy AS INT64) AS cy
+FROM `${raw_dataset}.mli_master_raw`
+WHERE mli_0000 IS NOT NULL
