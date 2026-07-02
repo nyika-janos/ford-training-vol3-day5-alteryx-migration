@@ -2,6 +2,12 @@
 
 Ez a mappa az `UK_SOR_KAS_Dealers_v14_GCP.yxmd` workflow BigQuery + Dataform migrációs megoldását tartalmazza.
 
+A Dataform forráskód publikus GitHub repositoryban is elérhető:
+
+```text
+https://github.com/nyika-janos/01_UK_SOR_KAS_Dealers_v14_GCP
+```
+
 ## Futtatási sorrend
 
 Az alábbi parancsokat a `01_UK_SOR_KAS_Dealers_v14_GCP` mappából futtasd.
@@ -27,7 +33,7 @@ CSV_PATH="input/Input_UK_SOR_KAS_Dealers_v14_GCP.csv" \
 bash solution/bigquery/03_load_csv.sh
 ```
 
-4. Dataform repository létrehozása GCP-ben, majd a `dataform/` mappa tartalmának bemásolása a repositoryba.
+4. Dataform repository létrehozása GCP-ben, majd összekapcsolása a fenti GitHub repositoryval. A Dataform projekt gyökere az a könyvtár legyen, ahol a `workflow_settings.yaml` található: ebben a megoldásban `solution/dataform/`, vagy a GitHub repo gyökere, ha csak ennek a mappának a tartalma lett feltöltve.
 
 5. Dataform futtatása:
 

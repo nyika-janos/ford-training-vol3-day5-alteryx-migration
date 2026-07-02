@@ -180,6 +180,12 @@ RAW_DATASET="05_dach_bpr_so_raw"
 
 ## 7. Dataform repository létrehozása
 
+Ehhez a workflow-hoz a Dataform forráskód külön publikus GitHub repositoryban van, a workflow folder nevével:
+
+```text
+https://github.com/nyika-janos/05_DACH_BPR_SO_SOC_switch_sample
+```
+
 GCP Console-ban:
 
 1. BigQuery -> Dataform.
@@ -196,7 +202,11 @@ GCP Console-ban:
 europe-west4
 ```
 
-5. A `solution/dataform/` mappa tartalmát másold be a Dataform repository gyökerébe.
+5. A repositoryt össze kell kapcsolni a fenti GitHub repositoryval, hogy a Dataform forráskód a saját GitHub repositoryban maradjon.
+6. Default branch: `main`.
+7. A Dataform projekt gyökere az a könyvtár legyen, ahol a `workflow_settings.yaml` található. Ha a teljes workflow folder van a GitHub repóban, akkor ez `solution/dataform/`; ha csak a Dataform projekt tartalma lett feltöltve, akkor a repo gyökere.
+
+Ezzel a Dataform workspace nem kézi másolással, hanem GitHub remote-ból kapja a `workflow_settings.yaml`, `definitions/`, `includes/` és `package.json` fájlokat.
 
 ## 8. Dataform konfiguráció
 
