@@ -4,6 +4,7 @@ config {
 }
 
 SELECT 1 AS failed
+FROM (SELECT 1)
 WHERE NOT EXISTS (
   SELECT 1
   FROM ${ref("nld_sor_salesdata")}

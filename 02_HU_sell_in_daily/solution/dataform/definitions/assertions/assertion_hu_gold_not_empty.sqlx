@@ -5,4 +5,8 @@ config {
 }
 
 SELECT "hu_sell_in is empty" AS error_message
-WHERE (SELECT COUNT(*) FROM ${ref("hu_sell_in")}) = 0
+FROM (SELECT 1)
+WHERE NOT EXISTS (
+  SELECT 1
+  FROM ${ref("hu_sell_in")}
+)
